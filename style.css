@@ -1,0 +1,509 @@
+/* HOME PAGE */
+
+
+/* Top Left Logo Accent Box */
+.nav-logo-crest {
+    width: 550px;         /* Increased slightly so image details look crisp */
+    height: 550px;
+    background: transparent; /* Removed gray box color to let transparent logos shine */
+           /* Removed border lines to keep it clean */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* =======================================================
+   HORIZONTAL NAVIGATION & LOGO SECTION LAYOUT DESIGN 
+   ======================================================= */
+
+
+/* ===== ADJUST THESE ===== */
+:root {
+  --header-height: 100px;      /* height of the white bar */
+  --header-bg: #ffffff;        /* colour of the bar */
+  --logo-size: 80px;           /* logo height */
+  --nav-font-size: 1.2rem;     /* nav text size */
+  --nav-gap: 2.5rem;           /* space between nav links */
+  --header-padding-x: 2rem;    /* space at far left/right edges */
+}
+
+/* Remove the default page margin that causes the blue side strips */
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+/* FULL-WIDTH WHITE BAR */
+.site-header {
+  width: 100%;
+  height: var(--header-height);
+  background: var(--header-bg);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  position: relative;
+  z-index: 100;
+}
+
+/* Layout wrapper: no background, no max-width */
+.header-container {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr; /* left | center | right */
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  padding: 0 var(--header-padding-x);
+  box-sizing: border-box;
+}
+
+/* LEFT: logo */
+.logo {
+  justify-self: start;
+}
+.logo img {
+  height: var(--logo-size);
+  width: auto;
+  display: block;
+}
+
+/* CENTER: nav */
+.nav-links {
+  justify-self: center;
+  display: flex;
+  align-items: center;
+  gap: var(--nav-gap);
+  margin: 0; /* remove the old margin-right: auto */
+}
+
+.nav-link {
+  position: relative;
+  padding: 0.5rem 0.25rem;
+  font-size: var(--nav-font-size);
+  font-weight: 700;
+  color: #1e6fd9;
+  text-decoration: none;
+}
+
+.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 3px;
+  background: #1e6fd9;
+  transform: scaleX(0);
+  transition: transform 0.25s ease;
+}
+.nav-link.active::after,
+.nav-link:hover::after {
+  transform: scaleX(1);
+}
+
+/* RIGHT: login */
+.header-actions {
+  justify-self: end;
+}
+.login-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.6rem 1.4rem;
+  border-radius: 999px;
+  background: #034694;
+  color: #fff;
+  font-size: 1.05rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: background 0.2s;
+}
+.login-btn:hover {
+  background: #1e6fd9;
+}
+
+/* MOBILE */
+@media (max-width: 800px) {
+  .site-header {
+    height: auto;
+  }
+  .header-container {
+    grid-template-columns: 1fr auto;
+    grid-template-areas:
+      "logo actions"
+      "nav  nav";
+    padding: 0.75rem 1rem;
+    row-gap: 0.75rem;
+  }
+  .logo         { grid-area: logo; }
+  .header-actions { grid-area: actions; }
+  .nav-links {
+    grid-area: nav;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem 1.5rem;
+  }
+}
+
+
+
+
+/* --- HORIZONTAL CENTER LINKS POSITIONING & SPACING --- */
+
+
+.custom-nav-center-group {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 45px;          /* Adds generous, uniform spacing between your items */
+    flex-grow: 1;        /* Pushes the container to fill the middle space safely */
+}
+
+/* Individual Link Typography & Clean Outlines */
+.nav-txt-link {
+    color: #034694 !important; /* Authentic Chelsea Royal Blue */
+    text-decoration: none !important; /* Removes standard browser underlines */
+    font-weight: 800 !important;
+    text-transform: uppercase;
+    font-size: 14px;
+    letter-spacing: 1px;
+    padding: 8px 4px;
+    position: relative;
+    transition: color 0.2s ease-in-out;
+}
+
+/* Underline Animation Effect on Hover */
+.nav-txt-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 3px;
+    bottom: 0;
+    left: 0;
+    background-color: #034694;
+    transition: width 0.2s ease-in-out;
+}
+
+.nav-txt-link:hover::after,
+.nav-txt-link.active-link::after {
+    width: 100%;
+}
+
+.nav-txt-link:hover {
+    color: #0a192f !important;
+}
+
+
+
+/* Top Left Logo Accent Box */
+.nav-logo-crest {
+    width: 35px;
+    height: 35px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 2px solid var(--chelsea-accent-gold);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 10px rgba(204, 164, 59, 0.3);
+}
+
+.logo-text-glow {
+    text-shadow: 0 0 8px rgba(255, 255, 255, 0.3);
+    color: #ffffff !important;
+    text-decoration: none !important;
+    text-shadow: 0 0 8px rgba(255, 255, 255, 0.3);
+}
+
+
+/* Horizontal Mid-Links Formatting Fixes */
+@media (min-width: 992px) {
+    .navbar-nav {
+        display: flex !important;
+        flex-direction: row !important; /* Forces links side-by-side horizontally */
+        align-items: center !important;
+    }
+}
+
+/* Premium Link Hover Animation */
+.modern-nav-link {
+    color: rgba(255, 255, 255, 0.75) !important;
+    position: relative;
+    border-bottom: none !important; /* Removes old style line format */
+    transition: color 0.3s ease;
+}
+
+.modern-nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 3px;
+    bottom: 0;
+    left: 50%;
+    background-color: var(--chelsea-accent-gold);
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+    border-radius: 2px;
+}
+
+.modern-nav-link:hover::after,
+.modern-nav-link.active::after {
+    width: 70%; /* Line slides open from the center out on hover */
+}
+
+.modern-nav-link:hover,
+.modern-nav-link.active {
+    color: #ffffff !important;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+/* Top Right Login Button Enhancements */
+.nav-login-btn-glow {
+    transition: all 0.3s ease-in-out;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.nav-login-btn-glow:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px rgba(204, 164, 59, 0.6) !important;
+}
+
+
+/* ==========================================
+   FAR RIGHT LOGIN CONTAINER POSITIONING
+   ========================================== */
+
+.custom-nav-auth-right {
+    display: flex;
+    align-items: right;
+    margin: 0;
+    margin-left: auto; /* Serves as a flex anchor pushing the item to the absolute far right */
+}
+
+/* Premium Boxy Corporate Login Button Component styling */
+.pure-css-login-btn {
+    display: inline-flex;
+    align-items:right;
+    gap: 8px; /* Spaces out the circular user icon and the "Login" text */
+    background-color: #034694; /* Official Chelsea Royal Blue */
+    color: #ffffff !important;
+    text-decoration: none !important; /* Strips away default web browser outlines */
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 13px;
+    letter-spacing: 0.5px;
+    padding: 10px 24px;
+    border-radius: 4px; /* Clean rectangular corporate look matching official layouts */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+    transition: background-color 0.2s ease-in-out, transform 0.1s ease;
+}
+
+.pure-css-login-btn:hover {
+    background-color: #02336c; /* Deepens the blue subtly when hovering over it */
+    transform: translateY(-1px); /* Elevates the card element upwards slightly */
+}
+
+.pure-css-login-btn i {
+    font-size: 14px;
+}
+
+
+
+/* ===== HERO SECTION ===== */
+:root {
+  --hero-bg: #0a1aa6;          /* blue background */
+  --hero-accent: #034694;      /* Chelsea blue for buttons / highlight */
+  --hero-max-width: 1500px;    /* how wide the content area is */
+  --hero-pad-y: 4rem;          /* space above / below the content */
+  --hero-gap: 1.5rem;          /* space between cards */
+  --hero-height: 640px;        /* height of the main row (big card + side cards + standings) */
+  --card-radius: 0px;          /* set to 12px for rounded cards */
+}
+
+.hero {
+  background: var(--hero-bg);
+  padding: var(--hero-pad-y) 1.5rem;
+  color: #fff;
+}
+.hero-inner {
+  max-width: var(--hero-max-width);
+  margin: 0 auto;
+}
+
+/* ---------- MAIN GRID ---------- */
+.hero-grid {
+  display: grid;
+  grid-template-columns: 2.3fr 1fr 1.05fr;  /* big | medium | standings */
+  gap: var(--hero-gap);
+  height: var(--hero-height);
+}
+.hero-side {
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  gap: var(--hero-gap);
+  min-height: 0;
+}
+
+/* ---------- NEWS CARDS ---------- */
+.news-card {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  min-height: 0;
+  border-radius: var(--card-radius);
+  background: #0b1250;            /* shows while the image slot is empty */
+  color: #fff;
+  text-decoration: none;
+}
+.news-card img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+.news-card:hover img { transform: scale(1.04); }
+
+/* dark fade so the text is always readable */
+.news-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.92) 0%, rgba(0,0,0,0.35) 45%, transparent 75%);
+}
+.news-text {
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  z-index: 1;
+  padding: 1.25rem 1.25rem 1.5rem;
+}
+.news-tag {
+  display: block;
+  margin-bottom: 0.4rem;
+  font-size: 0.9rem;
+  opacity: 0.85;
+}
+.news-card h2 { margin: 0; font-size: clamp(1.5rem, 2.6vw, 2.4rem); line-height: 1.15; }
+.news-card h3 { margin: 0; font-size: clamp(1.05rem, 1.5vw, 1.4rem); line-height: 1.2; }
+.news-card--main .news-text { padding: 2rem; }
+
+/* ---------- STANDINGS ---------- */
+.standings {
+  background: #fff;
+  color: #222;
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  border-radius: var(--card-radius);
+}
+.standings-head {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+.league-logo { width: 44px; height: 44px; object-fit: contain; background: #eef0fb; border-radius: 50%; }
+.standings-head strong { display: block; font-size: 1.05rem; }
+.standings-head small { color: #666; }
+
+.standings-tabs { display: flex; gap: 0.5rem; margin: 1rem 0; }
+.tab {
+  border: 0;
+  padding: 0.55rem 1.1rem;
+  border-radius: 999px;
+  background: #eceef3;
+  color: #111;
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.25s, color 0.25s;
+}
+.tab.is-active { background: var(--hero-accent); color: #fff; }
+.tab:focus-visible { outline: 3px solid #7aa7ff; outline-offset: 2px; }
+
+.standings-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+  flex: 1;
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+.standings-table.is-switching { opacity: 0; transform: translateY(6px); }  /* used by the Men/Women transition */
+.standings-table th { text-align: center; font-weight: 500; padding: 0.4rem 0.2rem; }
+.standings-table td { text-align: center; padding: 0.55rem 0.2rem; }
+.standings-table .col-team,
+.standings-table td.team { text-align: left; }
+.standings-table tbody tr:nth-child(odd) { background: #f1f2f5; }
+.standings-table td.pts { font-weight: 700; }
+.standings-table tr.is-us { background: var(--hero-accent) !important; color: #fff; }
+
+.team { display: flex; align-items: center; gap: 0.5rem; }
+.team .dot { width: 8px; height: 8px; border-radius: 50%; background: #999; flex: none; }
+.team .dot.w { background: #2e9e4f; }
+.team .dot.l { background: #d62828; }
+.team .crest {
+  width: 24px; height: 24px; flex: none;
+  object-fit: contain;
+  border-radius: 50%;
+  background: #d9dcec;      /* placeholder circle until you add a crest image */
+}
+
+.standings-btn {
+  display: block;
+  margin-top: 1rem;
+  padding: 0.9rem;
+  background: var(--hero-accent);
+  color: #fff;
+  text-align: center;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background 0.2s;
+}
+.standings-btn:hover { background: #1e6fd9; }
+
+/* ---------- SMALL ARTICLES ROW ---------- */
+.news-strip {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--hero-gap);
+  margin-top: 2.5rem;
+}
+.strip-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  line-height: 1.3;
+}
+.strip-item img {
+  width: 120px;
+  height: 70px;
+  flex: none;
+  object-fit: cover;
+  background: #0b1250;
+}
+.strip-item:hover span { text-decoration: underline; }
+
+/* ---------- TABLET ---------- */
+@media (max-width: 1100px) {
+  .hero-grid {
+    grid-template-columns: 1.6fr 1fr;
+    height: auto;
+  }
+  .news-card--main { grid-row: span 1; min-height: 420px; }
+  .hero-side { grid-template-rows: none; }
+  .hero-side .news-card { min-height: 200px; }
+  .standings { grid-column: 1 / -1; }
+  .news-strip { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* ---------- PHONE ---------- */
+@media (max-width: 700px) {
+  .hero-grid { grid-template-columns: 1fr; }
+  .news-card--main { min-height: 320px; }
+  .news-strip { grid-template-columns: 1fr; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .news-card img, .standings-table { transition: none; }
+}

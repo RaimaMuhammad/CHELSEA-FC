@@ -1,0 +1,1071 @@
+/* ==========================================
+   PREMIUM LOGIN MODAL & OVERLAY OVERHAUL 
+   ========================================== */
+
+
+/* --- OVERLAY BACKGROUND BLUR EFFECT --- */
+.modal-backdrop.show {
+    backdrop-filter: blur(12px) brightness(0.4);
+    -webkit-backdrop-filter: blur(12px) brightness(0.4);
+    background-color: rgba(10, 25, 47, 0.6) !important;
+    opacity: 1 !important;
+}
+
+/* --- GLASSMORPHISM CARD DESIGN --- */
+.glass-login-card {
+    background: linear-gradient(135deg, rgba(3, 70, 148, 0.45), rgba(10, 25, 47, 0.85)) !important;
+    backdrop-filter: blur(20px) !important;
+    -webkit-backdrop-filter: blur(20px) !important;
+    border: 2px solid rgba(255, 255, 255, 0.15) !important;
+    border-radius: 20px !important;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5) !important;
+    overflow: hidden;
+}
+
+/* Brand Crest Layout Accent */
+.login-brand-icon-wrapper {
+    width: 80px;
+    height: 80px;
+    background: radial-gradient(circle, var(--chelsea-blue) 0%, var(--chelsea-dark) 100%);
+    border: 3px solid var(--chelsea-accent-gold);
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
+    box-shadow: 0 0 15px rgba(3, 70, 148, 0.6);
+}
+
+/* --- PREMIUM INPUT FIELDS --- */
+.custom-input-group {
+    border-radius: 10px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: all 0.3s ease;
+}
+
+.custom-input-group .input-group-text {
+    background: rgba(10, 25, 47, 0.5);
+    border: none;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.custom-input-group .form-control {
+    background: rgba(255, 255, 255, 0.08);
+    border: none;
+    color: #ffffff !important;
+    padding: 12px;
+}
+
+.custom-input-group .form-control::placeholder {
+    color: rgba(255, 255, 255, 0.4);
+}
+
+/* Input Focus Glow Mapping */
+.custom-input-group:focus-within {
+    border-color: var(--chelsea-accent-gold);
+    box-shadow: 0 0 12px rgba(204, 164, 59, 0.4);
+}
+
+/* Custom Checkbox Design Modifiers */
+.custom-checkbox {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.3);
+}
+.custom-checkbox:checked {
+    background-color: var(--chelsea-accent-gold);
+    border-color: var(--chelsea-accent-gold);
+}
+
+/* --- DESIGNED AUTH ACTION ACTION SWITCHES --- */
+.btn-submit-chelsea {
+    background: linear-gradient(45deg, var(--chelsea-blue), #0559be);
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    padding: 12px;
+    font-weight: 700;
+    transition: all 0.3s ease;
+}
+
+.btn-submit-chelsea:hover {
+    background: linear-gradient(45deg, #0559be, var(--chelsea-blue));
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(3, 70, 148, 0.4);
+}
+
+.hover-gold-glow:hover {
+    color: white !important;
+    text-shadow: 0 0 8px var(--chelsea-accent-gold);
+}
+
+/* Feedback Alert Banner Styling overrides */
+.glass-alert-success {
+    background: rgba(25, 135, 84, 0.3) !important;
+    backdrop-filter: blur(5px);
+    border: 1px solid #198754 !important;
+}
+
+
+
+/* Chelsea Branding Palettes */
+:root {
+    --chelsea-blue: #034694;
+    --chelsea-dark: #0a192f;
+    --chelsea-gold: #ee242c; /* Classic contrast accent */
+    --chelsea-accent-gold: #cca43b;
+}
+
+body {
+    background-color: #f4f7f6;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Navbar Customization */
+.bg-chelsea-blue {
+    background-color: var(--chelsea-blue) !important;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.btn-login-nav:hover {
+    background-color: white;
+    color: var(--chelsea-blue) !important;
+}
+
+/* Hero Section Placeholder */
+.hero-placeholder {
+    background: linear-gradient(rgba(3, 70, 148, 0.75), rgba(10, 25, 47, 0.9)), 
+                url('https://unsplash.com') no-repeat center center/cover;
+    height: 60vh;
+}
+
+.btn-chelsea-gold {
+    background-color: var(--chelsea-accent-gold);
+    color: #111;
+    font-weight: 600;
+    border: none;
+}
+.btn-chelsea-gold:hover {
+    background-color: #b38f32;
+    color: white;
+}
+
+/* Modal Styling */
+.bg-dark-chelsea {
+    background-color: var(--chelsea-dark);
+    border: 2px solid var(--chelsea-blue);
+    border-radius: 12px;
+}
+
+.btn-chelsea-blue {
+    background-color: var(--chelsea-blue);
+    color: white;
+    border: none;
+    transition: all 0.3s ease;
+}
+
+.btn-chelsea-blue:hover {
+    background-color: #02336c;
+    color: white;
+}
+
+.text-chelsea-gold {
+    color: var(--chelsea-accent-gold);
+}
+
+/* Custom Spacing & Typography Adjustments */
+.tracking-wide {
+    letter-spacing: 1.5px;
+}
+.fw-extrabold {
+    font-weight: 800;
+}
+.max-w-600 {
+    max-width: 600px;
+}
+.drop-shadow {
+    text-shadow: 2px 4px 10px rgba(0, 0, 0, 0.6);
+}
+
+/* Nav Link Hover Effects */
+.navbar-nav .nav-link {
+    color: rgba(25px, 255, 255, 0.75);
+    transition: color 0.3s ease, border-bottom 0.3s ease;
+    border-bottom: 2px solid transparent;
+}
+.navbar-nav .nav-link:hover, 
+.navbar-nav .nav-link.active {
+    color: #ffffff !important;
+    border-bottom: 2px solid var(--chelsea-accent-gold);
+}
+
+/* Responsive Carousel Header Configuration */
+#heroCarousel {
+    height: 75vh; /* Standard modern height across views */
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+.carousel-inner, .carousel-item {
+    height: 100%;
+}
+
+/* Image Scaling Controls */
+.carousel-image-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    transition: transform 6s ease; /* Makes images subtly crawl forward */
+}
+
+/* Ken Burns effect: subtle movement when image is active */
+.carousel-item.active .carousel-image-overlay {
+    transform: scale(1.08);
+}
+
+/* Glassmorphism Background for text readability */
+.bg-caption-blur {
+    background: rgba(10, 25, 47, 0.45);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Target centering carousel data precisely */
+.carousel-caption {
+    left: 5%;
+    right: 5%;
+    bottom: 0;
+    top: 0;
+}
+
+/* Custom Content Brand Color Mapping Override */
+.text-chelsea-blue {
+    color: var(--chelsea-blue);
+}
+.text-light-50 {
+    color: rgba(255,255,255,0.65);
+}
+
+/* Elegant Grid News Card Image Wrap Zoom Styles */
+.news-card {
+    border-radius: 8px;
+    cursor: pointer;
+    transition: box-shadow 0.3s ease-in-out;
+}
+.news-img-wrapper {
+    position: relative;
+    width: 100%;
+    height: 380px; /* Base container layout frame */
+    overflow: hidden;
+}
+.news-img {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    transition: transform 0.4s ease-in-out;
+}
+/* Trigger deep photo zoom mechanics on hover interaction */
+.news-card:hover .news-img {
+    transform: scale(1.06);
+}
+.bg-gradient-dark {
+    background: linear-gradient(transparent, rgba(0, 0, 0, 0.95));
+}
+
+/* Match Result Interactive List Modifiers */
+.result-item-hover {
+    transition: background-color 0.2s ease-in-out;
+}
+.result-item-hover:hover {
+    background-color: #f1f5f9;
+}
+
+/* Media Video Content Accents */
+.custom-video-border {
+    border: 2px solid var(--chelsea-blue);
+}
+.text-truncate-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    -webkit-box-orient: vertical;  
+    overflow: hidden;
+}
+
+/* Footer & Corporate Identity Styles */
+.sponsor-link {
+    transition: transform 0.2s ease-in-out, opacity 0.2s ease-in-out;
+}
+.sponsor-link:hover {
+    transform: scale(1.05);
+    opacity: 1 !important;
+}
+
+.social-icon-hover {
+    transition: color 0.2s ease;
+}
+.social-icon-hover:hover {
+    color: var(--chelsea-accent-gold) !important;
+}
+
+.footer-quick-links a {
+    transition: color 0.2s ease, padding-left 0.2s ease;
+}
+.footer-quick-links a:hover {
+    color: white !important;
+    padding-left: 4px;
+}
+
+.hover-underline:hover {
+    text-decoration: underline !important;
+    color: white !important;
+}
+
+/* Global utility font modifications */
+.italic {
+    font-style: italic;
+}
+
+/* =========================================================
+   1. GLOBAL RESET
+========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+
+    background:
+        linear-gradient(
+            135deg,
+            #eef6ff 0%,
+            #ffffff 45%,
+            #dcecff 100%
+        );
+
+    color: #17213a;
+
+    min-height: 100vh;
+}
+
+
+/* =========================================================
+   2. MAIN AUTHENTICATION LAYOUT
+========================================================= */
+
+.auth-container {
+    min-height: 100vh;
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    padding: 50px;
+
+    gap: 60px;
+
+    align-items: center;
+}
+
+
+/* =========================================================
+   3. LEFT SIDE - CLUB SECTION
+========================================================= */
+
+.club-section {
+    min-height: 700px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 40px;
+}
+
+
+.club-content {
+    max-width: 560px;
+}
+
+
+/* SMALL BLUE LABEL */
+
+.club-label {
+    color: #034ea2;
+
+    font-size: 14px;
+
+    font-weight: 800;
+
+    letter-spacing: 3px;
+
+    margin-bottom: 20px;
+}
+
+
+/* MAIN HEADING */
+
+.club-content h1 {
+    font-size: clamp(55px, 6vw, 90px);
+
+    line-height: 0.98;
+
+    font-weight: 800;
+
+    letter-spacing: -4px;
+
+    margin-bottom: 30px;
+
+    color: #111a35;
+}
+
+
+.club-content h1 span {
+    color: #034ea2;
+}
+
+
+/* DESCRIPTION */
+
+.club-description {
+    font-size: 18px;
+
+    line-height: 1.7;
+
+    color: #59657d;
+
+    max-width: 500px;
+
+    margin-bottom: 40px;
+}
+
+
+/* =========================================================
+   4. LEFT SIDE - FEATURES
+========================================================= */
+
+.club-features {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 16px;
+}
+
+
+.feature {
+    display: flex;
+
+    align-items: center;
+
+    gap: 18px;
+}
+
+
+.feature-number {
+    min-width: 46px;
+
+    height: 46px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background: white;
+
+    border-radius: 12px;
+
+    color: #034ea2;
+
+    font-weight: 800;
+
+    box-shadow:
+        0 10px 30px rgba(3, 78, 162, 0.12);
+}
+
+
+.feature h3 {
+    font-size: 16px;
+
+    margin-bottom: 3px;
+
+    color: #17213a;
+}
+
+
+.feature p {
+    color: #69748a;
+
+    font-size: 14px;
+}
+
+
+/* =========================================================
+   5. RIGHT SIDE - FORM SECTION
+========================================================= */
+
+.form-section {
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+}
+
+
+.form-container {
+    width: 100%;
+
+    max-width: 650px;
+
+    background: rgba(255, 255, 255, 0.96);
+
+    border-radius: 30px;
+
+    padding: 45px;
+
+    box-shadow:
+        0 25px 70px rgba(22, 50, 90, 0.15);
+
+    border: 1px solid rgba(3, 78, 162, 0.08);
+}
+
+
+/* =========================================================
+   6. CLUB LOGO
+========================================================= */
+
+.club-logo {
+    width: 65px;
+
+    height: 65px;
+
+    margin-bottom: 25px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background:
+        linear-gradient(
+            135deg,
+            #034ea2,
+            #0066cc
+        );
+
+    box-shadow:
+        0 10px 25px rgba(3, 78, 162, 0.25);
+
+    overflow: hidden;
+}
+
+
+.club-logo img {
+    width: 80%;
+
+    height: 80%;
+
+    object-fit: contain;
+}
+
+
+/* =========================================================
+   7. FORM HEADINGS
+========================================================= */
+
+.form-label {
+    color: #034ea2;
+
+    font-size: 13px;
+
+    font-weight: 800;
+
+    letter-spacing: 2px;
+
+    margin-bottom: 10px;
+}
+
+
+.form-container h2 {
+    font-size: 36px;
+
+    color: #17213a;
+
+    margin-bottom: 8px;
+}
+
+
+.form-description {
+    color: #68748b;
+
+    margin-bottom: 28px;
+
+    font-size: 15px;
+}
+
+
+/* =========================================================
+   8. INPUT GRID
+========================================================= */
+
+.form-grid {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 18px;
+}
+
+
+/* =========================================================
+   9. INPUT GROUP
+========================================================= */
+
+.input-group {
+    margin-bottom: 18px;
+}
+
+
+.input-group label {
+    display: block;
+
+    margin-bottom: 8px;
+
+    font-size: 14px;
+
+    font-weight: 700;
+
+    color: #202a43;
+}
+
+
+.input-group input,
+.input-group select {
+    width: 100%;
+
+    height: 48px;
+
+    padding: 0 15px;
+
+    border: 1px solid #d5ddea;
+
+    border-radius: 10px;
+
+    background: #ffffff;
+
+    color: #202a43;
+
+    font-size: 15px;
+
+    outline: none;
+
+    transition:
+        border-color 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+
+/* =========================================================
+   10. INPUT FOCUS EFFECT
+========================================================= */
+
+.input-group input:focus,
+.input-group select:focus {
+
+    border-color: #034ea2;
+
+    box-shadow:
+        0 0 0 4px rgba(3, 78, 162, 0.10);
+}
+
+
+/* =========================================================
+   11. BUTTON ROW
+========================================================= */
+
+.button-row {
+    display: flex;
+
+    gap: 12px;
+
+    margin-top: 10px;
+}
+
+
+/* =========================================================
+   12. RESET BUTTON
+========================================================= */
+
+.reset-button {
+    width: 130px;
+
+    height: 50px;
+
+    border: none;
+
+    border-radius: 10px;
+
+    background: #edf3fb;
+
+    color: #034ea2;
+
+    font-size: 15px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition: 0.3s ease;
+}
+
+
+.reset-button:hover {
+    background: #dce9f8;
+}
+
+
+/* =========================================================
+   13. PRIMARY BUTTON
+========================================================= */
+
+.primary-button {
+    flex: 1;
+
+    height: 50px;
+
+    border: none;
+
+    border-radius: 10px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #034ea2,
+            #0066cc
+        );
+
+    color: white;
+
+    font-size: 15px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 10px 25px rgba(3, 78, 162, 0.25);
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+
+.primary-button:hover {
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 15px 30px rgba(3, 78, 162, 0.32);
+}
+
+
+/* =========================================================
+   14. LOGIN / REGISTER SWITCH
+========================================================= */
+
+.switch-form {
+    text-align: center;
+
+    margin-top: 25px;
+
+    padding-top: 20px;
+
+    border-top: 1px solid #edf0f5;
+}
+
+
+.switch-form p {
+    color: #68748b;
+
+    font-size: 14px;
+}
+
+
+.switch-form button {
+    border: none;
+
+    background: none;
+
+    color: #034ea2;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    font-size: 14px;
+}
+
+
+.switch-form button:hover {
+    text-decoration: underline;
+}
+
+
+/* =========================================================
+   15. SUCCESS / ERROR MESSAGES
+========================================================= */
+
+.message {
+    min-height: 20px;
+
+    margin: 5px 0 10px;
+
+    font-size: 14px;
+
+    font-weight: 600;
+}
+
+
+.message.success {
+    color: #138a4b;
+}
+
+
+.message.error {
+    color: #d62828;
+}
+
+
+/* =========================================================
+   16. HIDDEN FORM
+========================================================= */
+
+.hidden {
+    display: none;
+}
+
+
+/* =========================================================
+   17. MOBILE RESPONSIVE DESIGN
+========================================================= */
+
+@media (max-width: 1000px) {
+
+    .auth-container {
+        grid-template-columns: 1fr;
+
+        padding: 30px;
+
+        gap: 20px;
+    }
+
+
+    .club-section {
+        min-height: auto;
+
+        padding: 30px 10px;
+    }
+
+
+    .club-content h1 {
+        font-size: 60px;
+    }
+
+
+    .form-section {
+        width: 100%;
+    }
+
+}
+
+
+@media (max-width: 650px) {
+
+    .auth-container {
+        padding: 15px;
+    }
+
+
+    .club-section {
+        padding: 20px 5px;
+    }
+
+
+    .club-content h1 {
+        font-size: 48px;
+
+        letter-spacing: -2px;
+    }
+
+
+    .club-description {
+        font-size: 16px;
+    }
+
+
+    .form-container {
+        padding: 28px 20px;
+
+        border-radius: 20px;
+    }
+
+
+    .form-grid {
+        grid-template-columns: 1fr;
+
+        gap: 0;
+    }
+
+
+    .form-container h2 {
+        font-size: 28px;
+    }
+
+
+    .button-row {
+        flex-direction: column;
+    }
+
+
+    .reset-button {
+        width: 100%;
+    }
+
+}
+
+/* =========================================================
+   WELCOME MESSAGE
+========================================================= */
+
+.welcome-message {
+    width: 90%;
+
+    max-width: 1200px;
+
+    margin: 25px auto;
+
+    padding: 16px 22px;
+
+    border-radius: 12px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #034ea2,
+            #0066cc
+        );
+
+    color: white;
+
+    font-size: 17px;
+
+    font-weight: 700;
+
+    box-shadow:
+        0 10px 30px rgba(3, 78, 162, 0.20);
+
+    animation: welcomeSlide 0.6s ease;
+}
+
+
+/* =========================================================
+   WELCOME ANIMATION
+========================================================= */
+
+@keyframes welcomeSlide {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(-15px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0);
+    }
+
+}
+
+
+/* =========================================================
+   LOGOUT BUTTON
+========================================================= */
+
+.logout-button {
+
+    padding: 10px 20px;
+
+    border: none;
+
+    border-radius: 8px;
+
+    background: white;
+
+    color: #034ea2;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition: 0.3s ease;
+}
+
+
+.logout-button:hover {
+
+    background: #eaf3ff;
+
+    transform: translateY(-2px);
+
+}
+
+
+
+
+/* TEMPORARY TEST - LOGIN PAGE BACKGROUND */
+
+body {
+    background: linear-gradient(135deg, #dbeafe, #ffffff, #bfdbfe) !important;
+}
+
+.form-container {
+    background: white !important;
+    border-radius: 30px !important;
+    padding: 40px !important;
+    box-shadow: 0 20px 60px rgba(0, 50, 120, 0.2) !important;
+}
+

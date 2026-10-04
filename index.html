@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Blues - Chelsea Fan Hub</title>
+   
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+
+   <!-- THE MAIN HEADER ROW -->
+<!-- THE HORIZONTAL BALANCED HEADER ROW -->
+<header class="site-header">
+  <div class="header-container">
+
+    <!-- LEFT: logo -->
+    <a class="logo" href="index.html">
+      <img src="/Users/shalom/Desktop/FC-IMAGES/Pasted 04-10-2026 at 3.35.20 PM.png" alt="Chelsea Crest Logo">
+    </a>
+
+    <!-- MIDDLE: nav links -->
+    <nav class="nav-links">
+      <a class="nav-link active" href="index.html">Home</a>
+      <a class="nav-link" href="about.html">About Club</a>
+      <a class="nav-link" href="team.html">Squad</a>
+      <a class="nav-link" href="market.html">Megastore</a>
+      <a class="nav-link" href="gallery.html">Gallery</a>
+    </nav>
+
+    <!-- RIGHT: login button -->
+    <div class="header-actions" id="navAuthContainer">
+      <a href="login.html" class="login-btn">
+        <i class="fa-solid fa-circle-user"></i>
+        <span>Login</span>
+      </a>
+    </div>
+
+  </div>
+</header>
+ 
+
+
+<main> 
+
+<section class="hero">
+  <div class="hero-inner">
+
+    <div class="hero-grid">
+
+      <!-- BIG FEATURED ARTICLE: replace src, href, text -->
+      
+      
+      <a class="news-card news-card--main" href="https://www.chelseafc.com/en/news/article/key-talking-points-from-sonia-bompastors-pre-west-ham-press-conference" target="_blank" rel="noopener">
+        <img src="/Users/shalom/Desktop/FC-IMAGES/BIG FEATUED ARTICLE.png" alt="">
+        <div class="news-text">
+          <span class="news-tag">Article</span>
+          <h2>Key talking points from the pre-match press conference</h2>
+        </div>
+      </a>
+
+      
+      
+      <!-- TWO MEDIUM ARTICLES (TOP) -->
+      <div class="hero-side">
+        <a class="news-card" href="https://www.chelseafc.com/en/news/article/internationals-rogers-provides-gloss-on-historic-england-win" target="_blank" rel="noopener">
+          <img src="/Users/shalom/Desktop/FC-IMAGES/TOP FEATURE.png" alt="">
+          <div class="news-text">
+            <span class="news-tag">Article</span>
+            <h3>Internationals: Rogers provides gloss on historic England win</h3>
+          </div>
+        </a>
+        
+        <!-- TWO MEDIUM ARTICLES (BOTTOM)-->
+        <a class="news-card" href="https://www.chelseafc.com/en/news/article/bompastor-considers-team-selection-against-west-ham" target="_blank" rel="noopener">
+          <img src="/Users/shalom/Desktop/FC-IMAGES/BOTTOM FEATURE.png" alt="">
+          <div class="news-text">
+            <span class="news-tag">Article</span>
+            <h3>Manager considers team selection ahead of the weekend</h3>
+          </div>
+        </a>
+      </div>
+
+      <!-- STANDINGS PANEL (rows are filled in by hero.js) -->
+      <aside class="standings" aria-label="Current standings">
+        <div class="standings-head">
+          <img class="league-logo" src="images/league-logo.png" alt="">
+          <div>
+            <strong>Current Standings</strong>
+            <small>Premier League</small>
+          </div>
+        </div>
+
+        <div class="standings-tabs" role="tablist">
+          <button class="tab" role="tab" data-team="womens" aria-selected="false">Women's</button>
+          <button class="tab is-active" role="tab" data-team="mens" aria-selected="true">Men's</button>
+        </div>
+
+        <table class="standings-table">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th class="col-team">Team</th>
+              <th>P</th><th>W</th><th>D</th><th>L</th>
+              <th>PTS</th>
+            </tr>
+          </thead>
+          <tbody id="standingsBody"></tbody>
+        </table>
+
+        <a class="standings-btn" href="standings.html">Full Standings &rarr;</a>
+      </aside>
+
+    </div>
+
+    <!-- SMALL ARTICLES ROW: copy a block to add more -->
+    
+    <!--IMAGE 1-->
+    <div class="news-strip">
+      <a class="strip-item" href="https://www.chelseafc.com/en/news/article/west-ham-united-vs-chelsea-women-how-to-watch-kick-off-time-live-stream" target="_blank" rel="noopener">
+        <img src="/Users/shalom/Desktop/FC-IMAGES/IMAGE 1.png" alt="">
+        <span>West Ham United vs Chelsea Women: How to watch, kick-off time and live stream info</span>
+      </a>
+      
+      <!--IMAGE 2-->
+      <a class="strip-item" href="https://www.chelseafc.com/en/video/cfc-unlocked-or-episode-twelve-or-morgan-rogers" target="_blank" rel="noopener">
+        <img src="/Users/shalom/Desktop/FC-IMAGES/IMAGE 2.png" alt="">
+        <span>CFC Unlocked | Morgan Rogers</span>
+      </a>
+      
+      <!--IMAGE 3-->
+      <a class="strip-item" href="https://www.chelseafc.com/en/video/cfc-unlocked-or-episode-twelve-or-morgan-rogers" target="_blank" rel="noopener">
+        <img src="/Users/shalom/Desktop/FC-IMAGES/IMAGE 3.png" alt="">
+        <span>Bompastor Press Conference</span>
+      </a>
+      
+      <!--IMAGE 4-->
+      <a class="strip-item" href="https://www.chelseafc.com/en/news/article/chelsea-loan-report-walsh-kavuma-mcqueen-and-harrison-shine" target="_blank" rel="noopener">
+        <img src="/Users/shalom/Desktop/FC-IMAGES/IMAGE 4.png" alt="">
+        <span>Chelsea Loan Report: Walsh, Kavuma, McQueen and Harrison Shine</span>
+      </a>
+    </div>
+
+  </div>
+</section>
+
+    
+
+       </main>
+
+
+    <!-- 4. LIVE VIDEO HIGHLIGHTS AREA (YouTube Responsive Embeds) -->
+    <section class="bg-dark-chelsea text-white py-5">
+        <div class="container">
+            <div class="d-flex align-items-center justify-content-between mb-4 border-bottom border-secondary pb-2">
+                <h2 class="fw-bold text-white mb-0">
+                    <i class="fa-solid fa-circle-play text-chelsea-gold me-2"></i>Chelsea TV Video Highlights
+                </h2>
+            </div>
+            
+            <div class="row g-4">
+                <!-- Video Embed 1 -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="ratio ratio-16x9 shadow-sm rounded overflow-hidden">
+                        <iframe src="https://www.youtube.com/embed/VIDEO_ID_1" title="Chelsea TV Highlight 1" allowfullscreen></iframe>
+                    </div>
+                    <h5 class="mt-2 fw-bold text-white">Matchday Recap: Chelsea vs Leeds</h5>
+                </div>
+
+                <!-- Video Embed 2 -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="ratio ratio-16x9 shadow-sm rounded overflow-hidden">
+                        <iframe src="https://www.youtube.com/embed/VIDEO_ID_2" title="Chelsea TV Highlight 2" allowfullscreen></iframe>
+                    </div>
+                    <h5 class="mt-2 fw-bold text-white">Training Session Insights</h5>
+                </div>
+
+                <!-- Video Embed 3 -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="ratio ratio-16x9 shadow-sm rounded overflow-hidden">
+                        <iframe src="https://www.youtube.com/embed/VIDEO_ID_3" title="Chelsea TV Highlight 3" allowfullscreen></iframe>
+                    </div>
+                    <h5 class="mt-2 fw-bold text-white">Player Interviews: Post-Match Thoughts</h5>
+                </div>
+
+
+                    <!-- 5. OFFICIAL BRAND FOOTER (Sponsors, Main Links & Legal) -->
+    <footer class="bg-white text-dark pt-5">
+        
+        <!-- TOP SECTION: Regional Partners & Official Suppliers Showcase -->
+        <div class="container text-center border-bottom pb-4 mb-4">
+            <div class="mb-4">
+                <span class="text-uppercase tracking-wider small fw-bold text-muted d-block mb-3">Regional Partners</span>
+                <div class="d-flex justify-content-center align-items-center gap-4 flex-wrap">
+                    <!-- Partner Logo Link Template -->
+                    <a href="https://msport.com" target="_blank" class="sponsor-link opacity-75">
+                        <span class="fs-4 fw-extrabold text-warning italic font-monospace">M SPORT</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="mt-4">
+                <span class="text-uppercase tracking-wider small fw-bold text-muted d-block mb-3">Official Suppliers</span>
+                <div class="d-flex justify-content-center align-items-center gap-5 flex-wrap">
+                    <a href="https://abm.co.uk" target="_blank" class="sponsor-link fw-bold fs-4 text-primary text-decoration-none">ABM</a>
+                    <a href="https://moet.com" target="_blank" class="sponsor-link fw-serif fs-5 text-dark text-decoration-none tracking-widest text-uppercase">Moët & Chandon</a>
+                    <a href="https://twilio.com" target="_blank" class="sponsor-link text-danger text-decoration-none fw-bold"><i class="fa-brands fa-twilio me-1"></i>twilio</a>
+                    <a href="https://velocity.black" target="_blank" class="sponsor-link text-dark text-decoration-none fw-semibold">Velocity Black</a>
+                    <a href="https://ticketmaster.co.uk" target="_blank" class="sponsor-link text-primary text-decoration-none fw-bold fs-5 italic">ticketmaster</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- MIDDLE SECTION: Club Meta Brand Stack, Social Matrix & App Badges -->
+        <div class="bg-chelsea-blue text-white py-5">
+            <div class="container">
+                <div class="row g-4 justify-content-between">
+                    
+                    
+                    <div class="col-md-4 col-lg-3 text-center text-md-start">
+                        <div class="mb-3">
+                            <i class="fa-solid fa-shield-halved text-chelsea-gold display-4"></i>
+                        </div>
+                        <h5 class="fw-bold mb-1 tracking-wide">Chelsea Football Club</h5>
+                        <p class="small text-light-50 lh-sm mb-3">
+                            Stamford Bridge<br>
+                            Fulham Road<br>
+                            London<br>
+                            SW6 1HS
+                        </p>
+                        <!-- Social Networking Link Matrices -->
+                        <div class="d-flex justify-content-center justify-content-md-start gap-3 fs-5 mt-2">
+                            <a href="https://facebook.com" target="_blank" class="text-white social-icon-hover"><i class="fa-brands fa-square-facebook"></i></a>
+                            <a href="https://instagram.com" target="_blank" class="text-white social-icon-hover"><i class="fa-brands fa-instagram"></i></a>
+                            <a href="https://youtube.com" target="_blank" class="text-white social-icon-hover"><i class="fa-brands fa-youtube"></i></a>
+                            <a href="https://x.com" target="_blank" class="text-white social-icon-hover"><i class="fa-brands fa-x-twitter"></i></a>
+                            <a href="https://tiktok.com" target="_blank" class="text-white social-icon-hover"><i class="fa-brands fa-tiktok"></i></a>
+                        </div>
+                    </div>
+
+                    <!-- Center: Quick Target Internal Directories -->
+                    <div class="col-6 col-md-4 col-lg-3">
+                        <h6 class="text-uppercase text-chelsea-gold fw-bold mb-3 small tracking-wider">About The Club</h6>
+                        <ul class="list-unstyled footer-quick-links small">
+                            <li class="mb-2"><a href="about.html" class="text-white-50 text-decoration-none">Club History</a></li>
+                            <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none">Contact Us & FAQs</a></li>
+                            <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none">Frequently Asked Questions</a></li>
+                            <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none">The Shed - Chat & Rumours</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Right: Mobile Application Marketplace Integrations -->
+                    <div class="col-md-4 text-center text-md-start">
+                        <h6 class="text-uppercase text-chelsea-gold fw-bold mb-3 small tracking-wider">Get Unrivalled Access</h6>
+                        <p class="small text-white-50 mb-3">Download the Chelsea Official App for live match tracking and breaking news updates.</p>
+                        <div class="d-flex flex-wrap justify-content-center justify-content-md-start gap-2">
+                            <!-- Apple Store Download Link Mockup -->
+                            <a href="https://apple.com" target="_blank" class="btn btn-dark btn-sm d-flex align-items-center text-start border border-secondary px-3 py-1 bg-black">
+                                <i class="fa-brands fa-apple fs-4 me-2"></i>
+                                <div>
+                                    <span class="d-block" style="font-size: 9px; line-height: 1;">Download on the</span>
+                                    <strong class="small" style="line-height: 1.2;">App Store</strong>
+                                </div>
+                            </a>
+                            <!-- Google Play Download Link Mockup -->
+                            <a href="https://google.com" target="_blank" class="btn btn-dark btn-sm d-flex align-items-center text-start border border-secondary px-3 py-1 bg-black">
+                                <i class="fa-brands fa-google-play fs-5 me-2 text-warning"></i>
+                                <div>
+                                    <span class="d-block" style="font-size: 9px; line-height: 1;">GET IT ON</span>
+                                    <strong class="small" style="line-height: 1.2;">Google Play</strong>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- BOTTOM SECTION: Legal Compliance Directories & Copyright Disclaimers -->
+        <div class="bg-dark text-white-50 py-3 font-monospace" style="font-size: 11px;">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-md-8 text-center text-md-start mb-2 mb-md-0">
+                        <a href="#" class="text-white-50 text-decoration-none me-3 hover-underline">Careers</a>
+                        <a href="#" class="text-white-50 text-decoration-none me-3 hover-underline">Modern Slavery Act</a>
+                        <a href="#" class="text-white-50 text-decoration-none me-3 hover-underline">Privacy Policy</a>
+                        <a href="#" class="text-white-50 text-decoration-none me-3 hover-underline">Cookies Policy</a>
+                        <a href="#" class="text-white-50 text-decoration-none me-3 hover-underline">Terms & Conditions</a>
+                        <a href="#" class="text-white-50 text-decoration-none hover-underline">Sustainability Policy</a>
+                    </div>
+                    <div class="col-md-4 text-center text-md-end">
+                        <span class="d-block">&copy; 2026 Chelsea FC Fan Hub. All rights reserved.</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </footer>
+
+    <!-- Bootstrap 5 JavaScript Bundle with Popper -->
+    <script src="https://jsdelivr.net" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <!-- Custom JS -->
+    <script src="js/script.js"></script>
+
+</body>
+</html>

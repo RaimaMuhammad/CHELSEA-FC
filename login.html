@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Football Club | Login</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <!-- =====================================================
+         MAIN AUTHENTICATION CONTAINER
+    ====================================================== -->
+
+    <main class="auth-container">
+
+        <!-- =================================================
+             LEFT SIDE - FOOTBALL CLUB INFORMATION
+        ================================================== -->
+
+        <section class="club-section">
+
+            <div class="club-content">
+
+                <p class="club-label">FOOTBALL CLUB</p>
+
+                <h1>
+                    Welcome to<br>
+                    the <span>Blue</span><br>
+                    Family
+                </h1>
+
+                <p class="club-description">
+                    Join the club, stay connected with the team,
+                    follow the latest matches and become part of
+                    our football community.
+                </p>
+
+
+                <!-- CLUB FEATURES -->
+
+                <div class="club-features">
+
+                    <div class="feature">
+
+                        <div class="feature-number">
+                            01
+                        </div>
+
+                        <div>
+                            <h3>Follow the Club</h3>
+
+                            <p>
+                                Stay updated with the latest
+                                football news and events.
+                            </p>
+                        </div>
+
+                    </div>
+
+
+                    <div class="feature">
+
+                        <div class="feature-number">
+                            02
+                        </div>
+
+                        <div>
+                            <h3>Join the Community</h3>
+
+                            <p>
+                                Connect with fellow football
+                                supporters around the world.
+                            </p>
+                        </div>
+
+                    </div>
+
+
+                    <div class="feature">
+
+                        <div class="feature-number">
+                            03
+                        </div>
+
+                        <div>
+                            <h3>Never Miss a Match</h3>
+
+                            <p>
+                                Keep track of fixtures,
+                                results and club activities.
+                            </p>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             RIGHT SIDE - LOGIN / REGISTER
+        ================================================== -->
+
+        <section class="form-section">
+
+            <div class="form-container">
+
+                <!-- CLUB LOGO -->
+
+                <div class="club-logo">
+
+                    <img
+                        src="images/chelsea-logo.png"
+                        alt="Football Club Logo"
+                    >
+
+                </div>
+
+
+                <!-- LOGIN MODE -->
+
+                <div id="loginMode">
+
+                    <p class="form-label">
+                        MEMBER LOGIN
+                    </p>
+
+                    <h2>
+                        Sign in to your account
+                    </h2>
+
+                    <p class="form-description">
+                        Enter your details to continue.
+                    </p>
+
+
+                    <!-- LOGIN FORM -->
+
+                    <form id="loginForm">
+
+                        <!-- EMAIL -->
+
+                        <div class="input-group">
+
+                            <label for="loginEmail">
+                                Email address *
+                            </label>
+
+                            <input
+                                type="email"
+                                id="loginEmail"
+                                placeholder="Enter your email"
+                                required
+                            >
+
+                        </div>
+
+
+                        <!-- PASSWORD -->
+
+                        <div class="input-group">
+
+                            <label for="loginPassword">
+                                Password *
+                            </label>
+
+                            <input
+                                type="password"
+                                id="loginPassword"
+                                placeholder="Enter your password"
+                                required
+                            >
+
+                        </div>
+
+
+                        <!-- LOGIN MESSAGE -->
+
+                        <p
+                            id="loginMessage"
+                            class="message">
+                        </p>
+
+
+                        <!-- BUTTONS -->
+
+                        <div class="button-row">
+
+                            <button
+                                type="reset"
+                                class="reset-button">
+                                Reset
+                            </button>
+
+                            <button
+                                type="submit"
+                                class="primary-button">
+                                Sign In
+                            </button>
+
+                        </div>
+
+                    </form>
+
+
+                    <!-- REGISTER LINK -->
+
+                    <div class="switch-form">
+
+                        <p>
+                            First time here?
+                            <button
+                                type="button"
+                                id="showRegister">
+                                Register here
+                            </button>
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- =================================================
+                     REGISTER MODE
+                ================================================== -->
+
+                <div
+                    id="registerMode"
+                    class="hidden">
+
+                    <p class="form-label">
+                        CLUB REGISTRATION
+                    </p>
+
+                    <h2>
+                        Create your account
+                    </h2>
+
+                    <p class="form-description">
+                        Become part of our football family.
+                    </p>
+
+
+                    <!-- REGISTER FORM -->
+
+                    <form id="registerForm">
+
+
+                        <!-- FULL NAME + EMAIL -->
+
+                        <div class="form-grid">
+
+                            <div class="input-group">
+
+                                <label for="fullName">
+                                    Full name *
+                                </label>
+
+                                <input
+                                    type="text"
+                                    id="fullName"
+                                    placeholder="Your full name"
+                                    required
+                                >
+
+                            </div>
+
+
+                            <div class="input-group">
+
+                                <label for="registerEmail">
+                                    Email address *
+                                </label>
+
+                                <input
+                                    type="email"
+                                    id="registerEmail"
+                                    placeholder="you@example.com"
+                                    required
+                                >
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- PHONE + DATE OF BIRTH -->
+
+                        <div class="form-grid">
+
+                            <div class="input-group">
+
+                                <label for="phone">
+                                    Phone number *
+                                </label>
+
+                                <input
+                                    type="tel"
+                                    id="phone"
+                                    placeholder="+256 700 000 000"
+                                    required
+                                >
+
+                            </div>
+
+
+                            <div class="input-group">
+
+                                <label for="dob">
+                                    Date of birth *
+                                </label>
+
+                                <input
+                                    type="date"
+                                    id="dob"
+                                    required
+                                >
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- COUNTRY -->
+
+                        <div class="input-group">
+
+                            <label for="country">
+                                Country *
+                            </label>
+
+                            <select
+                                id="country"
+                                required>
+
+                                <option value="">
+                                    Select your country
+                                </option>
+
+                                <option value="Uganda">
+                                    Uganda
+                                </option>
+
+                                <option value="Kenya">
+                                    Kenya
+                                </option>
+
+                                <option value="Tanzania">
+                                    Tanzania
+                                </option>
+
+                                <option value="Rwanda">
+                                    Rwanda
+                                </option>
+
+                                <option value="Nigeria">
+                                    Nigeria
+                                </option>
+
+                                <option value="Ghana">
+                                    Ghana
+                                </option>
+
+                                <option value="South Africa">
+                                    South Africa
+                                </option>
+
+                                <option value="United Kingdom">
+                                    United Kingdom
+                                </option>
+
+                                <option value="United States">
+                                    United States
+                                </option>
+
+                                <option value="Other">
+                                    Other
+                                </option>
+
+                            </select>
+
+                        </div>
+
+
+                        <!-- PASSWORD + CONFIRM PASSWORD -->
+
+                        <div class="form-grid">
+
+                            <div class="input-group">
+
+                                <label for="registerPassword">
+                                    Password *
+                                </label>
+
+                                <input
+                                    type="password"
+                                    id="registerPassword"
+                                    placeholder="Create a password"
+                                    required
+                                >
+
+                            </div>
+
+
+                            <div class="input-group">
+
+                                <label for="confirmPassword">
+                                    Confirm password *
+                                </label>
+
+                                <input
+                                    type="password"
+                                    id="confirmPassword"
+                                    placeholder="Confirm password"
+                                    required
+                                >
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- REGISTER MESSAGE -->
+
+                        <p
+                            id="registerMessage"
+                            class="message">
+                        </p>
+
+
+                        <!-- BUTTONS -->
+
+                        <div class="button-row">
+
+                            <button
+                                type="reset"
+                                class="reset-button">
+                                Reset
+                            </button>
+
+                            <button
+                                type="submit"
+                                class="primary-button">
+                                Register
+                            </button>
+
+                        </div>
+
+                    </form>
+
+
+                    <!-- LOGIN LINK -->
+
+                    <div class="switch-form">
+
+                        <p>
+                            Already have an account?
+                            <button
+                                type="button"
+                                id="showLogin">
+                                Sign in here
+                            </button>
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <script src="js/login.js"></script>
+
+</body>
+
+</html>
