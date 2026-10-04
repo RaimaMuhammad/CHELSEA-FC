@@ -1069,3 +1069,65 @@ body {
     box-shadow: 0 20px 60px rgba(0, 50, 120, 0.2) !important;
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="ctv-wrapper">
+  <h2 class="ctv-heading">Chelsea TV Video Highlights</h2>
+
+  <div class="ctv-row">
+
+    <!-- BOX 1 (left) -->
+    <div class="ctv-box ctv-half">
+      <div class="ctv-video">
+        <iframe
+          src="https://www.youtube.com/embed/VIDEO_ID_1"
+          title="Matchday Recap: Chelsea vs Leeds"
+          referrerpolicy="strict-origin-when-cross-origin"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen></iframe>
+      </div>
+      <h3 class="ctv-title">Matchday Recap</h3>
+      <p class="ctv-desc">Chelsea vs Leeds: all the key moments from the game.</p>
+    </div>
+
+    <!-- BOX 2 (right) -->
+    <div class="ctv-box ctv-half">
+      <div class="ctv-video">
+        <iframe
+          src="https://www.youtube.com/embed/VIDEO_ID_2"
+          title="Training Session Insights"
+          referrerpolicy="strict-origin-when-cross-origin"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen></iframe>
+      </div>
+      <h3 class="ctv-title">Training Session</h3>
+      <p class="ctv-desc">A look at how the squad prepares behind the scenes.</p>
+    </div>
+
+    <!-- BOX 3 (bottom, own full-width box) -->
+    <div class="ctv-box ctv-full">
+      <div class="ctv-video">
+        <iframe
+          src="https://www.youtube.com/embed/VIDEO_ID_3"
+          title="Player Interviews: Post-Match Thoughts"
+          referrerpolicy="strict-origin-when-cross-origin"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen></iframe>
+      </div>
+      <h3 class="ctv-title">Player Interviews</h3>
+      <p class="ctv-desc">Post-match thoughts from the players.</p>
+    </div>
+
+  </div>
+</div>

@@ -151,72 +151,90 @@ if (logoutBtn) {
 
 }
 
-/* ===== HERO STANDINGS =====
-   form: "w" = green dot, "l" = red dot
-   crest: path to a team logo image, or leave "" for a grey placeholder circle
-   us: true highlights your own team's row */
-const standings = {
-  mens: [
-    { pos: 1,  team: "Man City",  p: 5, w: 5, d: 0, l: 0, pts: 15, form: "w", crest: "" },
-    { pos: 2,  team: "Arsenal",   p: 5, w: 4, d: 0, l: 1, pts: 12, form: "l", crest: "" },
-    { pos: 3,  team: "Brighton",  p: 5, w: 3, d: 1, l: 1, pts: 10, form: "w", crest: "" },
-    { pos: 4,  team: "Brentford", p: 5, w: 2, d: 3, l: 0, pts: 9,  form: "w", crest: "" },
-    { pos: 5,  team: "Leeds",     p: 5, w: 2, d: 3, l: 0, pts: 9,  form: "l", crest: "" },
-    { pos: 6,  team: "Liverpool", p: 5, w: 2, d: 3, l: 0, pts: 9,  form: "w", crest: "" },
-    { pos: 7,  team: "Everton",   p: 5, w: 2, d: 3, l: 0, pts: 9,  form: "w", crest: "" },
-    { pos: 8,  team: "Hull City", p: 5, w: 2, d: 2, l: 1, pts: 8,  form: "l", crest: "" },
-    { pos: 9,  team: "Newcastle", p: 5, w: 2, d: 2, l: 1, pts: 8,  form: "w", crest: "" },
-    { pos: 10, team: "Chelsea",   p: 5, w: 2, d: 1, l: 2, pts: 7,  form: "l", crest: "", us: true }
-  ],
-  womens: [
-    { pos: 1,  team: "Team A",  p: 4, w: 4, d: 0, l: 0, pts: 12, form: "w", crest: "" },
-    { pos: 2,  team: "Team B",  p: 4, w: 3, d: 1, l: 0, pts: 10, form: "w", crest: "" },
-    { pos: 3,  team: "Chelsea", p: 4, w: 3, d: 0, l: 1, pts: 9,  form: "w", crest: "", us: true },
-    { pos: 4,  team: "Team C",  p: 4, w: 2, d: 1, l: 1, pts: 7,  form: "l", crest: "" },
-    { pos: 5,  team: "Team D",  p: 4, w: 2, d: 0, l: 2, pts: 6,  form: "w", crest: "" },
-    { pos: 6,  team: "Team E",  p: 4, w: 1, d: 2, l: 1, pts: 5,  form: "l", crest: "" },
-    { pos: 7,  team: "Team F",  p: 4, w: 1, d: 1, l: 2, pts: 4,  form: "l", crest: "" },
-    { pos: 8,  team: "Team G",  p: 4, w: 1, d: 0, l: 3, pts: 3,  form: "l", crest: "" },
-    { pos: 9,  team: "Team H",  p: 4, w: 0, d: 2, l: 2, pts: 2,  form: "l", crest: "" },
-    { pos: 10, team: "Team I",  p: 4, w: 0, d: 1, l: 3, pts: 1,  form: "l", crest: "" }
-  ]
-};
+/* ===== HERO STANDINGS ===== */
+(function () {
 
-/* ===== TOGGLE LOGIC (no need to edit) ===== */
-const body  = document.getElementById("standingsBody");
-const table = document.querySelector(".standings-table");
-const tabs  = document.querySelectorAll(".standings-tabs .tab");
+  /* ===== EDIT YOUR STANDINGS HERE =====
+     form: "w" = green dot, "l" = red dot
+     crest: path to a team logo image, or leave "" for a grey placeholder circle
+     us: true highlights your own team's row */
+  const standings = {
+    mens: [
+      { pos: 1,  team: "Man City",  p: 5, w: 5, d: 0, l: 0, pts: 15, form: "w", crest: "" },
+      { pos: 2,  team: "Arsenal",   p: 5, w: 4, d: 0, l: 1, pts: 12, form: "l", crest: "" },
+      { pos: 3,  team: "Brighton",  p: 5, w: 3, d: 1, l: 1, pts: 10, form: "w", crest: "" },
+      { pos: 4,  team: "Brentford", p: 5, w: 2, d: 3, l: 0, pts: 9,  form: "w", crest: "" },
+      { pos: 5,  team: "Leeds",     p: 5, w: 2, d: 3, l: 0, pts: 9,  form: "l", crest: "" },
+      { pos: 6,  team: "Liverpool", p: 5, w: 2, d: 3, l: 0, pts: 9,  form: "w", crest: "" },
+      { pos: 7,  team: "Everton",   p: 5, w: 2, d: 3, l: 0, pts: 9,  form: "w", crest: "" },
+      { pos: 8,  team: "Hull City", p: 5, w: 2, d: 2, l: 1, pts: 8,  form: "l", crest: "" },
+      { pos: 9,  team: "Newcastle", p: 5, w: 2, d: 2, l: 1, pts: 8,  form: "w", crest: "" },
+      { pos: 10, team: "Chelsea",   p: 5, w: 2, d: 1, l: 2, pts: 7,  form: "l", crest: "", us: true }
+    ],
+    womens: [
+      { pos: 1,  team: "Team A",  p: 4, w: 4, d: 0, l: 0, pts: 12, form: "w", crest: "" },
+      { pos: 2,  team: "Team B",  p: 4, w: 3, d: 1, l: 0, pts: 10, form: "w", crest: "" },
+      { pos: 3,  team: "Chelsea", p: 4, w: 3, d: 0, l: 1, pts: 9,  form: "w", crest: "", us: true },
+      { pos: 4,  team: "Team C",  p: 4, w: 2, d: 1, l: 1, pts: 7,  form: "l", crest: "" },
+      { pos: 5,  team: "Team D",  p: 4, w: 2, d: 0, l: 2, pts: 6,  form: "w", crest: "" },
+      { pos: 6,  team: "Team E",  p: 4, w: 1, d: 2, l: 1, pts: 5,  form: "l", crest: "" },
+      { pos: 7,  team: "Team F",  p: 4, w: 1, d: 1, l: 2, pts: 4,  form: "l", crest: "" },
+      { pos: 8,  team: "Team G",  p: 4, w: 1, d: 0, l: 3, pts: 3,  form: "l", crest: "" },
+      { pos: 9,  team: "Team H",  p: 4, w: 0, d: 2, l: 2, pts: 2,  form: "l", crest: "" },
+      { pos: 10, team: "Team I",  p: 4, w: 0, d: 1, l: 3, pts: 1,  form: "l", crest: "" }
+    ]
+  };
 
-function render(key) {
-  body.innerHTML = standings[key].map(r => `
-    <tr class="${r.us ? "is-us" : ""}">
-      <td>${r.pos}</td>
-      <td class="team">
-        <span class="dot ${r.form}"></span>
-        ${r.crest ? `<img class="crest" src="${r.crest}" alt="">` : `<span class="crest"></span>`}
-        ${r.team}
-      </td>
-      <td>${r.p}</td><td>${r.w}</td><td>${r.d}</td><td>${r.l}</td>
-      <td class="pts">${r.pts}</td>
-    </tr>`).join("");
-}
+  /* ===== TOGGLE LOGIC (no need to edit) ===== */
+  function init() {
+    const body  = document.getElementById("standingsBody");
+    const table = document.querySelector(".standings-table");
+    const tabs  = document.querySelectorAll(".standings-tabs .tab");
 
-tabs.forEach(tab => {
-  tab.addEventListener("click", () => {
-    if (tab.classList.contains("is-active")) return;
+    if (!body || !table) {
+      console.error("Standings: #standingsBody or .standings-table not found in the page");
+      return;
+    }
 
-    tabs.forEach(t => {
-      const on = t === tab;
-      t.classList.toggle("is-active", on);
-      t.setAttribute("aria-selected", on);
+    function render(key) {
+      body.innerHTML = standings[key].map(r => `
+        <tr class="${r.us ? "is-us" : ""}">
+          <td>${r.pos}</td>
+          <td class="team">
+            <span class="dot ${r.form}"></span>
+            ${r.crest ? `<img class="crest" src="${r.crest}" alt="">` : `<span class="crest"></span>`}
+            ${r.team}
+          </td>
+          <td>${r.p}</td><td>${r.w}</td><td>${r.d}</td><td>${r.l}</td>
+          <td class="pts">${r.pts}</td>
+        </tr>`).join("");
+    }
+
+    tabs.forEach(tab => {
+      tab.addEventListener("click", () => {
+        if (tab.classList.contains("is-active")) return;
+
+        tabs.forEach(t => {
+          const on = t === tab;
+          t.classList.toggle("is-active", on);
+          t.setAttribute("aria-selected", on);
+        });
+
+        table.classList.add("is-switching");          // fade out
+        setTimeout(() => {
+          render(tab.dataset.team);                    // swap the rows
+          table.classList.remove("is-switching");      // fade back in
+        }, 250);
+      });
     });
 
-    table.classList.add("is-switching");            // fade out
-    setTimeout(() => {
-      render(tab.dataset.team);                      // swap the rows
-      table.classList.remove("is-switching");        // fade back in
-    }, 250);
-  });
-});
+    render("mens"); // default view
+  }
 
-render("mens"); // default view
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", init);
+  } else {
+    init();
+  }
+
+})();

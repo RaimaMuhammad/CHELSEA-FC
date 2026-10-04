@@ -507,3 +507,132 @@ html, body {
 @media (prefers-reduced-motion: reduce) {
   .news-card img, .standings-table { transition: none; }
 }
+
+
+
+/* =====================================================
+   TWO DIVS SIDE BY SIDE (for testing / debugging)
+   ===================================================== */
+
+
+
+/* =========================
+   VIDEO SECTION
+   ========================= */
+
+.videos-section {
+    margin-top: 40px;        /* GAP FROM BLUE SECTION */
+    margin-bottom: 50px;     /* GAP BEFORE FOOTER */
+    padding: 0 40px;
+}
+
+.video-container {
+    display: flex;
+    justify-content: center;
+    gap: 40px;               /* SPACE BETWEEN LEFT AND RIGHT */
+    align-items: flex-start;
+}
+
+/* EACH GREEN DIV */
+
+.video-div {
+    width: 600px;
+    height: 500px;
+    background-color: rgb(193, 193, 204);
+    padding: 20px;
+    box-sizing: border-box;
+    border-radius: 12px;
+}
+
+/* YOUTUBE AREA */
+
+.ctv-video {
+    width: 100%;
+    height: 370px;
+}
+
+.ctv-video iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    display: block;
+}
+
+/* VIDEO TITLE */
+
+.ctv-title {
+    color: white;
+    font-size: 24px;
+    margin-top: 15px;
+    margin-bottom: 10px;
+}
+
+/* VIDEO DESCRIPTION */
+
+.ctv-desc {
+    color: white;
+    font-size: 16px;
+    margin: 0;
+}
+
+/* =========================
+   SECOND VIDEO SECTION
+   ========================= */
+
+
+.second-videos-section {
+    width: 100%;
+    padding: 0;
+    margin: 40px 0;
+}
+
+.second-videos-section .video-container {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.second-videos-section .left-div {
+    width: 450px;
+    background-color: green;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.second-videos-section .ctv-video {
+    width: 100%;
+    height: 225px;
+}
+
+.second-videos-section .ctv-video iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    display: block;
+}
+
+.second-videos-section .ctv-title {
+    color: white;
+}
+
+.second-videos-section .ctv-desc {
+    color: white;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   
