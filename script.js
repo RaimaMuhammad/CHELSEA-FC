@@ -220,3 +220,155 @@ tabs.forEach(tab => {
 });
 
 render("mens"); // default view
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//ABOUT PAGE //
+
+
+"use strict";
+
+
+/* =========================================
+   MOMENTS IN TIME SLIDER
+========================================= */
+
+const momentCards = document.querySelectorAll(".moment-card");
+const previousMoment = document.getElementById("previousMoment");
+const nextMoment = document.getElementById("nextMoment");
+const momentCounter = document.getElementById("momentCounter");
+
+if (
+    momentCards.length > 0 &&
+    previousMoment &&
+    nextMoment &&
+    momentCounter
+) {
+
+    let currentMoment = 0;
+
+    function showMoment(index) {
+
+        momentCards.forEach(function (card) {
+            card.classList.remove("active-moment");
+        });
+
+        momentCards[index].classList.add("active-moment");
+
+        momentCounter.textContent =
+            (index + 1) + " / " + momentCards.length;
+    }
+
+
+    nextMoment.addEventListener("click", function () {
+
+        currentMoment++;
+
+        if (currentMoment >= momentCards.length) {
+            currentMoment = 0;
+        }
+
+        showMoment(currentMoment);
+    });
+
+
+    previousMoment.addEventListener("click", function () {
+
+        currentMoment--;
+
+        if (currentMoment < 0) {
+            currentMoment = momentCards.length - 1;
+        }
+
+        showMoment(currentMoment);
+    });
+
+
+    showMoment(currentMoment);
+}
+
+
+
+/* =========================================
+   CHELSEA CLUB FACTS SLIDER
+========================================= */
+
+const factCards = document.querySelectorAll(".fact-card");
+const previousFact = document.getElementById("previousFact");
+const nextFact = document.getElementById("nextFact");
+const factCounter = document.getElementById("factCounter");
+
+if (
+    factCards.length > 0 &&
+    previousFact &&
+    nextFact &&
+    factCounter
+) {
+
+    let currentFact = 0;
+
+    function showFact(index) {
+
+        factCards.forEach(function (card) {
+            card.classList.remove("active-fact");
+        });
+
+        factCards[index].classList.add("active-fact");
+
+        factCounter.textContent =
+            (index + 1) + " / " + factCards.length;
+    }
+
+
+    nextFact.addEventListener("click", function () {
+
+        currentFact++;
+
+        if (currentFact >= factCards.length) {
+            currentFact = 0;
+        }
+
+        showFact(currentFact);
+    });
+
+
+    previousFact.addEventListener("click", function () {
+
+        currentFact--;
+
+        if (currentFact < 0) {
+            currentFact = factCards.length - 1;
+        }
+
+        showFact(currentFact);
+    });
+
+
+    showFact(currentFact);
+}

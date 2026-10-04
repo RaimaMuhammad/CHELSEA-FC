@@ -507,3 +507,891 @@ html, body {
 @media (prefers-reduced-motion: reduce) {
   .news-card img, .standings-table { transition: none; }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* =========================================================
+   CHELSEA ABOUT PAGE
+   ========================================================= */
+
+
+/* ---------------------------------------------------------
+   GENERAL ABOUT PAGE
+   --------------------------------------------------------- */
+
+.about-page {
+    background: #ffffff;
+    color: #0a1a4a;
+}
+
+.about-page p {
+    line-height: 1.8;
+    font-size: 1rem;
+}
+
+.about-page h2 {
+    margin: 0;
+}
+
+
+/* ---------------------------------------------------------
+   ABOUT HERO
+   Large Chelsea-style opening section
+   --------------------------------------------------------- */
+
+.about-hero {
+    min-height: 650px;
+
+    background:
+        linear-gradient(
+            rgba(3, 70, 148, 0.35),
+            rgba(10, 26, 74, 0.85)
+        ),
+        url("images/chelsea-team.jpg");
+
+    background-size: cover;
+    background-position: center;
+
+    display: flex;
+    align-items: flex-end;
+
+    color: #ffffff;
+
+    padding: 5rem 7%;
+    box-sizing: border-box;
+}
+
+.about-hero-content {
+    max-width: 900px;
+}
+
+.about-hero .section-tag {
+    display: inline-block;
+
+    background: #1e6fd9;
+    color: #ffffff;
+
+    padding: 0.5rem 1rem;
+
+    font-size: 0.8rem;
+    font-weight: 800;
+    letter-spacing: 2px;
+}
+
+.about-hero h1 {
+    margin: 1rem 0 0.5rem;
+
+    font-size: clamp(3.5rem, 8vw, 7rem);
+    line-height: 0.95;
+
+    text-transform: uppercase;
+    font-weight: 900;
+}
+
+.about-hero p {
+    font-size: 1.3rem;
+    max-width: 650px;
+}
+
+
+/* ---------------------------------------------------------
+   GENERAL SECTION STYLING
+   --------------------------------------------------------- */
+
+.about-section {
+    padding: 6rem 7%;
+}
+
+.section-heading {
+    margin-bottom: 3rem;
+}
+
+.section-heading h2 {
+    color: #034694;
+
+    font-size: clamp(2rem, 5vw, 4rem);
+
+    text-transform: uppercase;
+    font-weight: 900;
+
+    line-height: 1;
+}
+
+.section-heading::after {
+    content: "";
+
+    display: block;
+
+    width: 70px;
+    height: 5px;
+
+    background: #1e6fd9;
+
+    margin-top: 1rem;
+}
+
+
+/* ---------------------------------------------------------
+   ABOUT INTRODUCTION
+   --------------------------------------------------------- */
+
+.about-introduction {
+    background: #ffffff;
+}
+
+.about-introduction-content {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 4rem;
+
+    align-items: center;
+}
+
+.about-text p {
+    margin-bottom: 1.5rem;
+}
+
+.about-image {
+    position: relative;
+}
+
+.about-image img {
+    width: 100%;
+    height: 500px;
+
+    object-fit: cover;
+
+    display: block;
+}
+
+.about-image::after {
+    content: "";
+
+    position: absolute;
+
+    right: -15px;
+    bottom: -15px;
+
+    width: 120px;
+    height: 120px;
+
+    background: #034694;
+
+    z-index: -1;
+}
+
+
+/* ---------------------------------------------------------
+   HISTORY SECTION
+   --------------------------------------------------------- */
+
+.history-section {
+    background: #f3f7fc;
+}
+
+.history-section > p {
+    max-width: 850px;
+
+    font-size: 1.1rem;
+
+    margin-bottom: 4rem;
+}
+
+
+/* History cards */
+
+.history-timeline {
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 2rem;
+}
+
+.history-card {
+    background: #ffffff;
+
+    display: grid;
+
+    grid-template-columns: 40% 60%;
+
+    min-height: 280px;
+
+    box-shadow: 0 8px 25px rgba(3, 70, 148, 0.08);
+
+    overflow: hidden;
+
+    transition: transform 0.3s ease,
+                box-shadow 0.3s ease;
+}
+
+.history-card:hover {
+    transform: translateY(-8px);
+
+    box-shadow: 0 15px 35px rgba(3, 70, 148, 0.18);
+}
+
+.history-image {
+    height: 100%;
+}
+
+.history-image img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    display: block;
+}
+
+.history-content {
+    padding: 2rem;
+}
+
+.history-year {
+    color: #1e6fd9;
+
+    font-size: 0.85rem;
+
+    font-weight: 900;
+
+    letter-spacing: 2px;
+}
+
+.history-content h3 {
+    color: #034694;
+
+    font-size: 1.7rem;
+
+    margin: 0.7rem 0;
+}
+
+
+/* ---------------------------------------------------------
+   STAMFORD BRIDGE
+   Full-width image section
+   --------------------------------------------------------- */
+
+.about-page .stadium-section {
+    min-height: 650px;
+
+    background:
+        linear-gradient(
+            rgba(3, 70, 148, 0.25),
+            rgba(10, 26, 74, 0.9)
+        ),
+        url("images/stamford-bridge.jpg");
+
+    background-size: cover;
+    background-position: center;
+
+    display: flex;
+    align-items: flex-end;
+
+    padding: 6rem 7%;
+
+    color: #ffffff;
+
+    box-sizing: border-box;
+}
+
+.about-page .stadium-container {
+    width: 100%;
+}
+
+.about-page .stadium-image {
+    display: none;
+}
+
+.about-page .stadium-content {
+    max-width: 800px;
+}
+
+.about-page .stadium-content .section-tag {
+    color: #ffffff;
+
+    font-size: 0.85rem;
+
+    font-weight: 900;
+
+    letter-spacing: 3px;
+}
+
+.about-page .stadium-content h2 {
+    font-size: clamp(3rem, 7vw, 6rem);
+
+    text-transform: uppercase;
+
+    line-height: 0.95;
+
+    margin: 1rem 0;
+}
+
+.about-page .stadium-content p {
+    max-width: 700px;
+
+    font-size: 1.05rem;
+}
+
+
+/* ---------------------------------------------------------
+   CLUB COLOURS
+   --------------------------------------------------------- */
+
+.colours-section {
+    background: #ffffff;
+}
+
+.colours-content {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 4rem;
+
+    align-items: center;
+}
+
+.colours-text p {
+    margin-bottom: 1.5rem;
+}
+
+.colour-image img {
+    width: 100%;
+    height: 500px;
+
+    object-fit: cover;
+
+    display: block;
+}
+
+
+/* Colour information box */
+
+.club-colours {
+    margin-top: 2rem;
+
+    padding: 2rem;
+
+    background: #034694;
+
+    color: #ffffff;
+}
+
+.club-colours h3 {
+    margin-top: 0;
+
+    font-size: 1.5rem;
+
+    text-transform: uppercase;
+}
+
+.club-colours p {
+    margin: 0.5rem 0;
+}
+
+
+/* ---------------------------------------------------------
+   HONOURS / TROPHY SECTION
+   --------------------------------------------------------- */
+
+.honours-section {
+    background: #034694;
+
+    color: #ffffff;
+
+    padding: 6rem 7%;
+}
+
+.honours-section .section-heading h2 {
+    color: #ffffff;
+}
+
+.honours-section .section-heading::after {
+    background: #ffffff;
+}
+
+.trophy-image {
+    width: 100%;
+
+    margin-bottom: 3rem;
+}
+
+.trophy-image img {
+    width: 100%;
+
+    height: 500px;
+
+    object-fit: cover;
+
+    display: block;
+}
+
+.honours-section > p {
+    max-width: 900px;
+}
+
+
+/* Honours table */
+
+.honours-table {
+    width: 100%;
+
+    border-collapse: collapse;
+
+    margin-top: 3rem;
+
+    background: #ffffff;
+
+    color: #0a1a4a;
+}
+
+.honours-table th {
+    background: #0a1a4a;
+
+    color: #ffffff;
+
+    text-align: left;
+
+    padding: 1.2rem;
+}
+
+.honours-table td {
+    padding: 1.2rem;
+
+    border-bottom: 1px solid #dce6f2;
+}
+
+.honours-table tr:hover td {
+    background: #eef5ff;
+}
+
+
+/* ---------------------------------------------------------
+   CHELSEA TODAY
+   --------------------------------------------------------- */
+
+.today-section {
+    background: #ffffff;
+}
+
+.featured-image {
+    margin-bottom: 3rem;
+}
+
+.featured-image img {
+    width: 100%;
+
+    height: 600px;
+
+    object-fit: cover;
+
+    display: block;
+}
+
+.today-section > p {
+    max-width: 950px;
+
+    margin-bottom: 1.5rem;
+}
+
+
+/* ---------------------------------------------------------
+   CHELSEA CLUB FACTS
+   --------------------------------------------------------- */
+
+.facts-section {
+    background: #f3f7fc;
+
+    padding: 6rem 7%;
+}
+
+.facts-section > p {
+    max-width: 850px;
+
+    margin-bottom: 3rem;
+}
+
+.facts-table {
+    width: 100%;
+
+    border-collapse: collapse;
+
+    background: #ffffff;
+
+    box-shadow: 0 8px 25px rgba(3, 70, 148, 0.08);
+}
+
+.facts-table th {
+    width: 35%;
+
+    background: #034694;
+
+    color: #ffffff;
+
+    text-align: left;
+
+    padding: 1.2rem;
+}
+
+.facts-table td {
+    padding: 1.2rem;
+
+    border-bottom: 1px solid #e0e8f2;
+}
+
+.facts-table tr:hover td {
+    background: #eef5ff;
+}
+
+
+/* ---------------------------------------------------------
+   VISION AND MISSION
+   --------------------------------------------------------- */
+
+.mission-section {
+    background: #ffffff;
+}
+
+.mission-card {
+    background: #0a1a4a;
+
+    color: #ffffff;
+
+    padding: 3rem;
+
+    margin-bottom: 4rem;
+
+    border-left: 8px solid #1e6fd9;
+}
+
+.mission-card p {
+    font-size: 1.1rem;
+
+    max-width: 900px;
+}
+
+
+/* ---------------------------------------------------------
+   VIDEO SECTION
+   Add this section to the HTML when ready.
+   --------------------------------------------------------- */
+
+.video-section {
+    background: #0a1a4a;
+
+    color: #ffffff;
+
+    padding: 6rem 7%;
+}
+
+.video-section .section-heading h2 {
+    color: #ffffff;
+}
+
+.video-section .section-heading::after {
+    background: #1e6fd9;
+}
+
+.main-video {
+    width: 100%;
+
+    margin-bottom: 3rem;
+
+    background: #000000;
+}
+
+.main-video video {
+    width: 100%;
+
+    max-height: 650px;
+
+    display: block;
+}
+
+.video-grid {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 1.5rem;
+}
+
+.video-card {
+    background: #034694;
+
+    overflow: hidden;
+}
+
+.video-card img {
+    width: 100%;
+
+    height: 220px;
+
+    object-fit: cover;
+
+    display: block;
+}
+
+.video-card-content {
+    padding: 1.5rem;
+}
+
+.video-card-content h3 {
+    margin-top: 0;
+
+    font-size: 1.3rem;
+}
+
+.video-card-content p {
+    font-size: 0.95rem;
+}
+
+
+/* ---------------------------------------------------------
+   IMAGE STORY GRID
+   Add this section to create the magazine-style gallery
+   --------------------------------------------------------- */
+
+.story-grid {
+    display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
+
+    grid-auto-rows: 250px;
+
+    gap: 1rem;
+}
+
+.story-card {
+    position: relative;
+
+    overflow: hidden;
+
+    background: #034694;
+}
+
+.story-card.large {
+    grid-column: span 2;
+
+    grid-row: span 2;
+}
+
+.story-card img {
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: cover;
+
+    display: block;
+
+    transition: transform 0.5s ease;
+}
+
+.story-card:hover img {
+    transform: scale(1.08);
+}
+
+.story-overlay {
+    position: absolute;
+
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    padding: 2rem;
+
+    color: #ffffff;
+
+    background: linear-gradient(
+        transparent,
+        rgba(10, 26, 74, 0.95)
+    );
+}
+
+.story-overlay h3 {
+    margin: 0;
+
+    font-size: 1.5rem;
+
+    text-transform: uppercase;
+}
+
+
+/* ---------------------------------------------------------
+   FOOTER
+   --------------------------------------------------------- */
+
+.site-footer {
+    background: #0a1a4a;
+
+    color: #ffffff;
+
+    text-align: center;
+
+    padding: 4rem 2rem;
+}
+
+.site-footer h3 {
+    color: #ffffff;
+
+    font-size: 2rem;
+
+    margin-bottom: 0.5rem;
+}
+
+.site-footer p {
+    color: #d9e6f5;
+}
+
+
+/* ---------------------------------------------------------
+   RESPONSIVE DESIGN
+   --------------------------------------------------------- */
+
+@media (max-width: 900px) {
+
+    .about-introduction-content,
+    .colours-content {
+        grid-template-columns: 1fr;
+    }
+
+    .history-timeline {
+        grid-template-columns: 1fr;
+    }
+
+    .video-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .story-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .about-hero {
+        min-height: 550px;
+
+        padding: 4rem 5%;
+    }
+
+    .about-section,
+    .honours-section,
+    .facts-section,
+    .video-section {
+        padding: 5rem 5%;
+    }
+
+    .featured-image img,
+    .trophy-image img,
+    .colour-image img {
+        height: 450px;
+    }
+}
+
+
+/* ---------------------------------------------------------
+   MOBILE
+   --------------------------------------------------------- */
+
+@media (max-width: 600px) {
+
+    .about-hero {
+        min-height: 500px;
+
+        padding: 3rem 1.5rem;
+    }
+
+    .about-hero h1 {
+        font-size: 3rem;
+    }
+
+    .about-hero p {
+        font-size: 1rem;
+    }
+
+    .about-section,
+    .honours-section,
+    .facts-section,
+    .video-section {
+        padding: 4rem 1.2rem;
+    }
+
+    .section-heading h2 {
+        font-size: 2.4rem;
+    }
+
+    .about-image img,
+    .colour-image img,
+    .featured-image img,
+    .trophy-image img {
+        height: 350px;
+    }
+
+    .history-card {
+        grid-template-columns: 1fr;
+    }
+
+    .history-image {
+        height: 220px;
+    }
+
+    .about-page .stadium-section {
+        min-height: 550px;
+
+        padding: 4rem 1.5rem;
+    }
+
+    .about-page .stadium-content h2 {
+        font-size: 3rem;
+    }
+
+    .video-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .story-grid {
+        grid-template-columns: 1fr;
+
+        grid-auto-rows: 300px;
+    }
+
+    .story-card.large {
+        grid-column: span 1;
+
+        grid-row: span 1;
+    }
+
+    .honours-table,
+    .facts-table {
+        font-size: 0.9rem;
+    }
+
+    .honours-table th,
+    .honours-table td,
+    .facts-table th,
+    .facts-table td {
+        padding: 0.8rem;
+    }
+
+    .mission-card {
+        padding: 2rem 1.5rem;
+    }
+}
