@@ -1968,3 +1968,803 @@ body {
         padding: 2rem 1.5rem;
     }
 }
+
+
+```css
+/* ---------------------------------------------------------
+   MOMENTS IN TIME
+   Interactive Chelsea history slider
+   --------------------------------------------------------- */
+
+.history-years {
+    background: #ffffff;
+
+    padding: 6rem 7%;
+
+    overflow: hidden;
+}
+
+
+/* Section heading */
+
+.history-years .section-heading {
+    margin-bottom: 3rem;
+}
+
+.history-years .section-heading h2 {
+    color: #034694;
+
+    font-size: clamp(2rem, 5vw, 4rem);
+
+    text-transform: uppercase;
+
+    font-weight: 900;
+
+    line-height: 1;
+}
+
+
+/* ---------------------------------------------------------
+   MOMENTS SLIDER
+   --------------------------------------------------------- */
+
+.moments-slider {
+    width: 100%;
+
+    max-width: 1200px;
+
+    margin: 0 auto;
+
+    position: relative;
+}
+
+
+/* ---------------------------------------------------------
+   MOMENT CARD
+   --------------------------------------------------------- */
+
+.moment-card {
+    display: none;
+
+    width: 100%;
+
+    min-height: 480px;
+
+    background: #f3f7fc;
+
+    overflow: hidden;
+
+    box-shadow:
+        0 15px 40px rgba(3, 70, 148, 0.12);
+
+    border-radius: 4px;
+}
+
+
+/*
+   Only the active card is displayed.
+*/
+
+.moment-card.active-moment {
+    display: grid;
+
+    grid-template-columns: 55% 45%;
+
+    animation: momentSlideIn 0.45s ease;
+}
+
+
+/* ---------------------------------------------------------
+   MOMENT IMAGE
+   --------------------------------------------------------- */
+
+.moment-image {
+    width: 100%;
+
+    height: 480px;
+
+    overflow: hidden;
+
+    position: relative;
+}
+
+
+.moment-image::after {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    height: 35%;
+
+    background: linear-gradient(
+        transparent,
+        rgba(10, 26, 74, 0.35)
+    );
+
+    pointer-events: none;
+}
+
+
+.moment-image img {
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: cover;
+
+    display: block;
+
+    transition: transform 0.6s ease;
+}
+
+
+/*
+   Image gently zooms when the visitor
+   places the mouse over the card.
+*/
+
+.moment-card:hover .moment-image img {
+    transform: scale(1.04);
+}
+
+
+/* ---------------------------------------------------------
+   MOMENT CONTENT
+   --------------------------------------------------------- */
+
+.moment-content {
+    position: relative;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    padding: 4rem;
+
+    background: #f3f7fc;
+
+    overflow: hidden;
+}
+
+
+/*
+   Decorative blue block
+*/
+
+.moment-content::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    right: 0;
+
+    width: 8px;
+
+    height: 100%;
+
+    background: #034694;
+}
+
+
+/*
+   Decorative large year in background
+*/
+
+.moment-content::after {
+    content: attr(data-year);
+
+    position: absolute;
+
+    right: -30px;
+    bottom: -35px;
+
+    font-size: 9rem;
+
+    font-weight: 900;
+
+    line-height: 1;
+
+    color: rgba(3, 70, 148, 0.05);
+
+    pointer-events: none;
+}
+
+
+/* ---------------------------------------------------------
+   YEAR
+   --------------------------------------------------------- */
+
+.moment-year {
+    position: relative;
+
+    z-index: 2;
+
+    display: block;
+
+    color: #1e6fd9;
+
+    font-size: 4.5rem;
+
+    font-weight: 900;
+
+    line-height: 1;
+
+    margin-bottom: 1rem;
+}
+
+
+/* ---------------------------------------------------------
+   MOMENT TITLE
+   --------------------------------------------------------- */
+
+.moment-content h3 {
+    position: relative;
+
+    z-index: 2;
+
+    color: #034694;
+
+    font-size: clamp(1.8rem, 3vw, 2.7rem);
+
+    line-height: 1.1;
+
+    margin: 0 0 1.3rem;
+
+    text-transform: uppercase;
+
+    font-weight: 900;
+}
+
+
+/* ---------------------------------------------------------
+   MOMENT DESCRIPTION
+   --------------------------------------------------------- */
+
+.moment-content p {
+    position: relative;
+
+    z-index: 2;
+
+    color: #394b63;
+
+    font-size: 1rem;
+
+    line-height: 1.8;
+
+    max-width: 500px;
+
+    margin: 0;
+}
+
+
+/* ---------------------------------------------------------
+   MOMENT CONTROLS
+   --------------------------------------------------------- */
+
+.moment-controls {
+    max-width: 1200px;
+
+    margin: 2rem auto 0;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 1.5rem;
+}
+
+
+/* Counter */
+
+#momentCounter {
+    min-width: 70px;
+
+    text-align: center;
+
+    color: #034694;
+
+    font-size: 1rem;
+
+    font-weight: 900;
+
+    letter-spacing: 1px;
+}
+
+
+/* ---------------------------------------------------------
+   ARROW BUTTONS
+   --------------------------------------------------------- */
+
+.moment-arrow {
+    width: 52px;
+
+    height: 52px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border: 2px solid #034694;
+
+    border-radius: 50%;
+
+    background: #ffffff;
+
+    color: #034694;
+
+    font-size: 1.4rem;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition:
+        background 0.25s ease,
+        color 0.25s ease,
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+
+.moment-arrow:hover {
+    background: #034694;
+
+    color: #ffffff;
+
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 8px 20px rgba(3, 70, 148, 0.25);
+}
+
+
+.moment-arrow:active {
+    transform: translateY(0);
+}
+
+
+/* ---------------------------------------------------------
+   SLIDE ANIMATION
+   --------------------------------------------------------- */
+
+@keyframes momentSlideIn {
+
+    from {
+        opacity: 0;
+
+        transform: translateX(35px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform: translateX(0);
+    }
+
+}
+
+
+/* ---------------------------------------------------------
+   TABLET
+   --------------------------------------------------------- */
+
+@media (max-width: 900px) {
+
+    .moment-card.active-moment {
+        grid-template-columns: 1fr;
+    }
+
+
+    .moment-image {
+        height: 380px;
+    }
+
+
+    .moment-content {
+        min-height: 330px;
+
+        padding: 3rem;
+    }
+
+
+    .moment-year {
+        font-size: 3.8rem;
+    }
+
+}
+
+
+/* ---------------------------------------------------------
+   MOBILE
+   --------------------------------------------------------- */
+
+@media (max-width: 600px) {
+
+    .history-years {
+        padding: 4rem 1.2rem;
+    }
+
+
+    .history-years .section-heading {
+        margin-bottom: 2rem;
+    }
+
+
+    .moment-card.active-moment {
+        display: block;
+    }
+
+
+    .moment-image {
+        height: 280px;
+    }
+
+
+    .moment-content {
+        min-height: 300px;
+
+        padding: 2rem 1.5rem;
+    }
+
+
+    .moment-content::before {
+        width: 100%;
+
+        height: 5px;
+
+        top: 0;
+
+        right: auto;
+
+        left: 0;
+    }
+
+
+    .moment-year {
+        font-size: 3.2rem;
+    }
+
+
+    .moment-content h3 {
+        font-size: 1.6rem;
+    }
+
+
+    .moment-content p {
+        font-size: 0.95rem;
+
+        line-height: 1.7;
+    }
+
+
+    .moment-controls {
+        gap: 1rem;
+
+        margin-top: 1.5rem;
+    }
+
+
+    .moment-arrow {
+        width: 45px;
+
+        height: 45px;
+
+        font-size: 1.1rem;
+    }
+
+}
+
+/* ---------------------------------------------------------
+   CHELSEA CLUB FACTS
+   Interactive facts slider
+   --------------------------------------------------------- */
+
+.facts-section {
+    background: #f3f7fc;
+    padding: 6rem 7%;
+    overflow: hidden;
+}
+
+.facts-section .section-heading {
+    margin-bottom: 3rem;
+}
+
+.facts-section .section-heading h2 {
+    color: #034694;
+    font-size: clamp(2rem, 5vw, 4rem);
+    text-transform: uppercase;
+    font-weight: 900;
+    line-height: 1;
+}
+
+.facts-slider {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+}
+
+/* Hide every fact by default */
+
+.fact-card {
+    display: none;
+    width: 100%;
+    min-height: 420px;
+    background: #ffffff;
+    overflow: hidden;
+    border-radius: 4px;
+    box-shadow: 0 15px 40px rgba(3, 70, 148, 0.12);
+}
+
+/* Show only the active fact */
+
+.fact-card.active-fact {
+    display: grid;
+    grid-template-columns: 45% 55%;
+    animation: factSlideIn 0.45s ease;
+}
+
+/* Fact image */
+
+.fact-image {
+    width: 100%;
+    height: 420px;
+    overflow: hidden;
+    position: relative;
+}
+
+.fact-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.6s ease;
+}
+
+.fact-card:hover .fact-image img {
+    transform: scale(1.04);
+}
+
+/* Fact content */
+
+.fact-content {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 4rem;
+    background: #ffffff;
+    overflow: hidden;
+}
+
+/* Blue vertical line */
+
+.fact-content::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 8px;
+    height: 100%;
+    background: #034694;
+}
+
+/* Large decorative number */
+
+.fact-content::after {
+    content: attr(data-number);
+    position: absolute;
+    right: -20px;
+    bottom: -45px;
+    font-size: 10rem;
+    font-weight: 900;
+    line-height: 1;
+    color: rgba(3, 70, 148, 0.05);
+    pointer-events: none;
+}
+
+/* Fact number/title */
+
+.fact-number {
+    position: relative;
+    z-index: 2;
+    color: #1e6fd9;
+    font-size: 1rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 1rem;
+}
+
+/* Fact heading */
+
+.fact-content h3 {
+    position: relative;
+    z-index: 2;
+    color: #034694;
+    font-size: clamp(1.8rem, 3vw, 2.8rem);
+    line-height: 1.1;
+    margin: 0 0 1.3rem;
+    text-transform: uppercase;
+    font-weight: 900;
+}
+
+/* Fact paragraph */
+
+.fact-content p {
+    position: relative;
+    z-index: 2;
+    color: #394b63;
+    font-size: 1rem;
+    line-height: 1.8;
+    max-width: 550px;
+    margin: 0;
+}
+
+/* Controls */
+
+.fact-controls {
+    max-width: 1200px;
+    margin: 2rem auto 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+}
+
+/* Counter */
+
+#factCounter {
+    min-width: 70px;
+    text-align: center;
+    color: #034694;
+    font-size: 1rem;
+    font-weight: 900;
+    letter-spacing: 1px;
+}
+
+/* Arrows */
+
+.fact-arrow {
+    width: 52px;
+    height: 52px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 2px solid #034694;
+    border-radius: 50%;
+
+    background: #ffffff;
+    color: #034694;
+
+    font-size: 1.4rem;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition:
+        background 0.25s ease,
+        color 0.25s ease,
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.fact-arrow:hover {
+    background: #034694;
+    color: #ffffff;
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 8px 20px rgba(3, 70, 148, 0.25);
+}
+
+.fact-arrow:active {
+    transform: translateY(0);
+}
+
+/* Animation */
+
+@keyframes factSlideIn {
+    from {
+        opacity: 0;
+        transform: translateX(35px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+
+/* ---------------------------------------------------------
+   TABLET
+   --------------------------------------------------------- */
+
+@media (max-width: 900px) {
+
+    .fact-card.active-fact {
+        grid-template-columns: 1fr;
+    }
+
+    .fact-image {
+        height: 350px;
+    }
+
+    .fact-content {
+        min-height: 320px;
+        padding: 3rem;
+    }
+
+    .fact-content h3 {
+        font-size: 2rem;
+    }
+}
+
+
+/* ---------------------------------------------------------
+   MOBILE
+   --------------------------------------------------------- */
+
+@media (max-width: 600px) {
+
+    .facts-section {
+        padding: 4rem 1.2rem;
+    }
+
+    .facts-section .section-heading {
+        margin-bottom: 2rem;
+    }
+
+    .fact-card.active-fact {
+        display: block;
+    }
+
+    .fact-image {
+        height: 260px;
+    }
+
+    .fact-content {
+        min-height: 300px;
+        padding: 2rem 1.5rem;
+    }
+
+    .fact-content::before {
+        width: 100%;
+        height: 5px;
+        top: 0;
+        left: 0;
+    }
+
+    .fact-content h3 {
+        font-size: 1.6rem;
+    }
+
+    .fact-content p {
+        font-size: 0.95rem;
+        line-height: 1.7;
+    }
+
+    .fact-controls {
+        gap: 1rem;
+        margin-top: 1.5rem;
+    }
+
+    .fact-arrow {
+        width: 45px;
+        height: 45px;
+        font-size: 1.1rem;
+    }
+}
