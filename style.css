@@ -1281,7 +1281,7 @@ body {
 .hero{
   max-width: 460px; 
   margin: 0 auto;
-  background-color: #feffff;  /* BLUE BACKGROUND OF THE LEFT PANEL */
+  background-color: blue;  /* BLUE BACKGROUND OF THE LEFT PANEL */
 }
 
 .hero h1 {
@@ -1403,8 +1403,6 @@ input.invalid, select.invalid { border-color: var(--error); }
   .card { padding: 24px; }
   .topbar { padding: 12px 18px; }
 }
- 
-
 
 
 
