@@ -1298,148 +1298,146 @@ input.invalid, select.invalid { border-color: var(--error); }
 
 
 
-
-/* =========================================================
+/* =========================================
    CHELSEA ABOUT PAGE
-   ========================================================= */
+   COLOUR PALETTE
+========================================= */
+
+:root {
+    --chelsea-blue: #0E1E7D;
+    --chelsea-gold: #D99808;
+    --white: #FFFFFF;
+    --light-bg: #F5F6FC;
+    --dark-text: #10152F;
+}
 
 
-/* ---------------------------------------------------------
+/* =========================================
    GENERAL ABOUT PAGE
-   --------------------------------------------------------- */
+========================================= */
 
 .about-page {
-    background: #ffffff;
-    color: #0a1a4a;
+    background: var(--white);
+    color: var(--dark-text);
+    min-height: 100vh;
 }
 
-.about-page p {
-    line-height: 1.8;
-    font-size: 1rem;
+.about-page section {
+    width: 100%;
+    box-sizing: border-box;
 }
 
-.about-page h2 {
-    margin: 0;
+.about-page img {
+    max-width: 100%;
+    display: block;
 }
 
 
-/* ---------------------------------------------------------
+/* =========================================
    ABOUT HERO
-   Large Chelsea-style opening section
-   --------------------------------------------------------- */
+========================================= */
 
 .about-hero {
     min-height: 650px;
-
-    background:
-        linear-gradient(
-            rgba(3, 70, 148, 0.35),
-            rgba(10, 26, 74, 0.85)
-        ),
-        url("images/chelsea-team.jpg");
-
-    background-size: cover;
-    background-position: center;
-
+    background: var(--chelsea-blue);
     display: flex;
     align-items: flex-end;
-
-    color: #ffffff;
-
+    color: var(--white);
     padding: 5rem 7%;
     box-sizing: border-box;
 }
 
 .about-hero-content {
-    max-width: 900px;
+    max-width: 800px;
 }
 
 .about-hero .section-tag {
     display: inline-block;
-
-    background: #1e6fd9;
-    color: #ffffff;
-
-    padding: 0.5rem 1rem;
-
-    font-size: 0.8rem;
+    background: var(--chelsea-gold);
+    color: var(--chelsea-blue);
+    padding: 0.6rem 1.2rem;
+    font-size: 0.85rem;
     font-weight: 800;
-    letter-spacing: 2px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 1.2rem;
 }
 
 .about-hero h1 {
-    margin: 1rem 0 0.5rem;
-
-    font-size: clamp(3.5rem, 8vw, 7rem);
+    font-size: clamp(3rem, 7vw, 6rem);
     line-height: 0.95;
-
-    text-transform: uppercase;
+    margin: 0;
     font-weight: 900;
+    color: var(--white);
 }
 
 .about-hero p {
-    font-size: 1.3rem;
-    max-width: 650px;
+    max-width: 700px;
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin-top: 1.5rem;
+    color: var(--white);
 }
 
 
-/* ---------------------------------------------------------
+/* =========================================
    GENERAL SECTION STYLING
-   --------------------------------------------------------- */
-
-.about-section {
-    padding: 6rem 7%;
-}
+========================================= */
 
 .section-heading {
     margin-bottom: 3rem;
 }
 
 .section-heading h2 {
-    color: #034694;
-
-    font-size: clamp(2rem, 5vw, 4rem);
-
-    text-transform: uppercase;
+    color: var(--chelsea-blue);
+    font-size: clamp(2rem, 4vw, 3.5rem);
+    line-height: 1.1;
     font-weight: 900;
-
-    line-height: 1;
+    margin: 0;
 }
 
 .section-heading::after {
     content: "";
-
     display: block;
-
     width: 70px;
-    height: 5px;
-
-    background: #1e6fd9;
-
+    height: 6px;
+    background: var(--chelsea-gold);
     margin-top: 1rem;
 }
 
-
-/* ---------------------------------------------------------
-   ABOUT INTRODUCTION
-   --------------------------------------------------------- */
-
-.about-introduction {
-    background: #ffffff;
+.section-tag {
+    color: var(--chelsea-blue);
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
-.about-introduction-content {
+
+/* =========================================
+   ABOUT INTRODUCTION
+========================================= */
+
+.about-introduction {
+    padding: 7rem 7%;
+    background: var(--white);
+}
+
+.about-introduction-grid {
     display: grid;
-
     grid-template-columns: 1fr 1fr;
-
-    gap: 4rem;
-
+    gap: 5rem;
     align-items: center;
 }
 
-.about-text p {
-    margin-bottom: 1.5rem;
+.about-introduction-text {
+    max-width: 700px;
+}
+
+.about-introduction-text p {
+    color: var(--dark-text);
+    font-size: 1.05rem;
+    line-height: 1.9;
+    margin-bottom: 1.4rem;
 }
 
 .about-image {
@@ -1449,648 +1447,759 @@ input.invalid, select.invalid { border-color: var(--error); }
 .about-image img {
     width: 100%;
     height: 500px;
-
     object-fit: cover;
-
-    display: block;
 }
 
 .about-image::after {
     content: "";
-
     position: absolute;
+    width: 100px;
+    height: 100px;
+    background: var(--chelsea-gold);
+    right: -25px;
+    bottom: -25px;
+    z-index: 0;
+}
 
-    right: -15px;
-    bottom: -15px;
-
-    width: 120px;
-    height: 120px;
-
-    background: #034694;
-
-    z-index: -1;
+.about-image img {
+    position: relative;
+    z-index: 1;
 }
 
 
-/* ---------------------------------------------------------
+/* =========================================
    HISTORY SECTION
-   --------------------------------------------------------- */
+========================================= */
 
 .history-section {
-    background: #f3f7fc;
+    padding: 7rem 7%;
+    background: var(--light-bg);
 }
 
-.history-section > p {
-    max-width: 850px;
-
-    font-size: 1.1rem;
-
+.history-introduction {
+    max-width: 800px;
     margin-bottom: 4rem;
 }
 
+.history-introduction p {
+    font-size: 1.05rem;
+    line-height: 1.9;
+}
 
-/* History cards */
-
-.history-timeline {
+.history-grid {
     display: grid;
-
-    grid-template-columns: repeat(2, 1fr);
-
+    grid-template-columns: repeat(3, 1fr);
     gap: 2rem;
 }
 
 .history-card {
-    background: #ffffff;
-
-    display: grid;
-
-    grid-template-columns: 40% 60%;
-
-    min-height: 280px;
-
-    box-shadow: 0 8px 25px rgba(3, 70, 148, 0.08);
-
-    overflow: hidden;
-
-    transition: transform 0.3s ease,
-                box-shadow 0.3s ease;
+    background: var(--white);
+    padding: 2.5rem;
+    border-top: 6px solid var(--chelsea-blue);
+    box-shadow: 0 12px 30px rgba(14, 30, 125, 0.10);
+    transition: transform 0.3s ease;
 }
 
 .history-card:hover {
     transform: translateY(-8px);
-
-    box-shadow: 0 15px 35px rgba(3, 70, 148, 0.18);
-}
-
-.history-image {
-    height: 100%;
-}
-
-.history-image img {
-    width: 100%;
-    height: 100%;
-
-    object-fit: cover;
-
-    display: block;
-}
-
-.history-content {
-    padding: 2rem;
 }
 
 .history-year {
-    color: #1e6fd9;
-
-    font-size: 0.85rem;
-
+    color: var(--chelsea-gold);
+    font-size: 2.4rem;
     font-weight: 900;
-
-    letter-spacing: 2px;
+    margin-bottom: 1rem;
 }
 
 .history-content h3 {
-    color: #034694;
+    color: var(--chelsea-blue);
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
 
-    font-size: 1.7rem;
-
-    margin: 0.7rem 0;
+.history-content p {
+    color: var(--dark-text);
+    line-height: 1.7;
 }
 
 
-/* ---------------------------------------------------------
+/* =========================================
+   MOMENTS IN TIME
+========================================= */
+
+.history-years {
+    padding: 7rem 7%;
+    background: var(--white);
+}
+
+.moments-slider {
+    position: relative;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.moment-card {
+    display: none;
+    grid-template-columns: 1fr 1fr;
+    background: var(--light-bg);
+    min-height: 500px;
+}
+
+.moment-card.active-moment {
+    display: grid;
+}
+
+.moment-image {
+    position: relative;
+    min-height: 500px;
+}
+
+.moment-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* NO GRADIENT */
+.moment-image::after {
+    content: none;
+}
+
+.moment-content {
+    background: var(--light-bg);
+    padding: 4rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+}
+
+.moment-content::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 8px;
+    height: 100%;
+    background: var(--chelsea-gold);
+}
+
+.moment-year {
+    color: var(--chelsea-gold);
+    font-size: 3rem;
+    font-weight: 900;
+    margin-bottom: 1rem;
+}
+
+.moment-content h3 {
+    color: var(--chelsea-blue);
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.moment-content p {
+    line-height: 1.8;
+    color: var(--dark-text);
+}
+
+.moment-controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.moment-arrow {
+    width: 50px;
+    height: 50px;
+    border: 2px solid var(--chelsea-blue);
+    background: var(--white);
+    color: var(--chelsea-blue);
+    font-size: 1.5rem;
+    font-weight: 800;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.moment-arrow:hover {
+    background: var(--chelsea-blue);
+    color: var(--chelsea-gold);
+}
+
+#momentCounter {
+    color: var(--chelsea-blue);
+    font-weight: 800;
+    min-width: 60px;
+    text-align: center;
+}
+
+
+/* =========================================
    STAMFORD BRIDGE
-   Full-width image section
-   --------------------------------------------------------- */
+========================================= */
 
-.about-page .stadium-section {
+.stadium-section {
     min-height: 650px;
-
-    background:
-        linear-gradient(
-            rgba(3, 70, 148, 0.25),
-            rgba(10, 26, 74, 0.9)
-        ),
-        url("images/stamford-bridge.jpg");
-
-    background-size: cover;
-    background-position: center;
-
+    background: var(--chelsea-blue);
     display: flex;
     align-items: flex-end;
-
     padding: 6rem 7%;
-
-    color: #ffffff;
-
+    color: var(--white);
     box-sizing: border-box;
 }
 
-.about-page .stadium-container {
-    width: 100%;
+.stadium-content {
+    max-width: 750px;
 }
 
-.about-page .stadium-image {
-    display: none;
+.stadium-content .section-tag {
+    display: inline-block;
+    background: var(--chelsea-gold);
+    color: var(--chelsea-blue);
+    padding: 0.6rem 1rem;
+    margin-bottom: 1.2rem;
 }
 
-.about-page .stadium-content {
-    max-width: 800px;
-}
-
-.about-page .stadium-content .section-tag {
-    color: #ffffff;
-
-    font-size: 0.85rem;
-
+.stadium-content h2 {
+    color: var(--white);
+    font-size: clamp(2.5rem, 5vw, 4.5rem);
+    margin: 0 0 1.5rem;
     font-weight: 900;
-
-    letter-spacing: 3px;
 }
 
-.about-page .stadium-content h2 {
-    font-size: clamp(3rem, 7vw, 6rem);
-
-    text-transform: uppercase;
-
-    line-height: 0.95;
-
-    margin: 1rem 0;
-}
-
-.about-page .stadium-content p {
-    max-width: 700px;
-
+.stadium-content p {
+    color: var(--white);
+    line-height: 1.8;
     font-size: 1.05rem;
 }
 
 
-/* ---------------------------------------------------------
+/* =========================================
    CLUB COLOURS
-   --------------------------------------------------------- */
+========================================= */
 
 .colours-section {
-    background: #ffffff;
+    padding: 7rem 7%;
+    background: var(--white);
 }
-
-.colours-content {
-    display: grid;
-
-    grid-template-columns: 1fr 1fr;
-
-    gap: 4rem;
-
-    align-items: center;
-}
-
-.colours-text p {
-    margin-bottom: 1.5rem;
-}
-
-.colour-image img {
-    width: 100%;
-    height: 500px;
-
-    object-fit: cover;
-
-    display: block;
-}
-
-
-/* Colour information box */
 
 .club-colours {
-    margin-top: 2rem;
-
-    padding: 2rem;
-
-    background: #034694;
-
-    color: #ffffff;
+    background: var(--chelsea-blue);
+    color: var(--white);
+    padding: 4rem;
+    border-left: 10px solid var(--chelsea-gold);
 }
 
 .club-colours h3 {
-    margin-top: 0;
-
-    font-size: 1.5rem;
-
-    text-transform: uppercase;
+    color: var(--chelsea-gold);
+    font-size: 2rem;
+    margin-bottom: 1.2rem;
 }
 
 .club-colours p {
-    margin: 0.5rem 0;
+    color: var(--white);
+    line-height: 1.8;
+    font-size: 1.05rem;
+}
+
+.colour-display {
+    display: flex;
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.colour-box {
+    min-width: 150px;
+    padding: 2rem;
+    text-align: center;
+    font-weight: 800;
+}
+
+.colour-blue {
+    background: var(--chelsea-blue);
+    color: var(--white);
+    border: 2px solid var(--white);
+}
+
+.colour-gold {
+    background: var(--chelsea-gold);
+    color: var(--chelsea-blue);
 }
 
 
-/* ---------------------------------------------------------
-   HONOURS / TROPHY SECTION
-   --------------------------------------------------------- */
+/* =========================================
+   TROPHY CABINET / HONOURS
+========================================= */
 
 .honours-section {
-    background: #034694;
-
-    color: #ffffff;
-
-    padding: 6rem 7%;
+    padding: 7rem 7%;
+    background: var(--chelsea-blue);
+    color: var(--white);
+    margin-top: 6rem;
+    margin-bottom: 6rem;
 }
 
 .honours-section .section-heading h2 {
-    color: #ffffff;
+    color: var(--white);
 }
 
 .honours-section .section-heading::after {
-    background: #ffffff;
+    background: var(--chelsea-gold);
 }
 
-.trophy-image {
-    width: 100%;
-
+.honours-introduction {
+    max-width: 800px;
     margin-bottom: 3rem;
 }
 
-.trophy-image img {
-    width: 100%;
-
-    height: 500px;
-
-    object-fit: cover;
-
-    display: block;
+.honours-introduction p {
+    color: var(--white);
+    line-height: 1.8;
 }
 
-.honours-section > p {
-    max-width: 900px;
+.honours-table-wrapper {
+    overflow-x: auto;
 }
-
-
-/* Honours table */
 
 .honours-table {
     width: 100%;
-
     border-collapse: collapse;
-
-    margin-top: 3rem;
-
-    background: #ffffff;
-
-    color: #0a1a4a;
+    background: var(--white);
+    color: var(--dark-text);
 }
 
 .honours-table th {
-    background: #0a1a4a;
-
-    color: #ffffff;
-
+    background: var(--chelsea-blue);
+    color: var(--chelsea-gold);
+    padding: 1.3rem;
     text-align: left;
-
-    padding: 1.2rem;
+    font-weight: 900;
+    border-bottom: 4px solid var(--chelsea-gold);
 }
 
 .honours-table td {
-    padding: 1.2rem;
-
-    border-bottom: 1px solid #dce6f2;
+    padding: 1.2rem 1.3rem;
+    border-bottom: 1px solid #DDDFEA;
 }
 
 .honours-table tr:hover td {
-    background: #eef5ff;
+    background: #FFF8E6;
 }
 
 
-/* ---------------------------------------------------------
+/* =========================================
    CHELSEA TODAY
-   --------------------------------------------------------- */
+========================================= */
 
 .today-section {
-    background: #ffffff;
+    padding: 7rem 7%;
+    background: var(--white);
 }
 
-.featured-image {
-    margin-bottom: 3rem;
+.today-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
 }
 
-.featured-image img {
+.today-image img {
     width: 100%;
-
-    height: 600px;
-
+    height: 500px;
     object-fit: cover;
-
-    display: block;
 }
 
-.today-section > p {
-    max-width: 950px;
-
-    margin-bottom: 1.5rem;
+.today-content p {
+    color: var(--dark-text);
+    line-height: 1.9;
+    margin-bottom: 1.3rem;
 }
 
 
-/* ---------------------------------------------------------
+/* =========================================
    CHELSEA CLUB FACTS
-   --------------------------------------------------------- */
+========================================= */
 
 .facts-section {
-    background: #f3f7fc;
-
-    padding: 6rem 7%;
+    padding: 7rem 7%;
+    background: var(--light-bg);
 }
 
-.facts-section > p {
-    max-width: 850px;
-
-    margin-bottom: 3rem;
+.facts-slider {
+    max-width: 900px;
+    margin: 0 auto;
 }
 
-.facts-table {
+.fact-card {
+    display: none;
+    background: var(--white);
+    min-height: 350px;
+    box-shadow: 0 12px 30px rgba(14, 30, 125, 0.10);
+}
+
+.fact-card.active-fact {
+    display: flex;
+}
+
+.fact-content {
+    position: relative;
+    padding: 4rem;
     width: 100%;
-
-    border-collapse: collapse;
-
-    background: #ffffff;
-
-    box-shadow: 0 8px 25px rgba(3, 70, 148, 0.08);
 }
 
-.facts-table th {
-    width: 35%;
-
-    background: #034694;
-
-    color: #ffffff;
-
-    text-align: left;
-
-    padding: 1.2rem;
+.fact-content::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 8px;
+    height: 100%;
+    background: var(--chelsea-gold);
 }
 
-.facts-table td {
-    padding: 1.2rem;
-
-    border-bottom: 1px solid #e0e8f2;
+.fact-number {
+    color: var(--chelsea-gold);
+    font-size: 4rem;
+    font-weight: 900;
+    line-height: 1;
+    margin-bottom: 1rem;
 }
 
-.facts-table tr:hover td {
-    background: #eef5ff;
+.fact-content h3 {
+    color: var(--chelsea-blue);
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.fact-content p {
+    color: var(--dark-text);
+    line-height: 1.8;
+}
+
+.fact-controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.fact-arrow {
+    width: 50px;
+    height: 50px;
+    border: 2px solid var(--chelsea-blue);
+    background: var(--white);
+    color: var(--chelsea-blue);
+    font-size: 1.5rem;
+    font-weight: 800;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.fact-arrow:hover {
+    background: var(--chelsea-blue);
+    color: var(--chelsea-gold);
+}
+
+#factCounter {
+    color: var(--chelsea-blue);
+    font-weight: 800;
+    min-width: 60px;
+    text-align: center;
 }
 
 
-/* ---------------------------------------------------------
+/* =========================================
    VISION AND MISSION
-   --------------------------------------------------------- */
+========================================= */
 
 .mission-section {
-    background: #ffffff;
+    padding: 7rem 7%;
+    background: var(--white);
+}
+
+.mission-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
 }
 
 .mission-card {
-    background: #0a1a4a;
-
-    color: #ffffff;
-
+    background: var(--chelsea-blue);
+    color: var(--white);
     padding: 3rem;
+    border-left: 8px solid var(--chelsea-gold);
+}
 
-    margin-bottom: 4rem;
-
-    border-left: 8px solid #1e6fd9;
+.mission-card h3 {
+    color: var(--chelsea-gold);
+    font-size: 2rem;
+    margin-bottom: 1rem;
 }
 
 .mission-card p {
-    font-size: 1.1rem;
-
-    max-width: 900px;
+    color: var(--white);
+    line-height: 1.8;
 }
 
 
-/* ---------------------------------------------------------
-   VIDEO SECTION
-   Add this section to the HTML when ready.
-   --------------------------------------------------------- */
+/* =========================================
+   CHELSEA THROUGH VIDEOS
+========================================= */
 
 .video-section {
-    background: #0a1a4a;
-
-    color: #ffffff;
-
-    padding: 6rem 7%;
+    padding: 7rem 7%;
+    background: var(--chelsea-blue);
+    color: var(--white);
+    margin-top: 6rem;
+    margin-bottom: 6rem;
 }
 
 .video-section .section-heading h2 {
-    color: #ffffff;
+    color: var(--white);
 }
 
 .video-section .section-heading::after {
-    background: #1e6fd9;
+    background: var(--chelsea-gold);
 }
 
-.main-video {
-    width: 100%;
-
+.video-introduction {
+    max-width: 800px;
     margin-bottom: 3rem;
-
-    background: #000000;
 }
 
-.main-video video {
-    width: 100%;
-
-    max-height: 650px;
-
-    display: block;
-}
-
-.video-grid {
-    display: grid;
-
-    grid-template-columns: repeat(3, 1fr);
-
-    gap: 1.5rem;
+.video-introduction p {
+    color: var(--white);
+    line-height: 1.8;
 }
 
 .video-card {
-    background: #034694;
-
-    overflow: hidden;
+    background: var(--chelsea-blue);
+    border: 3px solid var(--chelsea-gold);
+    padding: 1rem;
 }
 
-.video-card img {
+.video-card video {
     width: 100%;
-
-    height: 220px;
-
-    object-fit: cover;
-
     display: block;
 }
 
 .video-card-content {
-    padding: 1.5rem;
+    padding: 2rem 1rem 1rem;
 }
 
 .video-card-content h3 {
-    margin-top: 0;
-
-    font-size: 1.3rem;
+    color: var(--chelsea-gold);
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
 }
 
 .video-card-content p {
-    font-size: 0.95rem;
+    color: var(--white);
+    line-height: 1.7;
 }
 
 
-/* ---------------------------------------------------------
-   IMAGE STORY GRID
-   Add this section to create the magazine-style gallery
-   --------------------------------------------------------- */
+/* =========================================
+   CHELSEA STORIES
+========================================= */
+
+.story-section {
+    padding: 7rem 7%;
+    background: var(--white);
+    margin-bottom: 6rem;
+}
 
 .story-grid {
     display: grid;
-
-    grid-template-columns: repeat(4, 1fr);
-
-    grid-auto-rows: 250px;
-
-    gap: 1rem;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
 }
 
 .story-card {
     position: relative;
-
+    background: var(--chelsea-blue);
     overflow: hidden;
-
-    background: #034694;
-}
-
-.story-card.large {
-    grid-column: span 2;
-
-    grid-row: span 2;
 }
 
 .story-card img {
     width: 100%;
-
-    height: 100%;
-
+    height: 400px;
     object-fit: cover;
-
-    display: block;
-
-    transition: transform 0.5s ease;
-}
-
-.story-card:hover img {
-    transform: scale(1.08);
 }
 
 .story-overlay {
     position: absolute;
-
     left: 0;
     right: 0;
     bottom: 0;
-
     padding: 2rem;
-
-    color: #ffffff;
-
-    background: linear-gradient(
-        transparent,
-        rgba(10, 26, 74, 0.95)
-    );
+    color: var(--white);
+    background: var(--chelsea-blue);
 }
 
 .story-overlay h3 {
-    margin: 0;
-
+    color: var(--chelsea-gold);
     font-size: 1.5rem;
+    margin-bottom: 0.6rem;
+}
 
-    text-transform: uppercase;
+.story-overlay p {
+    color: var(--white);
+    line-height: 1.6;
+    margin: 0;
 }
 
 
-/* ---------------------------------------------------------
+/* =========================================
+   SPACE BETWEEN MAJOR SECTIONS
+========================================= */
+
+.story-section {
+    margin-bottom: 6rem;
+}
+
+.video-section {
+    margin-top: 6rem;
+    margin-bottom: 6rem;
+}
+
+.honours-section {
+    margin-top: 6rem;
+    margin-bottom: 6rem;
+}
+
+
+/* =========================================
    FOOTER
-   --------------------------------------------------------- */
+========================================= */
 
 .site-footer {
-    background: #0a1a4a;
-
-    color: #ffffff;
-
+    background: var(--chelsea-blue);
+    color: var(--white);
     text-align: center;
-
-    padding: 4rem 2rem;
+    padding: 3rem 1.5rem;
+    margin-top: 0;
+    border-top: 6px solid var(--chelsea-gold);
 }
 
 .site-footer h3 {
-    color: #ffffff;
-
-    font-size: 2rem;
-
-    margin-bottom: 0.5rem;
+    color: var(--chelsea-gold);
+    font-size: 1.8rem;
+    font-weight: 800;
+    margin: 0 0 0.8rem;
 }
 
 .site-footer p {
-    color: #d9e6f5;
+    color: var(--white);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin: 0.4rem 0;
+}
+
+.site-footer p:last-child {
+    margin-top: 1.5rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--chelsea-gold);
+    font-size: 0.85rem;
 }
 
 
-/* ---------------------------------------------------------
+/* =========================================
    RESPONSIVE DESIGN
-   --------------------------------------------------------- */
+========================================= */
 
-@media (max-width: 900px) {
+@media (max-width: 1000px) {
 
-    .about-introduction-content,
-    .colours-content {
+    .about-introduction-grid,
+    .today-grid {
         grid-template-columns: 1fr;
+        gap: 3rem;
     }
 
-    .history-timeline {
-        grid-template-columns: 1fr;
-    }
-
-    .video-grid {
-        grid-template-columns: 1fr 1fr;
+    .history-grid {
+        grid-template-columns: repeat(2, 1fr);
     }
 
     .story-grid {
         grid-template-columns: repeat(2, 1fr);
     }
 
-    .about-hero {
-        min-height: 550px;
-
-        padding: 4rem 5%;
+    .moment-card {
+        grid-template-columns: 1fr;
     }
 
-    .about-section,
-    .honours-section,
-    .facts-section,
-    .video-section {
-        padding: 5rem 5%;
+    .moment-image {
+        min-height: 400px;
     }
 
-    .featured-image img,
-    .trophy-image img,
-    .colour-image img {
-        height: 450px;
+    .mission-grid {
+        grid-template-columns: 1fr;
     }
 }
 
 
-/* ---------------------------------------------------------
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 768px) {
+
+    .about-hero {
+        min-height: 550px;
+        padding: 4rem 6%;
+    }
+
+    .about-introduction,
+    .history-section,
+    .history-years,
+    .colours-section,
+    .honours-section,
+    .today-section,
+    .facts-section,
+    .mission-section,
+    .video-section,
+    .story-section {
+        padding: 5rem 6%;
+    }
+
+    .stadium-section {
+        padding: 5rem 6%;
+        min-height: 550px;
+    }
+
+    .history-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .story-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .moment-content {
+        padding: 3rem;
+    }
+
+    .fact-content {
+        padding: 3rem;
+    }
+
+    .club-colours {
+        padding: 3rem;
+    }
+}
+
+
+/* =========================================
    MOBILE
-   --------------------------------------------------------- */
+========================================= */
 
 @media (max-width: 600px) {
 
     .about-hero {
         min-height: 500px;
-
-        padding: 3rem 1.5rem;
+        padding: 3rem 5%;
     }
 
     .about-hero h1 {
@@ -2101,71 +2210,161 @@ input.invalid, select.invalid { border-color: var(--error); }
         font-size: 1rem;
     }
 
-    .about-section,
+    .about-introduction,
+    .history-section,
+    .history-years,
+    .colours-section,
     .honours-section,
+    .today-section,
     .facts-section,
-    .video-section {
-        padding: 4rem 1.2rem;
+    .mission-section,
+    .video-section,
+    .story-section {
+        padding: 4rem 5%;
+    }
+
+    .stadium-section {
+        padding: 4rem 5%;
+        min-height: 500px;
+    }
+
+    .section-heading {
+        margin-bottom: 2rem;
     }
 
     .section-heading h2 {
-        font-size: 2.4rem;
+        font-size: 2.2rem;
     }
 
     .about-image img,
-    .colour-image img,
-    .featured-image img,
-    .trophy-image img {
+    .today-image img {
         height: 350px;
     }
 
+    .about-image::after {
+        width: 60px;
+        height: 60px;
+        right: -15px;
+        bottom: -15px;
+    }
+
     .history-card {
-        grid-template-columns: 1fr;
+        padding: 2rem;
     }
 
-    .history-image {
-        height: 220px;
+    .moment-card {
+        min-height: auto;
     }
 
-    .about-page .stadium-section {
-        min-height: 550px;
-
-        padding: 4rem 1.5rem;
+    .moment-image {
+        min-height: 280px;
     }
 
-    .about-page .stadium-content h2 {
+    .moment-content {
+        padding: 2.5rem 2rem;
+    }
+
+    .moment-year {
+        font-size: 2.5rem;
+    }
+
+    .moment-content h3 {
+        font-size: 1.6rem;
+    }
+
+    .fact-card {
+        min-height: auto;
+    }
+
+    .fact-content {
+        padding: 2.5rem 2rem;
+    }
+
+    .fact-number {
         font-size: 3rem;
     }
 
-    .video-grid {
-        grid-template-columns: 1fr;
+    .fact-content h3 {
+        font-size: 1.6rem;
     }
 
-    .story-grid {
-        grid-template-columns: 1fr;
-
-        grid-auto-rows: 300px;
+    .club-colours {
+        padding: 2.5rem 2rem;
     }
 
-    .story-card.large {
-        grid-column: span 1;
-
-        grid-row: span 1;
+    .colour-display {
+        flex-direction: column;
     }
 
-    .honours-table,
-    .facts-table {
-        font-size: 0.9rem;
-    }
-
-    .honours-table th,
-    .honours-table td,
-    .facts-table th,
-    .facts-table td {
-        padding: 0.8rem;
+    .colour-box {
+        width: 100%;
+        box-sizing: border-box;
     }
 
     .mission-card {
+        padding: 2.5rem 2rem;
+    }
+
+    .video-card {
+        padding: 0.6rem;
+    }
+
+    .video-card-content {
+        padding: 1.5rem 0.5rem 0.8rem;
+    }
+
+    .story-card img {
+        height: 320px;
+    }
+
+    .story-overlay {
+        position: relative;
+        padding: 1.5rem;
+    }
+
+    .honours-table {
+        min-width: 650px;
+    }
+
+    .honours-table-wrapper {
+        overflow-x: auto;
+    }
+
+    .site-footer {
+        padding: 2.5rem 1rem;
+    }
+}
+
+
+/* =========================================
+   SMALL MOBILE
+========================================= */
+
+@media (max-width: 400px) {
+
+    .about-hero h1 {
+        font-size: 2.5rem;
+    }
+
+    .section-heading h2 {
+        font-size: 1.9rem;
+    }
+
+    .moment-content,
+    .fact-content,
+    .mission-card,
+    .club-colours {
         padding: 2rem 1.5rem;
+    }
+
+    .moment-controls,
+    .fact-controls {
+        gap: 1rem;
+    }
+
+    .moment-arrow,
+    .fact-arrow {
+        width: 45px;
+        height: 45px;
     }
 }
