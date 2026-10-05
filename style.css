@@ -1281,7 +1281,7 @@ body {
 .hero{
   max-width: 460px; 
   margin: 0 auto;
-  background-color: blue;  /* BLUE BACKGROUND OF THE LEFT PANEL */
+  background-color: #feffff;  /* BLUE BACKGROUND OF THE LEFT PANEL */
 }
 
 .hero h1 {
@@ -1480,16 +1480,14 @@ input.invalid, select.invalid { border-color: var(--error); }
 
 
 
-
-
 /* =========================================
    CHELSEA ABOUT PAGE
-   COLOUR PALETTE
+   CLEAN BLUE COLOUR SCHEME
 ========================================= */
 
 :root {
     --chelsea-blue: #0E1E7D;
-    --chelsea-gold: #D99808;
+    --chelsea-light-blue: #1E6FD9;
     --white: #FFFFFF;
     --light-bg: #F5F6FC;
     --dark-text: #10152F;
@@ -1523,11 +1521,11 @@ input.invalid, select.invalid { border-color: var(--error); }
 
 .about-hero {
     min-height: 430px;
-    background: #0E1E7D;
+    background: var(--chelsea-blue);
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #FFFFFF;
+    color: var(--white);
     padding: 4rem 7%;
     box-sizing: border-box;
     text-align: center;
@@ -1541,65 +1539,53 @@ input.invalid, select.invalid { border-color: var(--error); }
 
 .about-hero .section-tag {
     display: inline-block;
-    background: #D99808;
-    color: #0E1E7D;
+    background: var(--white);
+    color: var(--chelsea-blue);
     padding: 0.7rem 1.3rem;
     font-size: 2.2rem;
     font-weight: 900;
     text-transform: uppercase;
     letter-spacing: 1.3px;
     margin-bottom: 1.2rem;
+
+    transition:
+        transform 0.3s ease,
+        background-color 0.3s ease,
+        color 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.about-hero .section-tag:hover {
+    transform: translateY(-5px);
+    background: var(--chelsea-light-blue);
+    color: var(--white);
+
+    box-shadow:
+        0 8px 20px rgba(14, 30, 125, 0.35);
 }
 
 .about-hero p {
     max-width: 750px;
     margin: 0 auto;
+
     font-size: 1.2rem;
     line-height: 1.7;
-    color: #FFFFFF;
+    color: var(--white);
     font-weight: 500;
-}
 
-/* =========================================
-   ABOUT HERO HEADING HOVER
-========================================= */
-
-.about-hero .section-tag {
     transition:
         transform 0.3s ease,
-        box-shadow 0.3s ease,
-        background-color 0.3s ease;
-}
-
-.about-hero .section-tag:hover {
-    transform: translateY(-5px);
-    background: #FFFFFF;
-    color: #0E1E7D;
-    box-shadow:
-        0 8px 20px rgba(217, 152, 8, 0.45),
-        0 0 18px rgba(217, 152, 8, 0.35);
-}
-
-/* =========================================
-   ABOUT HERO PARAGRAPH HOVER
-========================================= */
-
-.about-hero p {
-    transition:
-        transform 0.3s ease,
-        color 0.3s ease,
-        text-shadow 0.3s ease;
+        color 0.3s ease;
 }
 
 .about-hero p:hover {
     transform: translateY(-4px);
-    color: #D99808;
-    text-shadow: 0 5px 15px rgba(217, 152, 8, 0.35);
+    color: var(--chelsea-light-blue);
 }
 
 
 /* =========================================
-   GENERAL SECTION STYLING
+   GENERAL SECTION HEADING
 ========================================= */
 
 .section-heading {
@@ -1612,15 +1598,6 @@ input.invalid, select.invalid { border-color: var(--error); }
     line-height: 1.1;
     font-weight: 900;
     margin: 0;
-}
-
-.section-heading::after {
-    content: "";
-    display: block;
-    width: 70px;
-    height: 6px;
-    background: var(--chelsea-gold);
-    margin-top: 1rem;
 }
 
 .section-tag {
@@ -1637,31 +1614,9 @@ input.invalid, select.invalid { border-color: var(--error); }
 
 .about-introduction {
     padding: 3.5rem 7%;
-    background: #0E1E7D;
-    color: #10152F;
+    background: var(--chelsea-blue);
+    color: var(--white);
 }
-
-
-/* =========================================
-   INNER WHITE BACKGROUND
-========================================= */
-
-.about-introduction-content {
-    background: #FFFFFF;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 2.5rem;
-    align-items: stretch;
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 2.5rem;
-    border: 3px solid #D99808;
-}
-
-
-/* =========================================
-   CENTERED HEADING
-========================================= */
 
 .about-introduction .section-heading {
     text-align: center;
@@ -1669,39 +1624,71 @@ input.invalid, select.invalid { border-color: var(--error); }
 }
 
 .about-introduction .section-heading h2 {
-    color: #FFFFFF;
+    color: var(--white);
     font-size: 2.3rem;
     margin: 0;
 }
 
-.about-introduction .section-heading::after {
-    content: "";
-    display: block;
-    width: 65px;
-    height: 5px;
-    background: #D99808;
-    margin: 0.8rem auto 0;
+
+/* =========================================
+   INTRODUCTION CONTENT
+========================================= */
+
+.about-introduction-content {
+    background: var(--white);
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    gap: 2.5rem;
+    align-items: stretch;
+
+    max-width: 1100px;
+    margin: 0 auto;
+
+    padding: 2.5rem;
+
+    border: 3px solid var(--chelsea-light-blue);
 }
 
 
 /* =========================================
-   TEXT BOX
+   INTRODUCTION TEXT
 ========================================= */
 
 .about-text {
-    border: 3px solid #0E1E7D;
+    border: 3px solid var(--chelsea-blue);
+
     padding: 1.8rem 2rem;
+
     display: flex;
     flex-direction: column;
     justify-content: center;
-    background: #FFFFFF;
+
+    background: var(--white);
+
+    transition:
+        transform 0.3s ease,
+        border-color 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.about-text:hover {
+    transform: translateY(-6px);
+    border-color: var(--chelsea-light-blue);
+
+    box-shadow:
+        0 10px 25px rgba(14, 30, 125, 0.25);
 }
 
 .about-text p {
-    color: #10152F;
+    color: var(--dark-text);
+
     font-size: 0.98rem;
     line-height: 1.7;
+
     margin: 0 0 1rem;
+
     text-align: justify;
 }
 
@@ -1711,120 +1698,16 @@ input.invalid, select.invalid { border-color: var(--error); }
 
 
 /* =========================================
-   IMAGE BOX
+   INTRODUCTION IMAGE
 ========================================= */
 
 .about-image {
-    border: 3px solid #0E1E7D;
+    border: 3px solid var(--chelsea-blue);
+
     padding: 8px;
-    background: #FFFFFF;
-}
 
-.about-image img {
-    width: 100%;
-    height: 360px;
-    object-fit: cover;
-    display: block;
-}
+    background: var(--white);
 
-
-/* =========================================
-   TABLET
-========================================= */
-
-@media (max-width: 900px) {
-
-    .about-introduction {
-        padding: 3rem 6%;
-    }
-
-    .about-introduction-content {
-        grid-template-columns: 1fr;
-        max-width: 700px;
-        padding: 2rem;
-    }
-
-    .about-image img {
-        height: 400px;
-    }
-}
-
-
-/* =========================================
-   MOBILE
-========================================= */
-
-@media (max-width: 600px) {
-
-    .about-introduction {
-        padding: 2.5rem 5%;
-    }
-
-    .about-introduction .section-heading h2 {
-        font-size: 1.8rem;
-    }
-
-    .about-introduction-content {
-        padding: 1.2rem;
-        gap: 1.5rem;
-    }
-
-    .about-text {
-        padding: 1.5rem;
-        border-width: 2px;
-    }
-
-    .about-image {
-        border-width: 2px;
-    }
-
-    .about-text p {
-        font-size: 0.95rem;
-        line-height: 1.6;
-    }
-
-    .about-image img {
-        height: 300px;
-    }
-}
-
-/* =========================================
-   ABOUT INTRODUCTION HOVER EFFECTS
-========================================= */
-
-/* HEADING HOVER */
-
-.about-introduction .section-heading h2 {
-    transition:
-        transform 0.3s ease,
-        color 0.3s ease;
-}
-
-.about-introduction .section-heading h2:hover {
-    transform: translateY(-5px);
-    color: #D99808;
-}
-
-
-/* TEXT BOX HOVER */
-
-.about-text {
-    transition:
-        transform 0.3s ease,
-        border-color 0.3s ease,
-        box-shadow 0.3s ease;
-}
-
-.about-text:hover {
-    transform: translateY(-6px);
-    border-color: #D99808;
-    box-shadow: 0 10px 25px rgba(14, 30, 125, 0.25);
-}
-
-
-/* IMAGE BOX HOVER */
-
-.about-image {
     transition:
         transform 0.3s ease,
         border-color 0.3s ease,
@@ -1833,14 +1716,17 @@ input.invalid, select.invalid { border-color: var(--error); }
 
 .about-image:hover {
     transform: translateY(-6px);
-    border-color: #D99808;
-    box-shadow: 0 10px 25px rgba(14, 30, 125, 0.25);
+    border-color: var(--chelsea-light-blue);
+
+    box-shadow:
+        0 10px 25px rgba(14, 30, 125, 0.25);
 }
 
-
-/* IMAGE ITSELF HOVER */
-
 .about-image img {
+    width: 100%;
+    height: 360px;
+    object-fit: cover;
+
     transition: transform 0.4s ease;
 }
 
@@ -1855,13 +1741,8 @@ input.invalid, select.invalid { border-color: var(--error); }
 
 .history-section {
     padding: 4rem 7%;
-    background: #F5F6FC;
+    background: var(--light-bg);
 }
-
-
-/* =========================================
-   HISTORY HEADING
-========================================= */
 
 .history-section .section-heading {
     text-align: center;
@@ -1870,24 +1751,32 @@ input.invalid, select.invalid { border-color: var(--error); }
 
 .history-section .section-heading h2 {
     display: inline-block;
-    color: #FFFFFF;
-    background: #0E1E7D;
-    border: 3px solid #D99808;
+
+    color: var(--white);
+    background: var(--chelsea-blue);
+
     padding: 0.7rem 1.8rem;
+
     font-size: 2.3rem;
     font-weight: 800;
     margin: 0;
+
+    transition:
+        transform 0.3s ease,
+        background-color 0.3s ease,
+        color 0.3s ease,
+        box-shadow 0.3s ease;
 }
 
-.history-section .section-heading::after {
-    content: "";
-    display: block;
-    width: 65px;
-    height: 5px;
-    background: #D99808;
-    margin: 0.8rem auto 0;
-}
+.history-section .section-heading h2:hover {
+    transform: translateY(-5px);
 
+    background: var(--chelsea-light-blue);
+    color: var(--white);
+
+    box-shadow:
+        0 8px 20px rgba(14, 30, 125, 0.3);
+}
 
 
 /* =========================================
@@ -1907,32 +1796,65 @@ input.invalid, select.invalid { border-color: var(--error); }
 .history-card {
     display: grid;
     grid-template-columns: 280px 1fr;
+
     gap: 2rem;
     align-items: stretch;
 
-    background: #FFFFFF;
-    border: 3px solid #0E1E7D;
+    background: var(--white);
+    border: 3px solid var(--chelsea-blue);
 
     padding: 1.5rem;
     margin-bottom: 2rem;
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        border-color 0.3s ease;
+}
+
+.history-card:hover {
+    transform: translateY(-8px);
+
+    border-color: var(--chelsea-light-blue);
+
+    box-shadow:
+        0 10px 25px rgba(14, 30, 125, 0.35);
 }
 
 
 /* =========================================
-   HISTORY CARD IMAGE
+   HISTORY IMAGE
 ========================================= */
 
 .history-image {
-    border: 3px solid #D99808;
+    border: 3px solid var(--chelsea-light-blue);
+
     padding: 6px;
-    background: #FFFFFF;
+
+    background: var(--white);
+
+    transition:
+        border-color 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.history-card:hover .history-image {
+    border-color: var(--chelsea-blue);
+
+    box-shadow:
+        0 0 18px rgba(30, 111, 217, 0.35);
 }
 
 .history-image img {
     width: 100%;
     height: 210px;
     object-fit: cover;
-    display: block;
+
+    transition: transform 0.4s ease;
+}
+
+.history-card:hover .history-image img {
+    transform: scale(1.04);
 }
 
 
@@ -1947,165 +1869,42 @@ input.invalid, select.invalid { border-color: var(--error); }
 }
 
 .history-content h3 {
-    color: #0E1E7D;
+    color: var(--chelsea-blue);
+
     font-size: 1.6rem;
     font-weight: 800;
+
     margin: 0 0 1rem;
+
+    transition:
+        color 0.3s ease,
+        transform 0.3s ease;
+}
+
+.history-content h3:hover {
+    color: var(--chelsea-light-blue);
+    transform: translateX(4px);
 }
 
 .history-content p {
-    color: #10152F;
+    color: var(--dark-text);
+
     font-size: 1rem;
     line-height: 1.7;
+
     text-align: justify;
+
     margin: 0;
-}
 
-
-/* =========================================
-   TABLET
-========================================= */
-
-@media (max-width: 900px) {
-
-    .history-section {
-        padding: 3rem 6%;
-    }
-
-    .history-feature-image {
-        max-width: 750px;
-        margin-bottom: 3rem;
-    }
-
-    .history-feature-image img {
-        height: 350px;
-    }
-
-    .history-card {
-        grid-template-columns: 220px 1fr;
-        gap: 1.5rem;
-        padding: 1.2rem;
-    }
-
-    .history-image img {
-        height: 190px;
-    }
-
-    .history-content h3 {
-        font-size: 1.4rem;
-    }
-
-    .history-content p {
-        font-size: 0.95rem;
-    }
-}
-
-
-/* =========================================
-   MOBILE
-========================================= */
-
-@media (max-width: 600px) {
-
-    .history-section {
-        padding: 2.5rem 5%;
-    }
-
-    .history-section .section-heading h2 {
-        font-size: 1.8rem;
-        padding: 0.6rem 1.2rem;
-    }
-
-    .history-feature-image {
-        max-width: 100%;
-        padding: 6px;
-        margin-bottom: 2.5rem;
-    }
-
-    .history-feature-image img {
-        height: 280px;
-    }
-
-    .history-card {
-        grid-template-columns: 1fr;
-        gap: 1.2rem;
-        padding: 1rem;
-    }
-
-    .history-image img {
-        height: 220px;
-    }
-
-    .history-content h3 {
-        font-size: 1.3rem;
-    }
-
-    .history-content p {
-        font-size: 0.95rem;
-        line-height: 1.6;
-    }
-}
-
-/* =========================================
-   HISTORY CARD HOVER EFFECT
-========================================= */
-
-.history-card {
-    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
-}
-
-.history-card:hover {
-    transform: translateY(-8px);
-    border-color: #D99808;
-    box-shadow: 0 10px 25px rgba(14, 30, 125, 0.35);
-}
-
-
-/* =========================================
-   IMAGE HOVER EFFECT
-========================================= */
-
-.history-image {
-    transition: border-color 0.3s ease, box-shadow 0.3s ease;
-}
-
-.history-card:hover .history-image {
-    border-color: #0E1E7D;
-    box-shadow: 0 0 18px rgba(217, 152, 8, 0.55);
-}
-
-
-/* =========================================
-   IMAGE ZOOM EFFECT
-========================================= */
-
-.history-image img {
-    transition: transform 0.4s ease;
-}
-
-.history-card:hover .history-image img {
-    transform: scale(1.04);
-}
-
-/* =========================================
-   OUR HISTORY HEADING HOVER
-========================================= */
-
-.history-section .section-heading h2 {
     transition:
-        transform 0.3s ease,
-        background-color 0.3s ease,
         color 0.3s ease,
-        box-shadow 0.3s ease;
+        transform 0.3s ease;
 }
 
-.history-section .section-heading h2:hover {
-    transform: translateY(-5px);
-    background: #D99808;
-    color: #0E1E7D;
-    box-shadow: 0 8px 20px rgba(217, 152, 8, 0.4);
+.history-content p:hover {
+    color: var(--chelsea-blue);
+    transform: translateX(4px);
 }
-
 
 
 /* =========================================
@@ -2117,11 +1916,6 @@ input.invalid, select.invalid { border-color: var(--error); }
     background: var(--white);
 }
 
-
-/* =========================================
-   MOMENTS IN TIME HEADING
-========================================= */
-
 .history-years .section-heading {
     text-align: center;
     margin: 0 auto 2.5rem;
@@ -2129,12 +1923,15 @@ input.invalid, select.invalid { border-color: var(--error); }
 
 .history-years .section-heading h2 {
     display: inline-block;
+
     color: var(--white);
     background: var(--chelsea-blue);
-    border: 3px solid var(--chelsea-gold);
+
     padding: 0.7rem 1.8rem;
+
     font-size: 2.3rem;
     font-weight: 800;
+
     margin: 0;
 
     transition:
@@ -2144,30 +1941,14 @@ input.invalid, select.invalid { border-color: var(--error); }
         box-shadow 0.3s ease;
 }
 
-
-/* =========================================
-   MOMENTS HEADING HOVER
-========================================= */
-
 .history-years .section-heading h2:hover {
     transform: translateY(-5px);
-    background: var(--chelsea-gold);
-    color: var(--chelsea-blue);
-    box-shadow: 0 8px 20px rgba(217, 152, 8, 0.4);
-}
 
+    background: var(--chelsea-light-blue);
+    color: var(--white);
 
-/* =========================================
-   HEADING UNDERLINE
-========================================= */
-
-.history-years .section-heading::after {
-    content: "";
-    display: block;
-    width: 65px;
-    height: 5px;
-    background: var(--chelsea-gold);
-    margin: 0.8rem auto 0;
+    box-shadow:
+        0 8px 20px rgba(14, 30, 125, 0.3);
 }
 
 
@@ -2177,6 +1958,7 @@ input.invalid, select.invalid { border-color: var(--error); }
 
 .moments-slider {
     position: relative;
+
     max-width: 1100px;
     margin: 0 auto;
 }
@@ -2188,8 +1970,11 @@ input.invalid, select.invalid { border-color: var(--error); }
 
 .moment-card {
     display: none;
+
     grid-template-columns: 1fr 1fr;
+
     background: var(--light-bg);
+
     min-height: 500px;
 
     transition:
@@ -2201,6 +1986,13 @@ input.invalid, select.invalid { border-color: var(--error); }
     display: grid;
 }
 
+.moment-card:hover {
+    transform: translateY(-6px);
+
+    box-shadow:
+        0 12px 28px rgba(14, 30, 125, 0.25);
+}
+
 
 /* =========================================
    MOMENT IMAGE
@@ -2208,23 +2000,23 @@ input.invalid, select.invalid { border-color: var(--error); }
 
 .moment-image {
     position: relative;
+
     min-height: 500px;
+
     overflow: hidden;
 }
 
 .moment-image img {
     width: 100%;
     height: 100%;
+
     object-fit: cover;
 
     transition: transform 0.4s ease;
 }
 
-
-/* NO GRADIENT */
-
-.moment-image::after {
-    content: none;
+.moment-card:hover .moment-image img {
+    transform: scale(1.04);
 }
 
 
@@ -2234,21 +2026,28 @@ input.invalid, select.invalid { border-color: var(--error); }
 
 .moment-content {
     background: var(--light-bg);
+
     padding: 4rem;
+
     display: flex;
     flex-direction: column;
     justify-content: center;
+
     position: relative;
 }
 
 .moment-content::before {
     content: "";
+
     position: absolute;
+
     left: 0;
     top: 0;
+
     width: 8px;
     height: 100%;
-    background: var(--chelsea-gold);
+
+    background: var(--chelsea-blue);
 }
 
 
@@ -2257,14 +2056,21 @@ input.invalid, select.invalid { border-color: var(--error); }
 ========================================= */
 
 .moment-year {
-    color: var(--chelsea-gold);
+    color: var(--chelsea-blue);
+
     font-size: 3rem;
     font-weight: 900;
+
     margin-bottom: 1rem;
 
     transition:
         color 0.3s ease,
         transform 0.3s ease;
+}
+
+.moment-card:hover .moment-year {
+    color: var(--chelsea-light-blue);
+    transform: translateX(5px);
 }
 
 
@@ -2274,12 +2080,19 @@ input.invalid, select.invalid { border-color: var(--error); }
 
 .moment-content h3 {
     color: var(--chelsea-blue);
+
     font-size: 2rem;
+
     margin-bottom: 1rem;
 
     transition:
         color 0.3s ease,
         transform 0.3s ease;
+}
+
+.moment-content h3:hover {
+    color: var(--chelsea-light-blue);
+    transform: translateX(5px);
 }
 
 
@@ -2289,12 +2102,19 @@ input.invalid, select.invalid { border-color: var(--error); }
 
 .moment-content p {
     line-height: 1.8;
+
     color: var(--dark-text);
+
     text-align: justify;
 
     transition:
         color 0.3s ease,
         transform 0.3s ease;
+}
+
+.moment-content p:hover {
+    color: var(--chelsea-blue);
+    transform: translateX(4px);
 }
 
 
@@ -2304,9 +2124,12 @@ input.invalid, select.invalid { border-color: var(--error); }
 
 .moment-controls {
     display: flex;
+
     justify-content: center;
     align-items: center;
+
     gap: 1.5rem;
+
     margin-top: 2rem;
 }
 
@@ -2318,11 +2141,15 @@ input.invalid, select.invalid { border-color: var(--error); }
 .moment-arrow {
     width: 50px;
     height: 50px;
+
     border: 2px solid var(--chelsea-blue);
+
     background: var(--white);
     color: var(--chelsea-blue);
+
     font-size: 1.5rem;
     font-weight: 800;
+
     cursor: pointer;
 
     transition:
@@ -2333,7 +2160,8 @@ input.invalid, select.invalid { border-color: var(--error); }
 
 .moment-arrow:hover {
     background: var(--chelsea-blue);
-    color: var(--chelsea-gold);
+    color: var(--white);
+
     transform: translateY(-3px);
 }
 
@@ -2344,149 +2172,13 @@ input.invalid, select.invalid { border-color: var(--error); }
 
 #momentCounter {
     color: var(--chelsea-blue);
+
     font-weight: 800;
+
     min-width: 60px;
+
     text-align: center;
 }
-
-
-/* =========================================
-   WHOLE CARD HOVER
-========================================= */
-
-.moment-card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 12px 28px rgba(14, 30, 125, 0.25);
-}
-
-
-/* =========================================
-   IMAGE HOVER
-========================================= */
-
-.moment-card:hover .moment-image img {
-    transform: scale(1.04);
-}
-
-
-/* =========================================
-   YEAR HOVER
-========================================= */
-
-.moment-card:hover .moment-year {
-    color: var(--chelsea-blue);
-    transform: translateX(5px);
-}
-
-
-/* =========================================
-   ACHIEVEMENT HEADING HOVER
-========================================= */
-
-.moment-content h3:hover {
-    color: var(--chelsea-gold);
-    transform: translateX(5px);
-}
-
-
-/* =========================================
-   PARAGRAPH HOVER
-========================================= */
-
-.moment-content p:hover {
-    color: var(--chelsea-blue);
-    transform: translateX(4px);
-}
-
-
-/* =========================================
-   TABLET
-========================================= */
-
-@media (max-width: 900px) {
-
-    .history-years {
-        padding: 5rem 6%;
-    }
-
-    .history-years .section-heading h2 {
-        font-size: 2rem;
-    }
-
-    .moment-card {
-        grid-template-columns: 1fr 1fr;
-        min-height: 450px;
-    }
-
-    .moment-image {
-        min-height: 450px;
-    }
-
-    .moment-content {
-        padding: 2.5rem;
-    }
-
-    .moment-year {
-        font-size: 2.5rem;
-    }
-
-    .moment-content h3 {
-        font-size: 1.7rem;
-    }
-}
-
-
-/* =========================================
-   MOBILE
-========================================= */
-
-@media (max-width: 600px) {
-
-    .history-years {
-        padding: 4rem 5%;
-    }
-
-    .history-years .section-heading h2 {
-        font-size: 1.7rem;
-        padding: 0.6rem 1.2rem;
-    }
-
-    .moment-card {
-        grid-template-columns: 1fr;
-        min-height: auto;
-    }
-
-    .moment-image {
-        min-height: 280px;
-    }
-
-    .moment-content {
-        padding: 2rem;
-    }
-
-    .moment-year {
-        font-size: 2.2rem;
-    }
-
-    .moment-content h3 {
-        font-size: 1.5rem;
-    }
-
-    .moment-content p {
-        font-size: 0.95rem;
-        line-height: 1.7;
-    }
-
-    .moment-controls {
-        gap: 1rem;
-    }
-
-    .moment-arrow {
-        width: 45px;
-        height: 45px;
-    }
-}
-
 
 
 /* =========================================
@@ -2495,115 +2187,23 @@ input.invalid, select.invalid { border-color: var(--error); }
 
 .stadium-section {
     padding: 4rem 7%;
- 
+
     background: var(--chelsea-blue);
-    
-    color: var(--white);
-}
-
-
-
-/* =========================================
-   STADIUM HEADING
-========================================= */
-
-.stadium-section .section-tag {
-    display: block;
-    width: fit-content;
-    margin: 0 auto 1rem;
-
-    background: var(--chelsea-gold);
-    color: var(--chelsea-blue);
-
-    padding: 0.8rem 1.5rem;
-
-    font-size: 1rem;
-    font-weight: 900;
-    letter-spacing: 1px;
-    text-align: center;
-
-    transition:
-        transform 0.3s ease,
-        background-color 0.3s ease,
-        color 0.3s ease,
-        box-shadow 0.3s ease;
-}
-
-
-/* OUR HOME HOVER */
-
-.stadium-section .section-tag:hover {
-    transform: translateY(-5px);
-    background: var(--white);
-    color: var(--chelsea-blue);
-    box-shadow: 0 8px 20px rgba(217, 152, 8, 0.4);
-}
-
-
-/* =========================================
-   STAMFORD BRIDGE HEADING
-========================================= */
-
-.stadium-section > .stadium-container::before {
-    content: "STAMFORD BRIDGE";
-
-    display: block;
-    grid-column: 1 / -1;
 
     color: var(--white);
-    font-size: 2.3rem;
-    font-weight: 900;
-    text-align: center;
-
-    margin-bottom: 0.5rem;
-
-    transition:
-        color 0.3s ease,
-        transform 0.3s ease,
-        text-shadow 0.3s ease;
 }
-
-
-/* STAMFORD BRIDGE HOVER */
-
-.stadium-section > .stadium-container::before:hover {
-    color: var(--chelsea-gold);
-    transform: translateY(-5px);
-    text-shadow: 0 5px 15px rgba(217, 152, 8, 0.35);
-}
-
-
-/* =========================================
-   GOLD UNDERLINE
-========================================= */
-
-.stadium-section > .stadium-container::after {
-    content: "";
-    display: block;
-
-    grid-column: 1 / -1;
-
-    width: 65px;
-    height: 5px;
-
-    background: var(--chelsea-gold);
-
-    margin: 0 auto 2rem;
-}
-
-
-/* =========================================
-   STADIUM CONTAINER
-========================================= */
 
 .stadium-container {
     max-width: 1100px;
+
     margin: 0 auto;
 
     display: grid;
+
     grid-template-columns: 1fr 1fr;
 
     gap: 2.5rem;
+
     align-items: stretch;
 }
 
@@ -2614,9 +2214,10 @@ input.invalid, select.invalid { border-color: var(--error); }
 
 .stadium-content {
     background: var(--white);
+
     padding: 2.5rem;
 
-    border: 3px solid var(--chelsea-gold);
+    border: 3px solid var(--chelsea-light-blue);
 
     display: flex;
     flex-direction: column;
@@ -2630,22 +2231,39 @@ input.invalid, select.invalid { border-color: var(--error); }
 
 .stadium-content:hover {
     transform: translateY(-6px);
+
     border-color: var(--chelsea-blue);
-    box-shadow: 0 10px 25px rgba(217, 152, 8, 0.35);
+
+    box-shadow:
+        0 10px 25px rgba(14, 30, 125, 0.3);
 }
 
 
 /* =========================================
-   HIDE ORIGINAL STAMFORD BRIDGE H2
+   STADIUM HEADING
 ========================================= */
 
 .stadium-content h2 {
-    display: none;
+    color: var(--chelsea-blue);
+
+    font-size: 2.2rem;
+    font-weight: 900;
+
+    margin: 0 0 1.5rem;
+
+    transition:
+        color 0.3s ease,
+        transform 0.3s ease;
+}
+
+.stadium-content h2:hover {
+    color: var(--chelsea-light-blue);
+    transform: translateX(4px);
 }
 
 
 /* =========================================
-   PARAGRAPHS
+   STADIUM PARAGRAPHS
 ========================================= */
 
 .stadium-content p {
@@ -2678,8 +2296,10 @@ input.invalid, select.invalid { border-color: var(--error); }
 ========================================= */
 
 .stadium-image {
-    border: 3px solid var(--chelsea-gold);
+    border: 3px solid var(--chelsea-light-blue);
+
     padding: 8px;
+
     background: var(--white);
 
     overflow: hidden;
@@ -2691,16 +2311,18 @@ input.invalid, select.invalid { border-color: var(--error); }
 
 .stadium-image:hover {
     transform: translateY(-6px);
-    box-shadow: 0 10px 25px rgba(217, 152, 8, 0.4);
+
+    box-shadow:
+        0 10px 25px rgba(14, 30, 125, 0.3);
 }
 
 .stadium-image img {
     width: 100%;
     height: 100%;
+
     min-height: 420px;
 
     object-fit: cover;
-    display: block;
 
     transition: transform 0.4s ease;
 }
@@ -2711,27 +2333,701 @@ input.invalid, select.invalid { border-color: var(--error); }
 
 
 /* =========================================
+   VIDEO SECTION
+========================================= */
+
+.video-section {
+    padding: 6rem 8%;
+
+    background: var(--light-bg);
+
+    text-align: center;
+}
+
+
+/* =========================================
+   VIDEO HEADING
+========================================= */
+
+.video-section .section-heading {
+    text-align: center;
+
+    margin-bottom: 3.5rem;
+}
+
+.video-section .section-heading h2 {
+    margin: 0;
+
+    color: var(--chelsea-blue);
+
+    font-size: 2.8rem;
+    font-weight: 800;
+
+    letter-spacing: 2px;
+
+    text-align: center;
+
+    display: inline-block;
+
+    transition:
+        color 0.3s ease,
+        transform 0.3s ease;
+}
+
+.video-section .section-heading h2:hover {
+    color: var(--chelsea-light-blue);
+    transform: translateY(-3px);
+}
+
+
+/* =========================================
+   MAIN VIDEO
+========================================= */
+
+.main-video {
+    width: 100%;
+
+    max-width: 1100px;
+
+    margin: 0 auto 3rem;
+}
+
+.main-video .ctv-video {
+    position: relative;
+
+    display: block;
+
+    width: 100%;
+
+    aspect-ratio: 16 / 9;
+
+    overflow: hidden;
+
+    border-radius: 18px;
+
+    text-decoration: none;
+
+    background: #000;
+}
+
+.main-video .ctv-video img {
+    width: 100%;
+    height: 100%;
+
+    display: block;
+
+    object-fit: cover;
+}
+
+.main-video .play-btn {
+    position: absolute;
+
+    top: 50%;
+    left: 50%;
+
+    transform: translate(-50%, -50%);
+}
+
+
+/* =========================================
+   VIDEO GRID
+========================================= */
+
+.video-grid {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 2rem;
+
+    max-width: 1200px;
+
+    margin: 0 auto;
+}
+
+
+/* =========================================
+   VIDEO CARD
+========================================= */
+
+.video-card {
+    background: var(--white);
+
+    border-radius: 16px;
+
+    overflow: hidden;
+
+    box-shadow:
+        0 10px 30px rgba(14, 30, 125, 0.12);
+
+    transition:
+        transform 0.35s ease,
+        box-shadow 0.35s ease;
+}
+
+.video-card:hover {
+    transform: translateY(-10px);
+
+    box-shadow:
+        0 20px 45px rgba(14, 30, 125, 0.2);
+}
+
+
+/* =========================================
+   VIDEO PLAYER
+========================================= */
+
+.video-card-player {
+    width: 100%;
+
+    aspect-ratio: 16 / 9;
+
+    background: #000000;
+
+    overflow: hidden;
+}
+
+.video-card-player iframe {
+    width: 100%;
+    height: 100%;
+
+    border: none;
+
+    display: block;
+
+    transition: transform 0.4s ease;
+}
+
+.video-card:hover .video-card-player iframe {
+    transform: scale(1.03);
+}
+
+
+/* =========================================
+   VIDEO CARD CONTENT
+========================================= */
+
+.video-card-content {
+    padding: 1.8rem 1.5rem;
+
+    text-align: center;
+}
+
+.video-card-content h3 {
+    margin: 0 0 0.8rem;
+
+    color: var(--chelsea-blue);
+
+    font-size: 1.3rem;
+    font-weight: 800;
+
+    transition:
+        color 0.25s ease,
+        transform 0.25s ease;
+}
+
+.video-card:hover .video-card-content h3 {
+    color: var(--chelsea-light-blue);
+
+    transform: translateY(-3px);
+}
+
+.video-card-content p {
+    margin: 0 auto;
+
+    max-width: 350px;
+
+    color: var(--dark-text);
+
+    font-size: 1rem;
+    line-height: 1.7;
+
+    text-align: center;
+}
+
+
+/* =========================================
+   TROPHY CABINET
+========================================= */
+
+.honours-section {
+    padding: 7rem 8%;
+
+    background: var(--light-bg);
+
+    overflow: hidden;
+}
+
+.honours-section .section-heading {
+    max-width: 850px;
+
+    margin: 0 auto 4rem;
+
+    text-align: center;
+}
+
+.honours-section .section-heading h2 {
+    color: var(--chelsea-blue);
+
+    font-size: 3rem;
+    font-weight: 800;
+
+    letter-spacing: 1px;
+
+    transition:
+        color 0.3s ease,
+        transform 0.3s ease;
+}
+
+.honours-section .section-heading h2:hover {
+    color: var(--chelsea-light-blue);
+
+    transform: translateY(-5px);
+}
+
+
+/* =========================================
+   TROPHY GALLERY
+========================================= */
+
+.trophy-gallery {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 1.6rem;
+
+    max-width: 1050px;
+
+    margin: 0 auto 4rem;
+}
+
+.trophy-image {
+    position: relative;
+
+    height: 330px;
+
+    overflow: hidden;
+
+    border-radius: 16px;
+
+    background: var(--chelsea-blue);
+
+    box-shadow:
+        0 10px 30px rgba(14, 30, 125, 0.12);
+
+    transition:
+        transform 0.4s ease,
+        box-shadow 0.4s ease;
+}
+
+.trophy-image:hover {
+    transform: translateY(-9px);
+
+    box-shadow:
+        0 20px 40px rgba(14, 30, 125, 0.22);
+}
+
+.trophy-image img {
+    width: 100%;
+    height: 100%;
+
+    display: block;
+
+    object-fit: cover;
+
+    transition:
+        transform 0.6s ease,
+        filter 0.4s ease;
+}
+
+.trophy-image:hover img {
+    transform: scale(1.08);
+
+    filter: brightness(0.65);
+}
+
+
+/* =========================================
+   TROPHY IMAGE BORDER
+========================================= */
+
+.trophy-image::after {
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    border: 2px solid transparent;
+
+    border-radius: 16px;
+
+    pointer-events: none;
+
+    transition:
+        border-color 0.35s ease;
+}
+
+.trophy-image:hover::after {
+    border-color: var(--chelsea-light-blue);
+}
+
+
+/* =========================================
+   HONOURS TABLE
+========================================= */
+
+.honours-table-wrapper {
+    width: 72%;
+
+    max-width: 780px;
+
+    margin: 0 auto;
+
+    background: var(--white);
+
+    border-radius: 12px;
+
+    overflow: hidden;
+
+    box-shadow:
+        0 8px 25px rgba(14, 30, 125, 0.1);
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.honours-table-wrapper:hover {
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 14px 35px rgba(14, 30, 125, 0.15);
+}
+
+
+/* =========================================
+   BOOTSTRAP TABLE
+========================================= */
+
+.honours-table-wrapper .table {
+    margin-bottom: 0;
+}
+
+.honours-table-wrapper .table thead {
+    background: var(--chelsea-blue);
+
+    color: var(--white);
+}
+
+.honours-table-wrapper .table thead th {
+    background: var(--chelsea-blue);
+
+    color: var(--white);
+
+    font-size: 0.8rem;
+    font-weight: 800;
+
+    text-transform: uppercase;
+}
+
+.honours-table-wrapper .table tbody td {
+    color: var(--dark-text);
+
+    font-size: 0.85rem;
+
+    vertical-align: middle;
+}
+
+.honours-table-wrapper .table tbody td:first-child {
+    color: var(--chelsea-blue);
+
+    font-weight: 700;
+}
+
+.honours-table-wrapper .table tbody tr {
+    transition:
+        background-color 0.25s ease;
+}
+
+.honours-table-wrapper .table tbody tr:hover {
+    background: var(--light-bg);
+}
+
+
+/* =========================================
+   VISION AND MISSION
+========================================= */
+
+.mission-section {
+    padding: 7rem 7%;
+
+    background: var(--white);
+}
+
+.mission-section .section-heading {
+    width: 100%;
+
+    text-align: center;
+
+    margin-bottom: 2rem;
+}
+
+.mission-section .section-heading h2 {
+    color: var(--chelsea-blue);
+
+    font-size: 2.5rem;
+    font-weight: 800;
+
+    text-align: center;
+
+    margin: 0 auto;
+
+    display: inline-block;
+
+    transition:
+        color 0.3s ease,
+        transform 0.3s ease;
+}
+
+.mission-section .section-heading h2:hover {
+    color: var(--chelsea-light-blue);
+
+    transform: translateY(-4px);
+}
+
+
+/* =========================================
+   MISSION CARDS
+========================================= */
+
+.mission-card {
+    background: var(--chelsea-blue);
+
+    color: var(--white);
+
+    padding: 3rem;
+
+    border-left: 8px solid var(--chelsea-light-blue);
+
+    border-radius: 12px;
+
+    margin-bottom: 4rem;
+
+    transition:
+        transform 0.35s ease,
+        box-shadow 0.35s ease;
+}
+
+.mission-card:hover {
+    transform: translateY(-8px);
+
+    box-shadow:
+        0 20px 45px rgba(14, 30, 125, 0.25);
+}
+
+.mission-card p {
+    color: var(--white);
+
+    line-height: 1.8;
+
+    text-align: justify;
+
+    margin-bottom: 1.2rem;
+}
+
+.mission-card p:last-child {
+    margin-bottom: 0;
+}
+
+
+/* =========================================
+   CHELSEA STORIES
+========================================= */
+
+.story-section {
+    padding: 7rem 7%;
+
+    background: var(--white);
+
+    margin-bottom: 6rem;
+}
+
+.story-grid {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 2rem;
+}
+
+.story-card {
+    position: relative;
+
+    background: var(--chelsea-blue);
+
+    overflow: hidden;
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.story-card:hover {
+    transform: translateY(-8px);
+
+    box-shadow:
+        0 15px 35px rgba(14, 30, 125, 0.25);
+}
+
+.story-card img {
+    width: 100%;
+    height: 400px;
+
+    object-fit: cover;
+
+    transition: transform 0.4s ease;
+}
+
+.story-card:hover img {
+    transform: scale(1.04);
+}
+
+.story-overlay {
+    position: absolute;
+
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    padding: 2rem;
+
+    color: var(--white);
+
+    background: var(--chelsea-blue);
+}
+
+.story-overlay h3 {
+    color: var(--chelsea-light-blue);
+
+    font-size: 1.5rem;
+
+    margin-bottom: 0.6rem;
+}
+
+.story-overlay p {
+    color: var(--white);
+
+    line-height: 1.6;
+
+    margin: 0;
+}
+
+
+/* =========================================
    TABLET
 ========================================= */
 
 @media (max-width: 900px) {
 
+    .about-introduction {
+        padding: 3rem 6%;
+    }
+
+    .about-introduction-content {
+        grid-template-columns: 1fr;
+
+        max-width: 700px;
+
+        padding: 2rem;
+    }
+
+    .about-image img {
+        height: 400px;
+    }
+
+    .history-section {
+        padding: 3rem 6%;
+    }
+
+    .history-card {
+        grid-template-columns: 220px 1fr;
+
+        gap: 1.5rem;
+
+        padding: 1.2rem;
+    }
+
+    .history-image img {
+        height: 190px;
+    }
+
+    .history-content h3 {
+        font-size: 1.4rem;
+    }
+
+    .history-content p {
+        font-size: 0.95rem;
+    }
+
+    .moment-card {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .moment-image {
+        min-height: 450px;
+    }
+
+    .moment-content {
+        padding: 2.5rem;
+    }
+
+    .moment-year {
+        font-size: 2.5rem;
+    }
+
+    .moment-content h3 {
+        font-size: 1.7rem;
+    }
+
     .stadium-section {
         padding: 3.5rem 6%;
     }
 
-    .stadium-section > .stadium-container::before {
-        font-size: 2rem;
-    }
-
     .stadium-container {
         grid-template-columns: 1fr;
+
         max-width: 700px;
     }
 
     .stadium-image img {
         min-height: 380px;
         height: 380px;
+    }
+
+    .video-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .trophy-gallery {
+        grid-template-columns: 1fr;
+
+        max-width: 600px;
+    }
+
+    .trophy-image {
+        height: 380px;
+    }
+
+    .honours-table-wrapper {
+        width: 90%;
+
+        overflow-x: auto;
+    }
+
+    .story-grid {
+        grid-template-columns: repeat(2, 1fr);
     }
 }
 
@@ -2742,17 +3038,147 @@ input.invalid, select.invalid { border-color: var(--error); }
 
 @media (max-width: 600px) {
 
-    .stadium-section {
+    .about-hero {
+        min-height: 500px;
+
         padding: 3rem 5%;
     }
 
-    .stadium-section .section-tag {
-        font-size: 0.9rem;
-        padding: 0.7rem 1.2rem;
+    .about-hero .section-tag {
+        font-size: 1.6rem;
     }
 
-    .stadium-section > .stadium-container::before {
+    .about-hero p {
+        font-size: 1rem;
+    }
+
+
+    /* INTRODUCTION */
+
+    .about-introduction {
+        padding: 2.5rem 5%;
+    }
+
+    .about-introduction .section-heading h2 {
+        font-size: 1.8rem;
+    }
+
+    .about-introduction-content {
+        padding: 1.2rem;
+
+        gap: 1.5rem;
+    }
+
+    .about-text {
+        padding: 1.5rem;
+
+        border-width: 2px;
+    }
+
+    .about-text p {
+        font-size: 0.95rem;
+
+        line-height: 1.6;
+    }
+
+    .about-image {
+        border-width: 2px;
+    }
+
+    .about-image img {
+        height: 300px;
+    }
+
+
+    /* HISTORY */
+
+    .history-section {
+        padding: 2.5rem 5%;
+    }
+
+    .history-section .section-heading h2 {
+        font-size: 1.8rem;
+
+        padding: 0.6rem 1.2rem;
+    }
+
+    .history-card {
+        grid-template-columns: 1fr;
+
+        gap: 1.2rem;
+
+        padding: 1rem;
+    }
+
+    .history-image img {
+        height: 220px;
+    }
+
+    .history-content h3 {
+        font-size: 1.3rem;
+    }
+
+    .history-content p {
+        font-size: 0.95rem;
+
+        line-height: 1.6;
+    }
+
+
+    /* MOMENTS */
+
+    .history-years {
+        padding: 4rem 5%;
+    }
+
+    .history-years .section-heading h2 {
         font-size: 1.7rem;
+
+        padding: 0.6rem 1.2rem;
+    }
+
+    .moment-card {
+        grid-template-columns: 1fr;
+
+        min-height: auto;
+    }
+
+    .moment-image {
+        min-height: 280px;
+    }
+
+    .moment-content {
+        padding: 2rem;
+    }
+
+    .moment-year {
+        font-size: 2.2rem;
+    }
+
+    .moment-content h3 {
+        font-size: 1.5rem;
+    }
+
+    .moment-content p {
+        font-size: 0.95rem;
+
+        line-height: 1.7;
+    }
+
+    .moment-controls {
+        gap: 1rem;
+    }
+
+    .moment-arrow {
+        width: 45px;
+        height: 45px;
+    }
+
+
+    /* STADIUM */
+
+    .stadium-section {
+        padding: 3rem 5%;
     }
 
     .stadium-container {
@@ -2763,8 +3189,13 @@ input.invalid, select.invalid { border-color: var(--error); }
         padding: 1.8rem;
     }
 
+    .stadium-content h2 {
+        font-size: 1.8rem;
+    }
+
     .stadium-content p {
         font-size: 0.95rem;
+
         line-height: 1.7;
     }
 
@@ -2774,596 +3205,84 @@ input.invalid, select.invalid { border-color: var(--error); }
 
     .stadium-image img {
         min-height: 300px;
+
         height: 300px;
     }
-}
 
 
+    /* VIDEO */
 
-
-/* =========================================
-   TROPHY CABINET / HONOURS
-========================================= */
-
-.honours-section {
-    padding: 7rem 7%;
-    background: var(--chelsea-blue);
-    color: var(--white);
-    margin-top: 6rem;
-    margin-bottom: 6rem;
-}
-
-.honours-section .section-heading h2 {
-    color: var(--white);
-}
-
-.honours-section .section-heading::after {
-    background: var(--chelsea-gold);
-}
-
-.honours-introduction {
-    max-width: 800px;
-    margin-bottom: 3rem;
-}
-
-.honours-introduction p {
-    color: var(--white);
-    line-height: 1.8;
-}
-
-.honours-table-wrapper {
-    overflow-x: auto;
-}
-
-.honours-table {
-    width: 100%;
-    border-collapse: collapse;
-    background: var(--white);
-    color: var(--dark-text);
-}
-
-.honours-table th {
-    background: var(--chelsea-blue);
-    color: var(--chelsea-gold);
-    padding: 1.3rem;
-    text-align: left;
-    font-weight: 900;
-    border-bottom: 4px solid var(--chelsea-gold);
-}
-
-.honours-table td {
-    padding: 1.2rem 1.3rem;
-    border-bottom: 1px solid #DDDFEA;
-}
-
-.honours-table tr:hover td {
-    background: #FFF8E6;
-}
-
-
-/* =========================================
-   CHELSEA TODAY
-========================================= */
-
-.today-section {
-    padding: 7rem 7%;
-    background: var(--white);
-}
-
-.today-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 4rem;
-    align-items: center;
-}
-
-.today-image img {
-    width: 100%;
-    height: 500px;
-    object-fit: cover;
-}
-
-.today-content p {
-    color: var(--dark-text);
-    line-height: 1.9;
-    margin-bottom: 1.3rem;
-}
-
-
-/* =========================================
-   CHELSEA CLUB FACTS
-========================================= */
-
-.facts-section {
-    padding: 7rem 7%;
-    background: var(--light-bg);
-}
-
-.facts-slider {
-    max-width: 900px;
-    margin: 0 auto;
-}
-
-.fact-card {
-    display: none;
-    background: var(--white);
-    min-height: 350px;
-    box-shadow: 0 12px 30px rgba(14, 30, 125, 0.10);
-}
-
-.fact-card.active-fact {
-    display: flex;
-}
-
-.fact-content {
-    position: relative;
-    padding: 4rem;
-    width: 100%;
-}
-
-.fact-content::before {
-    content: "";
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 8px;
-    height: 100%;
-    background: var(--chelsea-gold);
-}
-
-.fact-number {
-    color: var(--chelsea-gold);
-    font-size: 4rem;
-    font-weight: 900;
-    line-height: 1;
-    margin-bottom: 1rem;
-}
-
-.fact-content h3 {
-    color: var(--chelsea-blue);
-    font-size: 2rem;
-    margin-bottom: 1rem;
-}
-
-.fact-content p {
-    color: var(--dark-text);
-    line-height: 1.8;
-}
-
-.fact-controls {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 1.5rem;
-    margin-top: 2rem;
-}
-
-.fact-arrow {
-    width: 50px;
-    height: 50px;
-    border: 2px solid var(--chelsea-blue);
-    background: var(--white);
-    color: var(--chelsea-blue);
-    font-size: 1.5rem;
-    font-weight: 800;
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-
-.fact-arrow:hover {
-    background: var(--chelsea-blue);
-    color: var(--chelsea-gold);
-}
-
-#factCounter {
-    color: var(--chelsea-blue);
-    font-weight: 800;
-    min-width: 60px;
-    text-align: center;
-}
-
-
-/* =========================================
-   VISION AND MISSION
-========================================= */
-
-.mission-section {
-    padding: 7rem 7%;
-    background: var(--white);
-}
-
-.mission-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 2rem;
-}
-
-.mission-card {
-    background: var(--chelsea-blue);
-    color: var(--white);
-    padding: 3rem;
-    border-left: 8px solid var(--chelsea-gold);
-}
-
-.mission-card h3 {
-    color: var(--chelsea-gold);
-    font-size: 2rem;
-    margin-bottom: 1rem;
-}
-
-.mission-card p {
-    color: var(--white);
-    line-height: 1.8;
-}
-
-
-/* =========================================
-   CHELSEA THROUGH VIDEOS
-========================================= */
-
-.video-section {
-    padding: 7rem 7%;
-    background: var(--chelsea-blue);
-    color: var(--white);
-    margin-top: 6rem;
-    margin-bottom: 6rem;
-}
-
-.video-section .section-heading h2 {
-    color: var(--white);
-}
-
-.video-section .section-heading::after {
-    background: var(--chelsea-gold);
-}
-
-.video-introduction {
-    max-width: 800px;
-    margin-bottom: 3rem;
-}
-
-.video-introduction p {
-    color: var(--white);
-    line-height: 1.8;
-}
-
-.video-card {
-    background: var(--chelsea-blue);
-    border: 3px solid var(--chelsea-gold);
-    padding: 1rem;
-}
-
-.video-card video {
-    width: 100%;
-    display: block;
-}
-
-.video-card-content {
-    padding: 2rem 1rem 1rem;
-}
-
-.video-card-content h3 {
-    color: var(--chelsea-gold);
-    font-size: 1.8rem;
-    margin-bottom: 1rem;
-}
-
-.video-card-content p {
-    color: var(--white);
-    line-height: 1.7;
-}
-
-
-/* =========================================
-   CHELSEA STORIES
-========================================= */
-
-.story-section {
-    padding: 7rem 7%;
-    background: var(--white);
-    margin-bottom: 6rem;
-}
-
-.story-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2rem;
-}
-
-.story-card {
-    position: relative;
-    background: var(--chelsea-blue);
-    overflow: hidden;
-}
-
-.story-card img {
-    width: 100%;
-    height: 400px;
-    object-fit: cover;
-}
-
-.story-overlay {
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    padding: 2rem;
-    color: var(--white);
-    background: var(--chelsea-blue);
-}
-
-.story-overlay h3 {
-    color: var(--chelsea-gold);
-    font-size: 1.5rem;
-    margin-bottom: 0.6rem;
-}
-
-.story-overlay p {
-    color: var(--white);
-    line-height: 1.6;
-    margin: 0;
-}
-
-
-/* =========================================
-   SPACE BETWEEN MAJOR SECTIONS
-========================================= */
-
-.story-section {
-    margin-bottom: 6rem;
-}
-
-.video-section {
-    margin-top: 6rem;
-    margin-bottom: 6rem;
-}
-
-.honours-section {
-    margin-top: 6rem;
-    margin-bottom: 6rem;
-}
-
-
-/* =========================================
-   FOOTER
-========================================= */
-
-.site-footer {
-    background: var(--chelsea-blue);
-    color: var(--white);
-    text-align: center;
-    padding: 3rem 1.5rem;
-    margin-top: 0;
-    border-top: 6px solid var(--chelsea-gold);
-}
-
-.site-footer h3 {
-    color: var(--chelsea-gold);
-    font-size: 1.8rem;
-    font-weight: 800;
-    margin: 0 0 0.8rem;
-}
-
-.site-footer p {
-    color: var(--white);
-    font-size: 0.95rem;
-    line-height: 1.6;
-    margin: 0.4rem 0;
-}
-
-.site-footer p:last-child {
-    margin-top: 1.5rem;
-    padding-top: 1rem;
-    border-top: 1px solid var(--chelsea-gold);
-    font-size: 0.85rem;
-}
-
-
-/* =========================================
-   RESPONSIVE DESIGN
-========================================= */
-
-@media (max-width: 1000px) {
-
-    .about-introduction-grid,
-    .today-grid {
-        grid-template-columns: 1fr;
-        gap: 3rem;
-    }
-
-    .history-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    .story-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    .moment-card {
-        grid-template-columns: 1fr;
-    }
-
-    .moment-image {
-        min-height: 400px;
-    }
-
-    .mission-grid {
-        grid-template-columns: 1fr;
-    }
-}
-
-
-/* =========================================
-   TABLET
-========================================= */
-
-@media (max-width: 768px) {
-
-    .about-hero {
-        min-height: 550px;
-        padding: 4rem 6%;
-    }
-
-    .about-introduction,
-    .history-section,
-    .history-years,
-    .colours-section,
-    .honours-section,
-    .today-section,
-    .facts-section,
-    .mission-section,
-    .video-section,
-    .story-section {
-        padding: 5rem 6%;
-    }
-
-    .stadium-section {
-        padding: 5rem 6%;
-        min-height: 550px;
-    }
-
-    .history-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .story-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .moment-content {
-        padding: 3rem;
-    }
-
-    .fact-content {
-        padding: 3rem;
-    }
-
-    .club-colours {
-        padding: 3rem;
-    }
-}
-
-
-/* =========================================
-   MOBILE
-========================================= */
-
-@media (max-width: 600px) {
-
-    .about-hero {
-        min-height: 500px;
-        padding: 3rem 5%;
-    }
-
-    .about-hero h1 {
-        font-size: 3rem;
-    }
-
-    .about-hero p {
-        font-size: 1rem;
-    }
-
-    .about-introduction,
-    .history-section,
-    .history-years,
-    .colours-section,
-    .honours-section,
-    .today-section,
-    .facts-section,
-    .mission-section,
-    .video-section,
-    .story-section {
+    .video-section {
         padding: 4rem 5%;
     }
 
-    .stadium-section {
+    .video-section .section-heading h2 {
+        font-size: 2rem;
+    }
+
+    .video-card-content {
+        padding: 1.5rem 1rem;
+    }
+
+
+    /* TROPHIES */
+
+    .honours-section {
         padding: 4rem 5%;
-        min-height: 500px;
     }
 
-    .section-heading {
-        margin-bottom: 2rem;
-    }
-
-    .section-heading h2 {
+    .honours-section .section-heading h2 {
         font-size: 2.2rem;
     }
 
-    .about-image img,
-    .today-image img {
-        height: 350px;
+    .trophy-gallery {
+        gap: 1.2rem;
     }
 
-    .about-image::after {
-        width: 60px;
-        height: 60px;
-        right: -15px;
-        bottom: -15px;
+    .trophy-image {
+        height: 300px;
     }
 
-    .history-card {
-        padding: 2rem;
-    }
-
-    .moment-card {
-        min-height: auto;
-    }
-
-    .moment-image {
-        min-height: 280px;
-    }
-
-    .moment-content {
-        padding: 2.5rem 2rem;
-    }
-
-    .moment-year {
-        font-size: 2.5rem;
-    }
-
-    .moment-content h3 {
-        font-size: 1.6rem;
-    }
-
-    .fact-card {
-        min-height: auto;
-    }
-
-    .fact-content {
-        padding: 2.5rem 2rem;
-    }
-
-    .fact-number {
-        font-size: 3rem;
-    }
-
-    .fact-content h3 {
-        font-size: 1.6rem;
-    }
-
-    .club-colours {
-        padding: 2.5rem 2rem;
-    }
-
-    .colour-display {
-        flex-direction: column;
-    }
-
-    .colour-box {
+    .honours-table-wrapper {
         width: 100%;
-        box-sizing: border-box;
+
+        overflow-x: auto;
+    }
+
+    .honours-table-wrapper .table {
+        min-width: 650px;
+    }
+
+
+    /* MISSION */
+
+    .mission-section {
+        padding: 4rem 5%;
+    }
+
+    .mission-section .section-heading h2 {
+        font-size: 2rem;
     }
 
     .mission-card {
         padding: 2.5rem 2rem;
     }
 
-    .video-card {
-        padding: 0.6rem;
+    .mission-card p {
+        font-size: 0.95rem;
+
+        line-height: 1.7;
     }
 
-    .video-card-content {
-        padding: 1.5rem 0.5rem 0.8rem;
+
+    /* STORIES */
+
+    .story-section {
+        padding: 4rem 5%;
+    }
+
+    .story-grid {
+        grid-template-columns: 1fr;
     }
 
     .story-card img {
@@ -3372,19 +3291,8 @@ input.invalid, select.invalid { border-color: var(--error); }
 
     .story-overlay {
         position: relative;
+
         padding: 1.5rem;
-    }
-
-    .honours-table {
-        min-width: 650px;
-    }
-
-    .honours-table-wrapper {
-        overflow-x: auto;
-    }
-
-    .site-footer {
-        padding: 2.5rem 1rem;
     }
 }
 
@@ -3395,29 +3303,28 @@ input.invalid, select.invalid { border-color: var(--error); }
 
 @media (max-width: 400px) {
 
-    .about-hero h1 {
-        font-size: 2.5rem;
+    .about-hero .section-tag {
+        font-size: 1.4rem;
     }
 
     .section-heading h2 {
         font-size: 1.9rem;
     }
 
-    .moment-content,
-    .fact-content,
-    .mission-card,
-    .club-colours {
+    .moment-content {
         padding: 2rem 1.5rem;
     }
 
-    .moment-controls,
-    .fact-controls {
+    .moment-controls {
         gap: 1rem;
     }
 
-    .moment-arrow,
-    .fact-arrow {
+    .moment-arrow {
         width: 45px;
         height: 45px;
     }
-}       
+
+    .mission-card {
+        padding: 2rem 1.5rem;
+    }
+}
