@@ -1131,3 +1131,139 @@ body {
 
   </div>
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- FOOTER SECTION -->
+ 
+
+
+
+
+
+
+
+
+
+<footer class="bg-white text-dark pt-5">
+      
+        <!-- TOP SECTION: Regional Partners & Official Suppliers Showcase -->
+        <div class="container text-center border-bottom pb-4 mb-4">
+            <div class="mb-4">
+                <span class="text-uppercase tracking-wider small fw-bold text-muted d-block mb-3">Regional Partners</span>
+                <div class="d-flex justify-content-center align-items-center gap-4 flex-wrap">
+                    <!-- Partner Logo Link Template -->
+                    <a href="https://msport.com" target="_blank" class="sponsor-link opacity-75">
+                        <span class="fs-4 fw-extrabold text-warning italic font-monospace">M SPORT</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="mt-4">
+                <span class="text-uppercase tracking-wider small fw-bold text-muted d-block mb-3">Official Suppliers</span>
+                <div class="d-flex justify-content-center align-items-center gap-5 flex-wrap">
+                    <a href="https://abm.co.uk" target="_blank" class="sponsor-link fw-bold fs-4 text-primary text-decoration-none">ABM</a>
+                    <a href="https://moet.com" target="_blank" class="sponsor-link fw-serif fs-5 text-dark text-decoration-none tracking-widest text-uppercase">Moët & Chandon</a>
+                    <a href="https://twilio.com" target="_blank" class="sponsor-link text-danger text-decoration-none fw-bold"><i class="fa-brands fa-twilio me-1"></i>twilio</a>
+                    <a href="https://velocity.black" target="_blank" class="sponsor-link text-dark text-decoration-none fw-semibold">Velocity Black</a>
+                    <a href="https://ticketmaster.co.uk" target="_blank" class="sponsor-link text-primary text-decoration-none fw-bold fs-5 italic">ticketmaster</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- MIDDLE SECTION: Club Meta Brand Stack, Social Matrix & App Badges -->
+        <div class="bg-chelsea-blue text-white py-5">
+            <div class="container">
+                <div class="row g-4 justify-content-between">
+                    
+                    
+                    <div class="col-md-4 col-lg-3 text-center text-md-start">
+                        <div class="mb-3">
+                            <i class="fa-solid fa-shield-halved text-chelsea-gold display-4"></i>
+                        </div>
+                        <h5 class="fw-bold mb-1 tracking-wide">Chelsea Football Club</h5>
+                        <p class="small text-light-50 lh-sm mb-3">
+                            Stamford Bridge<br>
+                            Fulham Road<br>
+                            London<br>
+                            SW6 1HS
+                        </p>
+                        <!-- Social Networking Link Matrices -->
+                        <div class="d-flex justify-content-center justify-content-md-start gap-3 fs-5 mt-2">
+                            <a href="https://facebook.com" target="_blank" class="text-white social-icon-hover"><i class="fa-brands fa-square-facebook"></i></a>
+                            <a href="https://instagram.com" target="_blank" class="text-white social-icon-hover"><i class="fa-brands fa-instagram"></i></a>
+                            <a href="https://youtube.com" target="_blank" class="text-white social-icon-hover"><i class="fa-brands fa-youtube"></i></a>
+                            <a href="https://x.com" target="_blank" class="text-white social-icon-hover"><i class="fa-brands fa-x-twitter"></i></a>
+                            <a href="https://tiktok.com" target="_blank" class="text-white social-icon-hover"><i class="fa-brands fa-tiktok"></i></a>
+                        </div>
+                    </div>
+
+                    <!-- Center: Quick Target Internal Directories -->
+                    <div class="col-6 col-md-4 col-lg-3">
+                        <h6 class="text-uppercase text-chelsea-gold fw-bold mb-3 small tracking-wider">About The Club</h6>
+                        <ul class="list-unstyled footer-quick-links small">
+                            <li class="mb-2"><a href="about.html" class="text-white-50 text-decoration-none">Club History</a></li>
+                            <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none">Contact Us & FAQs</a></li>
+                            <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none">Frequently Asked Questions</a></li>
+                            <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none">The Shed - Chat & Rumours</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Right: Mobile Application Marketplace Integrations -->
+                    <div class="col-md-4 text-center text-md-start">
+                        <h6 class="text-uppercase text-chelsea-gold fw-bold mb-3 small tracking-wider">Get Unrivalled Access</h6>
+                        <p class="small text-white-50 mb-3">Download the Chelsea Official App for live match tracking and breaking news updates.</p>
+                        <div class="d-flex flex-wrap justify-content-center justify-content-md-start gap-2">
+                            <!-- Apple Store Download Link Mockup -->
+                            <a href="https://apple.com" target="_blank" class="btn btn-dark btn-sm d-flex align-items-center text-start border border-secondary px-3 py-1 bg-black">
+                                <i class="fa-brands fa-apple fs-4 me-2"></i>
+                                <div>
+                                    <span class="d-block" style="font-size: 9px; line-height: 1;">Download on the</span>
+                                    <strong class="small" style="line-height: 1.2;">App Store</strong>
+                                </div>
+                            </a>
+                            <!-- Google Play Download Link Mockup -->
+                            <a href="https://google.com" target="_blank" class="btn btn-dark btn-sm d-flex align-items-center text-start border border-secondary px-3 py-1 bg-black">
+                                <i class="fa-brands fa-google-play fs-5 me-2 text-warning"></i>
+                                <div>
+                                    <span class="d-block" style="font-size: 9px; line-height: 1;">GET IT ON</span>
+                                    <strong class="small" style="line-height: 1.2;">Google Play</strong>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- BOTTOM SECTION: Legal Compliance Directories & Copyright Disclaimers -->
+        <div class="bg-dark text-white-50 py-3 font-monospace" style="font-size: 11px;">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-md-8 text-center text-md-start mb-2 mb-md-0">
+                        <a href="#" class="text-white-50 text-decoration-none me-3 hover-underline">Careers</a>
+                        <a href="#" class="text-white-50 text-decoration-none me-3 hover-underline">Modern Slavery Act</a>
+                        <a href="#" class="text-white-50 text-decoration-none me-3 hover-underline">Privacy Policy</a>
+                        <a href="#" class="text-white-50 text-decoration-none me-3 hover-underline">Cookies Policy</a>
+                        <a href="#" class="text-white-50 text-decoration-none me-3 hover-underline">Terms & Conditions</a>
+                        <a href="#" class="text-white-50 text-decoration-none hover-underline">Sustainability Policy</a>
+                    </div>
+                    <div class="col-md-4 text-center text-md-end">
+                        <span class="d-block">&copy; 2026 Chelsea FC Fan Hub. All rights reserved.</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+</footer> 
