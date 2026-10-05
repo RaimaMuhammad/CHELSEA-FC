@@ -3374,3 +3374,1164 @@ input.invalid, select.invalid { border-color: var(--error); }
         padding: 2rem 1.5rem;
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* =========================================================
+   CHELSEA FC — TEAMS & PLAYERS PAGE
+   COMPACT + FULLY CENTERED VERSION
+   HEADER / NAVIGATION / FOOTER NOT TOUCHED
+========================================================= */
+
+:root {
+    --team-blue: #0E1E7D;
+    --team-light-blue: #1E6FD9;
+    --team-dark-blue: #081052;
+    --team-white: #FFFFFF;
+    --team-light-bg: #F5F6FC;
+    --team-soft-blue: #EAF1FF;
+    --team-dark-text: #10152F;
+    --team-muted: #59627A;
+    --team-border: #D9E2F5;
+}
+
+
+/* =========================================================
+   TEAM PAGE
+========================================================= */
+
+.team-page {
+    width: 100%;
+    background: var(--team-white);
+    color: var(--team-dark-text);
+    overflow: hidden;
+    text-align: center;
+}
+
+
+/* =========================================================
+   TEAM HERO
+========================================================= */
+
+.team-hero {
+    min-height: 390px;
+
+    background: var(--team-blue);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+
+    padding: 70px 6%;
+
+    position: relative;
+
+    border-bottom: 7px solid var(--team-light-blue);
+
+    overflow: hidden;
+}
+
+
+/* Decorative blue block */
+
+.team-hero::before {
+    content: "";
+
+    position: absolute;
+
+    width: 170px;
+    height: 170px;
+
+    background: var(--team-light-blue);
+
+    top: -85px;
+    left: -75px;
+
+    transform: rotate(45deg);
+
+    opacity: 0.3;
+}
+
+
+/* Decorative white block */
+
+.team-hero::after {
+    content: "";
+
+    position: absolute;
+
+    width: 220px;
+    height: 220px;
+
+    background: var(--team-white);
+
+    right: -125px;
+    bottom: -125px;
+
+    transform: rotate(45deg);
+
+    opacity: 0.06;
+}
+
+
+.team-hero-content {
+    width: 100%;
+    max-width: 850px;
+
+    position: relative;
+    z-index: 2;
+
+    text-align: center;
+}
+
+
+/* =========================================================
+   HERO TAG
+========================================================= */
+
+.team-hero .section-tag {
+    display: inline-block;
+
+    margin-bottom: 15px;
+
+    padding-left: 12px;
+
+    border-left: 4px solid var(--team-light-blue);
+
+    color: var(--team-white);
+
+    font-size: 0.75rem;
+
+    font-weight: 800;
+
+    letter-spacing: 3px;
+
+    text-transform: uppercase;
+
+    text-align: center;
+
+    transition: 0.3s ease;
+}
+
+
+.team-hero .section-tag:hover {
+    color: var(--team-light-blue);
+
+    letter-spacing: 4px;
+}
+
+
+/* =========================================================
+   HERO HEADING
+========================================================= */
+
+.team-hero h1 {
+    margin: 0 0 18px;
+
+    color: var(--team-white);
+
+    font-size: clamp(2.5rem, 5.5vw, 4.8rem);
+
+    font-weight: 900;
+
+    line-height: 1;
+
+    letter-spacing: -2px;
+
+    text-align: center;
+
+    transition: 0.3s ease;
+}
+
+
+.team-hero h1:hover {
+    color: var(--team-light-blue);
+
+    transform: translateY(-3px);
+}
+
+
+/* =========================================================
+   HERO DESCRIPTION
+========================================================= */
+
+.team-hero-content > p:last-child {
+    max-width: 650px;
+
+    margin: 0 auto;
+
+    color: #E4E9FF;
+
+    font-size: 0.95rem;
+
+    line-height: 1.7;
+
+    text-align: center;
+}
+
+
+/* =========================================================
+   GENERAL SECTION HEADING
+========================================================= */
+
+.team-page .section-heading {
+    width: 100%;
+    max-width: 800px;
+
+    margin: 0 auto 55px;
+
+    text-align: center;
+}
+
+
+.team-page .section-heading .section-tag {
+    display: inline-block;
+
+    margin-bottom: 12px;
+
+    color: var(--team-light-blue);
+
+    font-size: 0.75rem;
+
+    font-weight: 900;
+
+    letter-spacing: 2.5px;
+
+    text-transform: uppercase;
+
+    text-align: center;
+
+    transition: 0.3s ease;
+}
+
+
+.team-page .section-heading .section-tag:hover {
+    color: var(--team-blue);
+
+    letter-spacing: 4px;
+}
+
+
+.team-page .section-heading h2 {
+    margin: 0 0 15px;
+
+    color: var(--team-blue);
+
+    font-size: clamp(2rem, 4vw, 3.2rem);
+
+    font-weight: 900;
+
+    line-height: 1.1;
+
+    text-align: center;
+
+    transition: 0.3s ease;
+}
+
+
+.team-page .section-heading h2:hover {
+    color: var(--team-light-blue);
+
+    transform: translateY(-3px);
+}
+
+
+.team-page .section-heading > p:last-child {
+    max-width: 680px;
+
+    margin: 0 auto;
+
+    color: var(--team-muted);
+
+    font-size: 0.92rem;
+
+    line-height: 1.7;
+
+    text-align: center;
+}
+
+
+/* =========================================================
+   WOMEN'S TEAM
+========================================================= */
+
+.womens-team {
+    padding: 80px 6% 90px;
+
+    background: var(--team-white);
+
+    border-bottom: 7px solid var(--team-blue);
+
+    text-align: center;
+}
+
+
+/* =========================================================
+   MEN'S TEAM
+========================================================= */
+
+.mens-team {
+    padding: 85px 6% 95px;
+
+    background: var(--team-light-bg);
+
+    border-bottom: 7px solid var(--team-light-blue);
+
+    text-align: center;
+}
+
+
+/* =========================================================
+   SQUAD SECTION
+========================================================= */
+
+.squad-section {
+    width: 100%;
+
+    max-width: 1350px;
+
+    margin: 0 auto 75px;
+
+    text-align: center;
+}
+
+
+.squad-section:last-child {
+    margin-bottom: 0;
+}
+
+
+/* =========================================================
+   SQUAD HEADING
+========================================================= */
+
+.squad-heading {
+    margin-bottom: 30px;
+
+    padding: 20px 25px;
+
+    background: var(--team-white);
+
+    border-left: 6px solid var(--team-blue);
+
+    box-shadow: 0 7px 22px rgba(14, 30, 125, 0.07);
+
+    text-align: center;
+
+    transition:
+        transform 0.3s ease,
+        border-color 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+
+.squad-heading:hover {
+    transform: translateY(-3px);
+
+    border-left-color: var(--team-light-blue);
+
+    box-shadow: 0 12px 28px rgba(14, 30, 125, 0.12);
+}
+
+
+.squad-heading h3 {
+    margin: 0 0 7px;
+
+    color: var(--team-blue);
+
+    font-size: clamp(1.4rem, 2.5vw, 2rem);
+
+    font-weight: 900;
+
+    text-align: center;
+
+    transition: 0.3s ease;
+}
+
+
+.squad-heading:hover h3 {
+    color: var(--team-light-blue);
+}
+
+
+.squad-heading > p:last-child {
+    max-width: 760px;
+
+    margin: 0 auto;
+
+    color: var(--team-muted);
+
+    font-size: 0.88rem;
+
+    line-height: 1.6;
+
+    text-align: center;
+}
+
+
+/* =========================================================
+   PLAYER GRID
+========================================================= */
+
+.players-grid {
+    display: grid;
+
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+
+    gap: 22px;
+
+    text-align: center;
+}
+
+
+/* =========================================================
+   PLAYER CARD
+========================================================= */
+
+.player-card {
+    position: relative;
+
+    background: var(--team-white);
+
+    border: 1px solid var(--team-border);
+
+    overflow: hidden;
+
+    box-shadow: 0 6px 18px rgba(14, 30, 125, 0.07);
+
+    text-align: center;
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        border-color 0.3s ease;
+}
+
+
+.player-card:hover {
+    transform: translateY(-7px);
+
+    border-color: var(--team-light-blue);
+
+    box-shadow: 0 15px 30px rgba(14, 30, 125, 0.15);
+}
+
+
+/* =========================================================
+   PLAYER IMAGE
+========================================================= */
+
+.player-image {
+    width: 100%;
+
+    height: 285px;
+
+    background: var(--team-soft-blue);
+
+    position: relative;
+
+    overflow: hidden;
+}
+
+
+.player-image::after {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    height: 5px;
+
+    background: var(--team-blue);
+
+    transition: 0.3s ease;
+
+    z-index: 3;
+}
+
+
+.player-card:hover .player-image::after {
+    height: 8px;
+
+    background: var(--team-light-blue);
+}
+
+
+/* =========================================================
+   PLAYER IMAGE
+========================================================= */
+
+.player-image img {
+    width: 100%;
+    height: 100%;
+
+    display: block;
+
+    object-fit: cover;
+
+    object-position: center top;
+
+    transition:
+        transform 0.45s ease,
+        filter 0.45s ease;
+}
+
+
+.player-card:hover .player-image img {
+    transform: scale(1.05);
+
+    filter: contrast(1.05);
+}
+
+
+/* =========================================================
+   PLAYER NUMBER
+========================================================= */
+
+.player-number {
+    position: absolute;
+
+    top: 11px;
+    left: 11px;
+
+    width: 42px;
+    height: 42px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: var(--team-blue);
+
+    color: var(--team-white);
+
+    border: 2px solid var(--team-white);
+
+    font-size: 0.85rem;
+
+    font-weight: 900;
+
+    z-index: 5;
+
+    transition:
+        background 0.3s ease,
+        transform 0.3s ease;
+}
+
+
+.player-card:hover .player-number {
+    background: var(--team-light-blue);
+
+    transform: scale(1.08) rotate(-5deg);
+}
+
+
+/* =========================================================
+   PLAYER INFORMATION
+========================================================= */
+
+.player-info {
+    min-height: 92px;
+
+    padding: 17px 18px 19px;
+
+    background: var(--team-white);
+
+    text-align: center;
+}
+
+
+.player-info h4 {
+    margin: 0 0 5px;
+
+    color: var(--team-blue);
+
+    font-size: 1.05rem;
+
+    font-weight: 900;
+
+    line-height: 1.25;
+
+    text-align: center;
+
+    transition: 0.3s ease;
+}
+
+
+.player-card:hover .player-info h4 {
+    color: var(--team-light-blue);
+}
+
+
+.player-info p {
+    margin: 0;
+
+    color: var(--team-muted);
+
+    font-size: 0.78rem;
+
+    font-weight: 600;
+
+    line-height: 1.4;
+
+    text-align: center;
+
+    transition: 0.3s ease;
+}
+
+
+.player-card:hover .player-info p {
+    color: var(--team-dark-text);
+}
+
+
+/* =========================================================
+   ACADEMY / UNDER-18
+========================================================= */
+
+.youth-team {
+    margin-top: 65px;
+
+    padding-top: 55px;
+
+    border-top: 2px solid var(--team-border);
+
+    text-align: center;
+}
+
+
+.youth-team .squad-heading {
+    background: var(--team-soft-blue);
+
+    border-left-color: var(--team-light-blue);
+
+    text-align: center;
+}
+
+
+.youth-team .squad-heading:hover {
+    border-left-color: var(--team-blue);
+}
+
+
+.youth-team .section-tag {
+    display: inline-block;
+
+    margin-bottom: 7px;
+
+    color: var(--team-light-blue);
+
+    font-size: 0.7rem;
+
+    font-weight: 900;
+
+    letter-spacing: 2.5px;
+
+    text-transform: uppercase;
+
+    text-align: center;
+}
+
+
+.youth-team .player-card {
+    border-top: 4px solid var(--team-light-blue);
+}
+
+
+.youth-team .player-card:hover {
+    border-top-color: var(--team-blue);
+}
+
+
+/* =========================================================
+   TEAM DEVELOPMENT
+========================================================= */
+
+.team-development {
+    padding: 80px 8%;
+
+    background: var(--team-blue);
+
+    color: var(--team-white);
+
+    text-align: center;
+
+    border-bottom: 7px solid var(--team-light-blue);
+}
+
+
+.team-development .section-heading {
+    margin-bottom: 28px;
+
+    text-align: center;
+}
+
+
+.team-development .section-heading .section-tag {
+    color: var(--team-white);
+
+    text-align: center;
+}
+
+
+.team-development .section-heading h2 {
+    color: var(--team-white);
+
+    text-align: center;
+}
+
+
+.team-development .section-heading h2:hover {
+    color: var(--team-light-blue);
+}
+
+
+.team-development > p {
+    max-width: 850px;
+
+    margin: 0 auto;
+
+    color: #E5E9FF;
+
+    font-size: 0.92rem;
+
+    line-height: 1.8;
+
+    text-align: center;
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 1200px) {
+
+    .players-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+
+        gap: 20px;
+    }
+
+
+    .player-image {
+        height: 275px;
+    }
+
+}
+
+
+/* =========================================================
+   SMALL TABLET
+========================================================= */
+
+@media (max-width: 900px) {
+
+    .team-hero {
+        min-height: 360px;
+
+        padding: 65px 6%;
+    }
+
+
+    .team-hero h1 {
+        font-size: clamp(2.4rem, 8vw, 4rem);
+    }
+
+
+    .womens-team,
+    .mens-team {
+        padding-left: 5%;
+        padding-right: 5%;
+    }
+
+
+    .players-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+
+        gap: 18px;
+    }
+
+
+    .player-image {
+        height: 280px;
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+
+    .team-hero {
+        min-height: 340px;
+
+        padding: 60px 6%;
+    }
+
+
+    .team-hero h1 {
+        font-size: 2.5rem;
+
+        letter-spacing: -1px;
+    }
+
+
+    .team-hero-content > p:last-child {
+        font-size: 0.88rem;
+
+        text-align: center;
+    }
+
+
+    .team-page .section-heading {
+        margin-bottom: 42px;
+
+        text-align: center;
+    }
+
+
+    .team-page .section-heading h2 {
+        font-size: 2rem;
+
+        text-align: center;
+    }
+
+
+    .team-page .section-heading > p:last-child {
+        text-align: center;
+    }
+
+
+    .womens-team,
+    .mens-team {
+        padding: 65px 5% 70px;
+
+        text-align: center;
+    }
+
+
+    .squad-section {
+        margin-bottom: 60px;
+
+        text-align: center;
+    }
+
+
+    .squad-heading {
+        margin-bottom: 25px;
+
+        padding: 18px 20px;
+
+        text-align: center;
+    }
+
+
+    .squad-heading h3 {
+        font-size: 1.5rem;
+
+        text-align: center;
+    }
+
+
+    .squad-heading > p:last-child {
+        text-align: center;
+    }
+
+
+    .players-grid {
+        grid-template-columns: 1fr;
+
+        gap: 20px;
+    }
+
+
+    .player-image {
+        height: 340px;
+    }
+
+
+    .player-info {
+        min-height: auto;
+
+        padding: 17px 18px 20px;
+
+        text-align: center;
+    }
+
+
+    .player-info h4,
+    .player-info p {
+        text-align: center;
+    }
+
+
+    .youth-team {
+        margin-top: 50px;
+
+        padding-top: 45px;
+
+        text-align: center;
+    }
+
+
+    .team-development {
+        padding: 65px 7%;
+
+        text-align: center;
+    }
+
+
+    .team-development > p {
+        text-align: center;
+    }
+
+}
+
+
+/* =========================================================
+   VERY SMALL PHONES
+========================================================= */
+
+@media (max-width: 400px) {
+
+    .team-hero h1 {
+        font-size: 2.2rem;
+    }
+
+
+    .team-page .section-heading h2 {
+        font-size: 1.85rem;
+    }
+
+
+    .player-image {
+        height: 310px;
+    }
+
+}
