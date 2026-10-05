@@ -1084,7 +1084,208 @@ body {
 }
 
 
+/* =========================================================
+   LOG IN / SIGN UP PAGE
+   ========================================================= */
 
+/* =========================================================
+   3. TOP NAV (Home link top-left, Sign out top-right)
+   ========================================================= */
+
+  body { 
+    background: var(--grad-main); 
+    background-attachment: fixed !important;;   /* <-- add this line here */
+  }
+  
+  
+.topbar {
+  position: sticky; top: 0; 
+  z-index: 10;
+  display: flex; 
+  justify-content: space-between; 
+  align-items: center;
+  padding: 14px 32px;
+  background: var(--grad-main);
+}
+.home-link {
+  color: rgb(253, 255, 255); text-decoration: /* THE WORD HOME -- LOGIN HOME BUTTON */
+  none; font-weight: 700;
+  padding: 8px 16px; 
+  border-radius: 999px;
+  background: rgba(9, 11, 133, 0.871);                 /*LOGIN HOME BUTTON */
+}
+.home-link:hover { 
+  background: rgb(23, 71, 159); /* LOGIN HOME BUTTON HOVER COLOR */
+
+  color: white;
+}
+.signout-btn {
+  border: 2px solid var(--white); 
+  color: var(--white); 
+  background: transparent;
+  padding: 7px 16px; 
+  border-radius: 999px; 
+  font-weight: 700; 
+  cursor: pointer;
+}
+
+.signout-btn:hover { 
+  background: rgb(0, 0, 0); 
+  color:var(--blue-700);     /* SIGN OUT BUTTON HOVER COLOR */
+}
+ 
+/* =========================================================
+   4. PAGE LAYOUT (left hero + right card)
+   ========================================================= */
+.page {
+  background-attachment: fixed;
+  display: grid; 
+  grid-template-columns: 1fr 1.1fr; 
+  gap: 48px;
+  align-items: center; 
+  max-width: 1200px; 
+  margin: 0PX;
+  padding: 48px 32px 64px;
+  background: linear-gradient(to top right, #d5e2f2, #ffffff); /* GREEN BACKGROUND  OF THE PGAGE */
+}
+ 
+/* =========================================================
+   5. LEFT PANEL (hero text + perks + reset button)
+   ========================================================= */
+.eyebrow {
+  color: rgb(0, 0, 0);           /* CHELSEA FOOTBALL CLUB  / MEMBER  FAMILY */
+  font-weight: 800; font-size: .8rem;
+  letter-spacing: .12em; 
+  text-transform: uppercase; 
+  margin-bottom: 10px;
+}
+
+.hero{
+  max-width: 460px; 
+  margin: 0 auto;
+  background-color: #feffff;  /* BLUE BACKGROUND OF THE LEFT PANEL */
+}
+
+.hero h1 {
+  font-size: clamp(2.4rem, 5vw, 4rem); 
+  line-height: 1.05; 
+  color: rgb(0, 0, 0);               /* JOIN THE BLUE FAMILY */
+  margin-bottom: 18px;
+}
+
+.hero-text { 
+  color: black; 
+  font-size: 1.1rem; 
+  line-height: 1.6; 
+  margin-bottom: 28px; 
+  max-width: 460px; 
+}
+
+
+.perks { 
+  list-style: none; 
+  display: grid; 
+  gap: 14px; 
+  margin-bottom: 30px; 
+}
+
+
+.perks li { 
+  display: flex; 
+  gap: 14px; 
+  align-items: center; 
+}
+
+
+.perks span {
+  width: 42px; height: 
+  42px; border-radius: 12px; 
+  background-color: rgb(16, 6, 155);      /* FOR THE CIRCLES WITH NUMBERS */
+  color: var(--blue-700); 
+  font-weight: 800; 
+  display: grid; 
+  place-items: center;
+  box-shadow: 0 4px 12px rgb(3, 3, 121);           /* FOR THE NUMBERED ITEMS */
+}
+
+.perks small { 
+  display: block; 
+  color: black;  
+  font-weight: 800;
+  font-size: .99rem;              /* FOR THE SMALL TEXT UNDER THE NUMBERED ITEMS */
+}
+ 
+
+
+/* =========================================================
+   6. RIGHT PANEL (form card)
+   ========================================================= */
+.card {
+  background: var(--white); border-radius: 28px; padding: 36px;
+  box-shadow: 0 24px 60px rgba(3, 70, 148, .2);
+  border-top: 6px solid var(--blue-700);
+}
+.card h2 { font-size: 2rem; color: var(--blue-900); margin-bottom: 6px; }
+.note { color: var(--muted); margin-bottom: 22px; }
+.grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px 20px; margin-bottom: 22px; }
+.grid.one { grid-template-columns: 1fr; }
+.full { grid-column: 1 / -1; }
+ 
+/* =========================================================
+   7. FORM FIELDS
+   ========================================================= */
+label { display: flex; flex-direction: column; gap: 6px; font-weight: 700; font-size: .92rem; }
+input, select {
+  padding: 13px 14px; border: 1.5px solid #c7d4ee; border-radius: 12px;
+  font-size: 1rem; background: var(--white); color: var(--text); font-weight: 400;
+}
+input:focus, select:focus { outline: 3px solid rgba(47, 111, 224, .3); border-color: var(--blue-500); }
+input.invalid, select.invalid { border-color: var(--error); }
+.err { color: var(--error); font-weight: 500; min-height: 1em; font-size: .8rem; }
+ 
+/* =========================================================
+   8. BUTTONS
+   ========================================================= */
+.btn {
+  width: 100%; 
+  padding: 15px; 
+  border: 0; 
+  border-radius: 12px; 
+  cursor: pointer;
+  color: white;         /* THE WORD RESET FORM AND LOGIN */  
+  font-size: 1.05rem; 
+  font-weight: 700;
+  background-color: rgb(8, 12, 135); /* RESET FROM AND LOGIN BUTTON */
+  box-shadow: 0 10px 22px rgba(3, 70, 148, .3);
+  transition: transform .15s, box-shadow .15s;
+}
+.btn:hover { transform: translateY(-2px); box-shadow: 0 14px 28px rgba(3, 70, 148, .4); }
+.hero .btn { max-width: 100%; }
+ 
+/* =========================================================
+   9. MESSAGE BANNER (login + welcome messages)
+   ========================================================= */
+.banner {
+  padding: 14px 16px; border-radius: 12px; margin-bottom: 20px; font-weight: 600;
+  background: linear-gradient(135deg, #e6f6ee, #d3f0e1); color: var(--success);
+}
+.banner.error { background: linear-gradient(135deg, #fdecec, #f9d6d6); color: var(--error); }
+ 
+/* =========================================================
+   10. SWITCH LINKS (register here / login here)
+   ========================================================= */
+.switch { text-align: center; margin-top: 18px; color: var(--muted); }
+ 
+/* =========================================================
+   11. RESPONSIVE (tablet and phone)
+   ========================================================= */
+@media (max-width: 900px) {
+  .page { grid-template-columns: 1fr; padding: 28px 18px 48px; }
+  .grid { grid-template-columns: 1fr; }
+  .card { padding: 24px; }
+  .topbar { padding: 12px 18px; }
+}
+ 
 
 
 

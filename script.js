@@ -1,155 +1,153 @@
- // FORM VALIDATION FOR LOGIN PAGE
+/* =========================================================
+   LOG IN / SIGN UP PAGE
+   ========================================================= */
 
-document.addEventListener("DOMContentLoaded", function () {
-    const loginForm = document.getElementById("loginForm");
-    const feedbackDiv = document.getElementById("loginFeedback");
-    const navAuthContainer = document.getElementById("navAuthContainer");
+/* ==================== 1. ELEMENTS ==================== */
+const $ = (id) => document.getElementById(id);
+const loginForm = $("loginForm"), registerForm = $("registerForm"), welcomeView = $("welcomeView");
+const banner = $("banner"), signOutBtn = $("signOutBtn");
 
-    // Comprehensive Active Authentication Layout Controller
+/* ==================== 2. COUNTRY DROPDOWN ==================== */
+const countries = ["Uganda","Kenya","Tanzania","Rwanda","Nigeria","Ghana","South Africa","Egypt","Morocco",
+  "United Kingdom","Ireland","France","Germany","Spain","Italy","Portugal","Netherlands","Belgium",
+  "United States","Canada","Brazil","Argentina","Mexico","India","China","Japan","South Korea",
+  "Australia","New Zealand","United Arab Emirates","Saudi Arabia","Other"];
+countries.forEach((c) => $("regCountry").add(new Option(c, c)));
 
-    function handleUserSession(authenticated, emailInput = "") {
-        if (authenticated) {
-            // Cut user identity parsing from email text string
-            const username = emailInput.split('@')[0];
-            
-            // Rewrite navigation layout shell to display active member account and Sign Out capability
-            navAuthContainer.innerHTML = `
-                <div class="d-flex align-items-center bg-dark bg-opacity-50 rounded-pill p-1 pe-3 border border-secondary shadow-sm">
-                    <div class="bg-chelsea-blue text-white rounded-circle d-flex align-items-center justify-content-center me-2 shadow" style="width: 38px; height: 38px;">
-                        <i class="fa-solid fa-user-check text-chelsea-gold"></i>
-                    </div>
-                    <div class="me-3 small text-white">
-                        <span class="d-block text-muted text-uppercase fw-bold" style="font-size: 9px; line-height: 1;">Member</span>
-                        <span class="fw-bold text-capitalize">${username}</span>
-                    </div>
-                    <button id="logoutBtn" class="btn btn-sm btn-outline-danger rounded-pill px-3 fw-bold text-uppercase" style="font-size: 11px;">
-                        <i class="fa-solid fa-power-off me-1"></i>Out
-                    </button>
-                </div>
-            `;
+/* ==================== 3. STORAGE HELPERS ==================== */
+// NOTE: localStorage is for demo/learning only. Real sites need a server + database.
+const getUsers = () => JSON.parse(localStorage.getItem("cfc_users") || "{}");
+const saveUsers = (u) => localStorage.setItem("cfc_users", JSON.stringify(u));
+const getSession = () => localStorage.getItem("cfc_session");
 
-            // Bind click event listener directly onto newly generated sign out actions
-            document.getElementById("logoutBtn").addEventListener("click", function() {
-                handleUserSession(false);
-            });
+async function hash(text) {
+  if (!window.crypto || !crypto.subtle) return btoa(text); // fallback
+  const buf = await crypto.subtle.digest("SHA-256", new TextEncoder().encode(text));
+  return Array.from(new Uint8Array(buf)).map((b) => b.toString(16).padStart(2, "0")).join("");
+}
 
-               } else {
-            // Revert back to the updated top-right button look upon logging out
-            navAuthContainer.innerHTML = `
-                <button class="btn btn-chelsea-gold px-4 py-2 rounded-pill fw-bold text-uppercase shadow-sm nav-login-btn-glow" data-bs-toggle="modal" data-bs-target="#loginModal">
-                    <i class="fa-solid fa-right-to-bracket me-2"></i>Login
-                </button>
-            `;
-        }
-    }
+/* ==================== 4. VIEW SWITCHING ==================== */
+function show(view) {
+  [loginForm, registerForm, welcomeView].forEach((v) => (v.hidden = v !== view));
+  signOutBtn.hidden = !getSession();
+}
+function message(text, isError = false) {
+  banner.textContent = text;
+  banner.className = "banner" + (isError ? " error" : "");
+  banner.hidden = false;
+}
+function clearMessage() { banner.hidden = true; }
 
-    if (loginForm) {
-        loginForm.addEventListener("submit", function (event) {
-            event.preventDefault();
-            event.stopPropagation();
+function showWelcome(user, text) {
+  $("welcomeTitle").textContent = text;
+  $("welcomeText").textContent = "You are signed in as " + user.email + ". Use Home (top left) to return here at any time.";
+  show(welcomeView);
+}
 
-            if (!loginForm.checkValidity()) {
-                loginForm.classList.add("was-validated");
-                feedbackDiv.classList.add("d-none");
-            } else {
-                loginForm.classList.remove("was-validated");
-                const targetEmailValue = document.getElementById("loginEmail").value;
-                
-                // Show smooth feedback animation layout block inside our premium card
-                feedbackDiv.className = "mt-3 alert glass-alert-success d-flex align-items-center animate__animated animate__fadeIn";
-                feedbackDiv.innerHTML = '<i class="fa-solid fa-circle-check fs-5 me-2 text-success"></i> Access Granted! Welcome to Stamford Bridge.';
-                feedbackDiv.classList.remove("d-none");
+/* ==================== 5. VALIDATION ==================== */
+function setError(input, msg) {
+  input.classList.toggle("invalid", !!msg);
+  input.parentElement.querySelector(".err").textContent = msg || "";
+  return !msg;
+}
+const emailOk = (v) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);
 
-                // Gracefully dismiss modal framework after processing visual validation
-                setTimeout(function() {
-                    const loginModalEl = document.getElementById('loginModal');
-                    const modalInstance = bootstrap.Modal.getInstance(loginModalEl);
-                    if(modalInstance) {
-                        modalInstance.hide();
-                    }
-                    
-                    // Clear inputs and advance authentication state matrix
-                    loginForm.reset();
-                    feedbackDiv.classList.add("d-none");
-                    handleUserSession(true, targetEmailValue);
-                }, 1500);
-            }
-        }, false);
-    }
+function validateRegister() {
+  const name = $("regName"), email = $("regEmail"), phone = $("regPhone"), dob = $("regDob"),
+        country = $("regCountry"), pw = $("regPassword"), cf = $("regConfirm");
+  const today = new Date().toISOString().split("T")[0];
+  const results = [
+    setError(name, name.value.trim().length < 2 ? "Enter at least two characters." : ""),
+    setError(email, emailOk(email.value.trim()) ? "" : "Enter a valid email address."),
+    setError(phone, /^\+?\d{9,15}$/.test(phone.value.trim()) ? "" : "Enter 9–15 digits, no spaces."),
+    setError(dob, !dob.value ? "Choose your date of birth." : dob.value >= today ? "Date must be in the past." : ""),
+    setError(country, country.value ? "" : "Choose a country."),
+    setError(pw, pw.value.length < 8 ? "Use at least 8 characters." : ""),
+    setError(cf, cf.value !== pw.value || !cf.value ? "Passwords do not match." : ""),
+  ];
+  return results.every(Boolean);
+}
+
+/* ==================== 6. REGISTER ==================== */
+registerForm.addEventListener("submit", async (e) => {
+  e.preventDefault();
+  clearMessage();
+  if (!validateRegister()) return;
+  const users = getUsers();
+  const email = $("regEmail").value.trim().toLowerCase();
+  if (users[email]) { setError($("regEmail"), "This email is already registered."); return; }
+  users[email] = {
+    name: $("regName").value.trim(), email,
+    phone: $("regPhone").value.trim(), dob: $("regDob").value,
+    country: $("regCountry").value, password: await hash($("regPassword").value),
+    logins: 0,
+  };
+  saveUsers(users);
+  registerForm.reset();
+  show(loginForm);
+  message("Registration successful. Please login to continue.");
 });
 
-    /* =========================================================
-   HOME PAGE AUTHENTICATION.  TAKES USER TO HOME PAGE IF LOGGED IN, OTHERWISE REDIRECTS TO LOGIN PAGE
-========================================================= */
+/* ==================== 7. LOGIN ==================== */
+loginForm.addEventListener("submit", async (e) => {
+  e.preventDefault();
+  clearMessage();
+  const emailEl = $("loginEmail"), pwEl = $("loginPassword");
+  const okEmail = setError(emailEl, emailOk(emailEl.value.trim()) ? "" : "Enter a valid email address.");
+  const okPw = setError(pwEl, pwEl.value ? "" : "Enter your password.");
+  if (!okEmail || !okPw) return;
 
+  const users = getUsers();
+  const user = users[emailEl.value.trim().toLowerCase()];
+  if (!user || user.password !== (await hash(pwEl.value))) {
+    message("Incorrect email or password. New here? Click Register here.", true);
+    return;
+  }
+  const firstTime = user.logins === 0;
+  user.logins += 1;
+  saveUsers(users);
+  localStorage.setItem("cfc_session", user.email);
+  loginForm.reset();
 
-/* =========================================================
-   1. CHECK LOGIN STATUS
-========================================================= */
+  // Login message + welcome message (first visit vs returning)
+  showWelcome(user, firstTime ? "Welcome to Chelsea, " + user.name + "!" : "Welcome back, " + user.name + "!");
+  message("Login successful.");
+});
 
-const loggedIn =
-    sessionStorage.getItem("loggedIn");
-
-
-if (loggedIn !== "true") {
-
-    window.location.href = "login.html";
-
+/* ==================== 8. SIGN OUT ==================== */
+function signOut() {
+  localStorage.removeItem("cfc_session");
+  show(loginForm);
+  message("You have signed out. See you at the Bridge!");
 }
+signOutBtn.addEventListener("click", signOut);
+$("welcomeSignOut").addEventListener("click", signOut);
+
+/* ==================== 9. SWITCH LOGIN / REGISTER ==================== */
+$("showRegister").addEventListener("click", (e) => { e.preventDefault(); clearMessage(); show(registerForm); });
+$("showLogin").addEventListener("click", (e) => { e.preventDefault(); clearMessage(); show(loginForm); });
 
 
-/* =========================================================
-   2. GET USER NAME
-========================================================= */
 
-const userName =
-    sessionStorage.getItem("userName");
+/* ==================== 11. RESET FORM BUTTON ==================== */
+$("resetBtn").addEventListener("click", () => {
+  const active = [loginForm, registerForm].find((f) => !f.hidden);
+  if (!active) return; // nothing to reset on the welcome view
+  active.reset();
+  active.querySelectorAll(".invalid").forEach((i) => i.classList.remove("invalid"));
+  active.querySelectorAll(".err").forEach((s) => (s.textContent = ""));
+  clearMessage();
+});
 
-
-/* =========================================================
-   3. DISPLAY WELCOME MESSAGE
-========================================================= */
-
-const welcomeMessage =
-    document.getElementById("welcomeMessage");
-
-
-if (welcomeMessage && userName) {
-
-    welcomeMessage.textContent =
-        `Welcome back, ${userName}!`;
-
-}
+/* ==================== 12. ON PAGE LOAD (remember signed-in user) ==================== */
+(function init() {
+  const email = getSession(), user = email && getUsers()[email];
+  if (user) showWelcome(user, "Welcome back, " + user.name + "!");
+  else show(loginForm);
+})();
 
 
-/* =========================================================
-   4. LOGOUT
-========================================================= */
 
-const logoutBtn =
-    document.getElementById("logoutBtn");
-
-
-if (logoutBtn) {
-
-    logoutBtn.addEventListener("click", function () {
-
-        /* REMOVE LOGIN SESSION */
-
-        sessionStorage.removeItem("loggedIn");
-
-        sessionStorage.removeItem("userName");
-
-        sessionStorage.removeItem("welcomeMessage");
-
-
-        /* GO BACK TO LOGIN */
-
-        window.location.href = "login.html";
-
-    });
-
-}
 
 /* ===== HERO STANDINGS ===== */
 (function () {
