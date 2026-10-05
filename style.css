@@ -1210,12 +1210,25 @@ body {
    3. TOP NAV (Home link top-left, Sign out top-right)
    ========================================================= */
 
-  body { 
-    background: var(--grad-main); 
-    background-attachment: fixed !important;;   /* <-- add this line here */
-  }
+
+
+/* =========================================================
+   BACKGROUND AND PAGE LAYOUT OF HOME PAGE
+   ========================================================= */
+  html { height: 100%; }
+
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  background: linear-gradient(to top right, #ffffff, #ffffff); /* FOR HOME PAGE  */
+  background-attachment: fixed;
+}
   
-  
+ /* =========================================================
+   LOG IN / SIGN UP PAGE
+   ========================================================= */ 
 .topbar {
   position: sticky; top: 0; 
   z-index: 10;
@@ -1224,6 +1237,8 @@ body {
   align-items: center;
   padding: 14px 32px;
   background: var(--grad-main);
+  /* ...keep everything else... */
+  background: #f7f7f7;          /* FOR HOME PAGE  */
 }
 .home-link {
   color: rgb(253, 255, 255); text-decoration: /* THE WORD HOME -- LOGIN HOME BUTTON */
@@ -1256,83 +1271,113 @@ body {
    4. PAGE LAYOUT (left hero + right card)
    ========================================================= */
 .page {
-  background-attachment: fixed;
-  display: grid; 
-  grid-template-columns: 1fr 1.1fr; 
+  flex: 1;                      /* pushes the footer to the bottom */
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;               /* centres the content */
+  display: grid;
+  grid-template-columns: 1fr 1.1fr;
   gap: 48px;
-  align-items: center; 
-  max-width: 1200px; 
-  margin: 0PX;
+  align-items: center;
   padding: 48px 32px 64px;
-  background: linear-gradient(to top right, #d5e2f2, #ffffff); /* GREEN BACKGROUND  OF THE PGAGE */
+  background: transparent;      /* body gradient shows through */
 }
- 
 /* =========================================================
-   5. LEFT PANEL (hero text + perks + reset button)
+   5. LEFT PANEL (login-hero: text + perks + reset button)
    ========================================================= */
-.eyebrow {
-  color: rgb(0, 0, 0);           /* CHELSEA FOOTBALL CLUB  / MEMBER  FAMILY */
-  font-weight: 800; font-size: .8rem;
-  letter-spacing: .12em; 
-  text-transform: uppercase; 
+.page {
+  width: 100%;
+  max-width: none;                 /* was 1200px, this was cutting the gradient short */
+  min-height: 100vh;               /* gradient reaches the bottom of the screen */
+  margin: 0;
+  box-sizing: border-box;
+  display: grid;
+  grid-template-columns: 1fr 1.1fr;
+  gap: 48px;
+  align-items: center;
+
+  /* keeps the content centred like before (1200px wide) */
+  padding: 48px max(32px, calc((100% - 1200px) / 2)) 64px;
+
+  background: linear-gradient(to top right, #bcd1ec, #ffffff); /* KEEP YOUR EXISTING GRADIENT */
+}
+
+.login-hero {
+  width: 100%;
+  max-width: 460px;
+  margin: 0 auto;
+  padding: 40px 36px;
+  background: linear-gradient(to bottom right, #bcd1ec, #ffffff);        /* <-- CHANGE THE PANEL BACKGROUND COLOUR HERE */
+  color: #000000;
+  border-radius: 20px;
+  box-sizing: border-box;
+}
+
+.login-hero .eyebrow {
+  color: #000000;                   /* CHELSEA FOOTBALL CLUB */
+  font-weight: 800;
+  font-size: 22px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
   margin-bottom: 10px;
 }
 
-.hero{
-  max-width: 460px; 
-  margin: 0 auto;
-  background-color: blue;  /* BLUE BACKGROUND OF THE LEFT PANEL */
+.login-hero h1 {
+  font-size: clamp(2.4rem, 5vw, 4rem);
+  line-height: 1.05;
+  color: #000000;                   /* JOIN THE BLUE FAMILY */
+  margin: 0 0 18px;
 }
 
-.hero h1 {
-  font-size: clamp(2.4rem, 5vw, 4rem); 
-  line-height: 1.05; 
-  color: rgb(0, 0, 0);               /* JOIN THE BLUE FAMILY */
-  margin-bottom: 18px;
+.login-hero .hero-text {
+  color: #000000;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 28px;
+  max-width: 460px;
 }
 
-.hero-text { 
-  color: black; 
-  font-size: 1.1rem; 
-  line-height: 1.6; 
-  margin-bottom: 28px; 
-  max-width: 460px; 
+.login-hero .perks {
+  list-style: none;
+  display: grid;
+  gap: 14px;
+  margin: 0 0 30px;
+  padding: 0;
 }
 
-
-.perks { 
-  list-style: none; 
-  display: grid; 
-  gap: 14px; 
-  margin-bottom: 30px; 
+.login-hero .perks li {
+  display: flex;
+  gap: 14px;
+  align-items: center;
 }
 
-
-.perks li { 
-  display: flex; 
-  gap: 14px; 
-  align-items: center; 
-}
-
-
-.perks span {
-  width: 42px; height: 
-  42px; border-radius: 12px; 
-  background-color: rgb(16, 6, 155);      /* FOR THE CIRCLES WITH NUMBERS */
-  color: var(--blue-700); 
-  font-weight: 800; 
-  display: grid; 
-  place-items: center;
-  box-shadow: 0 4px 12px rgb(3, 3, 121);           /* FOR THE NUMBERED ITEMS */
-}
-
-.perks small { 
-  display: block; 
-  color: black;  
+.login-hero .perks span {
+  width: 42px;
+  height: 42px;
+  flex: none;
+  border-radius: 12px;
+  background-color: rgb(16, 6, 155);   /* NUMBER BOXES */
+  color: #ffffff;                     /* NUMBER INSIDE BOXES */
   font-weight: 800;
-  font-size: .99rem;              /* FOR THE SMALL TEXT UNDER THE NUMBERED ITEMS */
+  display: grid;
+  place-items: center;
+  box-shadow: 0 4px 12px rgb(3, 3, 121);
 }
- 
+
+.login-hero .perks strong {
+  display: block;
+  color: #000000;                      /* MATCH DAY ACCESS etc. */
+}
+
+.login-hero .perks small {
+  display: block;
+  color: #000000;                      /* FIXTURES AND MEMBER NEWS etc. */
+  font-weight: 700;
+  font-size: .99rem;
+}
+
+.login-hero .btn { max-width: 100%; }  /* Reset form button (style stays in section 8) */
+
 
 
 /* =========================================================
@@ -1405,6 +1450,9 @@ input.invalid, select.invalid { border-color: var(--error); }
 }
 
 
+/* =========================================================
+   12. LOGIN PAGE FOOTER
+   ========================================================= */
 
 
 
