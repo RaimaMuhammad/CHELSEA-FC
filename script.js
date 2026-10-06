@@ -567,6 +567,492 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
+    
+
+
+   
+
+
+
+
+
+
+
+
+
+
+
+/* =========================================================
+   CHELSEA FC MEGASTORE
+   SHOPPING CART + ADD TO CART
+========================================================= */
+
+
+/* =========================================================
+   CART STORAGE
+========================================================= */
+
+let cart = JSON.parse(localStorage.getItem("chelseaCart")) || [];
+
+
+/* =========================================================
+   GET CART ELEMENTS
+========================================================= */
+
+const cartButton = document.getElementById("cartButton");
+const cartOverlay = document.getElementById("cartOverlay");
+const closeCart = document.getElementById("closeCart");
+
+const cartItems = document.getElementById("cartItems");
+const cartTotal = document.getElementById("cartTotal");
+const cartCount = document.getElementById("cartCount");
+
+const cartSuccess = document.getElementById("cartSuccess");
+
+
+/* =========================================================
+   ADD ITEM TO CART
+========================================================= */
+
+document.querySelectorAll(".add-cart-button").forEach(function (button) {
+
+    button.addEventListener("click", function () {
+
+        /* Find the product containing this button */
+
+        const productCard = button.closest(".product-card");
+
+        if (!productCard) {
+            return;
+        }
+
+
+        /* Get product information */
+
+        const productName =
+            productCard.dataset.product;
+
+        const productPrice =
+            Number(productCard.dataset.price);
+
+        const productImage =
+            productCard.querySelector("img").src;
+
+
+        /* =================================================
+           GET SELECTED SIZE
+        ================================================= */
+
+        const sizeSelect =
+            productCard.querySelector(".product-size");
+
+
+        let selectedSize = "One Size";
+
+
+        if (sizeSelect) {
+
+            selectedSize = sizeSelect.value;
+
+        }
+
+
+        /* =================================================
+           REQUIRE SIZE
+        ================================================= */
+
+        if (!selectedSize) {
+
+            alert("Please select a size before adding this item to your cart.");
+
+            return;
+
+        }
+
+
+        /* =================================================
+           CHECK IF SAME PRODUCT + SAME SIZE EXISTS
+        ================================================= */
+
+        const existingItem = cart.find(function (item) {
+
+            return (
+                item.name === productName &&
+                item.size === selectedSize
+            );
+
+        });
+
+
+        /* =================================================
+           INCREASE QUANTITY
+        ================================================= */
+
+        if (existingItem) {
+
+            existingItem.quantity += 1;
+
+        }
+
+        /* =================================================
+           ADD NEW ITEM
+        ================================================= */
+
+        else {
+
+            cart.push({
+
+                name: productName,
+
+                price: productPrice,
+
+                image: productImage,
+
+                size: selectedSize,
+
+                quantity: 1
+
+            });
+
+        }
+
+
+        /* =================================================
+           SAVE CART
+        ================================================= */
+
+        saveCart();
+
+
+        /* =================================================
+           UPDATE CART
+        ================================================= */
+
+        updateCart();
+
+
+        /* =================================================
+           SHOW SUCCESS MESSAGE
+        ================================================= */
+
+        showCartSuccess();
+
+    });
+
+});
+
+
+/* =========================================================
+   SAVE CART TO LOCAL STORAGE
+========================================================= */
+
+function saveCart() {
+
+    localStorage.setItem(
+        "chelseaCart",
+        JSON.stringify(cart)
+    );
+
+}
+
+
+/* =========================================================
+   UPDATE CART
+========================================================= */
+
+function updateCart() {
+
+    /* Update number beside cart icon */
+
+    let totalQuantity = 0;
+
+    cart.forEach(function (item) {
+
+        totalQuantity += item.quantity;
+
+    });
+
+
+    cartCount.textContent = totalQuantity;
+
+
+    /* =====================================================
+       EMPTY CART
+    ===================================================== */
+
+    if (cart.length === 0) {
+
+        cartItems.innerHTML = `
+            <p class="empty-cart">
+                Your cart is empty.
+            </p>
+        `;
+
+        cartTotal.textContent = "$0.00";
+
+        return;
+
+    }
+
+
+    /* =====================================================
+       DISPLAY CART ITEMS
+    ===================================================== */
+
+    cartItems.innerHTML = "";
+
+
+    let total = 0;
+
+
+    cart.forEach(function (item, index) {
+
+        total +=
+            item.price * item.quantity;
+
+
+        const cartItem = document.createElement("div");
+
+        cartItem.className = "cart-item";
+
+
+        cartItem.innerHTML = `
+
+            <img
+                src="${item.image}"
+                alt="${item.name}"
+                class="cart-item-image"
+            >
+
+            <div class="cart-item-info">
+
+                <h3>
+                    ${item.name}
+                </h3>
+
+                <p>
+                    Size: ${item.size}
+                </p>
+
+                <p>
+                    $${item.price.toFixed(2)}
+                </p>
+
+
+                <div class="cart-quantity">
+
+                    <button
+                        class="quantity-minus"
+                        data-index="${index}">
+                        −
+                    </button>
+
+                    <span>
+                        ${item.quantity}
+                    </span>
+
+                    <button
+                        class="quantity-plus"
+                        data-index="${index}">
+                        +
+                    </button>
+
+                </div>
+
+
+                <button
+                    class="remove-cart-item"
+                    data-index="${index}">
+                    Remove
+                </button>
+
+            </div>
+
+        `;
+
+
+        cartItems.appendChild(cartItem);
+
+    });
+
+
+    /* =====================================================
+       UPDATE TOTAL
+    ===================================================== */
+
+    cartTotal.textContent =
+        "$" + total.toFixed(2);
+
+
+    /* =====================================================
+       QUANTITY - MINUS
+    ===================================================== */
+
+    document.querySelectorAll(".quantity-minus")
+        .forEach(function (button) {
+
+            button.addEventListener("click", function () {
+
+                const index =
+                    Number(button.dataset.index);
+
+
+                if (cart[index].quantity > 1) {
+
+                    cart[index].quantity -= 1;
+
+                }
+
+                else {
+
+                    cart.splice(index, 1);
+
+                }
+
+
+                saveCart();
+
+                updateCart();
+
+            });
+
+        });
+
+
+    /* =====================================================
+       QUANTITY - PLUS
+    ===================================================== */
+
+    document.querySelectorAll(".quantity-plus")
+        .forEach(function (button) {
+
+            button.addEventListener("click", function () {
+
+                const index =
+                    Number(button.dataset.index);
+
+
+                cart[index].quantity += 1;
+
+
+                saveCart();
+
+                updateCart();
+
+            });
+
+        });
+
+
+    /* =====================================================
+       REMOVE ITEM
+    ===================================================== */
+
+    document.querySelectorAll(".remove-cart-item")
+        .forEach(function (button) {
+
+            button.addEventListener("click", function () {
+
+                const index =
+                    Number(button.dataset.index);
+
+
+                cart.splice(index, 1);
+
+
+                saveCart();
+
+                updateCart();
+
+            });
+
+        });
+
+}
+
+
+/* =========================================================
+   OPEN CART
+========================================================= */
+
+if (cartButton) {
+
+    cartButton.addEventListener("click", function () {
+
+        updateCart();
+
+        cartOverlay.classList.add("active");
+
+    });
+
+}
+
+
+/* =========================================================
+   CLOSE CART
+========================================================= */
+
+if (closeCart) {
+
+    closeCart.addEventListener("click", function () {
+
+        cartOverlay.classList.remove("active");
+
+    });
+
+}
+
+
+/* =========================================================
+   CLOSE CART WHEN CLICKING OUTSIDE
+========================================================= */
+
+if (cartOverlay) {
+
+    cartOverlay.addEventListener("click", function (event) {
+
+        if (event.target === cartOverlay) {
+
+            cartOverlay.classList.remove("active");
+
+        }
+
+    });
+
+}
+
+
+/* =========================================================
+   SUCCESS MESSAGE
+========================================================= */
+
+function showCartSuccess() {
+
+    if (!cartSuccess) {
+        return;
+    }
+
+
+    cartSuccess.classList.add("show");
+
+
+    setTimeout(function () {
+
+        cartSuccess.classList.remove("show");
+
+    }, 2500);
+
+}
+
+
+/* =========================================================
+   LOAD CART WHEN PAGE OPENS
+========================================================= */
+
+updateCart();
+
+
+
 
 
 
