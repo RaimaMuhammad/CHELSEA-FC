@@ -1,0 +1,1337 @@
+/* =========================================
+   CHELSEA GALLERY
+========================================= */
+
+:root {
+  --chelsea-blue: #034694;
+  --chelsea-dark: #001489;
+  --dark: #07111f;
+  --light: #f5f7fa;
+  --white: #ffffff;
+  --text: #172033;
+  --gray: #697386;
+}
+
+/* =========================================
+   GENERAL
+========================================= */
+
+body {
+  margin: 0;
+  font-family: "DM Sans", Arial, sans-serif;
+  color: var(--text);
+  background: var(--white);
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+.section-padding {
+  padding: 90px 0;
+}
+
+/* =========================================
+   NAVBAR
+========================================= */
+
+.chelsea-navbar {
+  background: var(--chelsea-blue);
+  padding: 10px 0;
+}
+
+.chelsea-navbar .navbar-brand img {
+  width: 58px;
+  height: 58px;
+  object-fit: contain;
+}
+
+.chelsea-navbar .nav-link {
+  color: white;
+  font-weight: 700;
+  font-size: 14px;
+  margin-left: 25px;
+  position: relative;
+}
+
+.chelsea-navbar .nav-link:hover,
+.chelsea-navbar .nav-link.active {
+  color: white;
+}
+
+.chelsea-navbar .nav-link::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 3px;
+  background: white;
+  left: 0;
+  bottom: -7px;
+  transition: 0.3s;
+}
+
+.chelsea-navbar .nav-link:hover::after,
+.chelsea-navbar .nav-link.active::after {
+  width: 100%;
+}
+
+/* =========================================
+   HERO
+========================================= */
+
+.gallery-hero {
+  height: 520px;
+
+  background-image:
+    linear-gradient(rgba(0, 20, 137, 0.35), rgba(0, 0, 0, 0.75)),
+    url("https://images.unsplash.com/photo-1522778119026-d647f0596c20?auto=format&fit=crop&w=2000&q=85");
+
+  background-size: cover;
+  background-position: center;
+
+  display: flex;
+  align-items: flex-end;
+}
+
+.gallery-hero-overlay {
+  width: 100%;
+  padding: 80px 0;
+  color: white;
+}
+
+.gallery-small-title {
+  font-size: 14px;
+  font-weight: 800;
+  letter-spacing: 3px;
+  margin-bottom: 10px;
+}
+
+.gallery-hero h1 {
+  font-size: clamp(55px, 8vw, 110px);
+  font-weight: 900;
+  margin: 0;
+  line-height: 0.9;
+}
+
+.gallery-hero p {
+  font-size: 19px;
+  margin-top: 25px;
+}
+
+/* =========================================
+   FILTER NAVIGATION
+========================================= */
+
+.gallery-navigation {
+  background: #fff;
+  border-bottom: 1px solid #ddd;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+}
+
+.gallery-filters {
+  display: flex;
+  gap: 10px;
+  overflow-x: auto;
+  padding: 18px 0;
+}
+
+.filter-btn {
+  border: none;
+  background: transparent;
+  padding: 10px 18px;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.filter-btn:hover,
+.filter-btn.active {
+  background: var(--chelsea-blue);
+  color: white;
+}
+
+/* =========================================
+   SECTION HEADINGS
+========================================= */
+
+.section-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  gap: 30px;
+  margin-bottom: 40px;
+}
+
+.section-heading span {
+  color: var(--chelsea-blue);
+  font-size: 13px;
+  font-weight: 900;
+  letter-spacing: 3px;
+}
+
+.section-heading h2 {
+  font-size: 42px;
+  font-weight: 900;
+  margin: 8px 0 0;
+}
+
+.section-heading p {
+  max-width: 450px;
+  color: var(--gray);
+  margin: 0;
+}
+
+/* =========================================
+   FEATURED GALLERY
+========================================= */
+
+.featured-image,
+.small-gallery-card,
+.gallery-open {
+  cursor: pointer;
+}
+
+.featured-image {
+  height: 580px;
+  position: relative;
+  overflow: hidden;
+}
+
+.featured-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: 0.6s;
+}
+
+.featured-image:hover img {
+  transform: scale(1.06);
+}
+
+.image-overlay {
+  position: absolute;
+  inset: 0;
+
+  background: linear-gradient(transparent 40%, rgba(0, 0, 0, 0.85));
+
+  color: white;
+
+  padding: 35px;
+
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+}
+
+.image-overlay span,
+.small-card-overlay span {
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: 2px;
+}
+
+.image-overlay h3 {
+  font-size: 35px;
+  font-weight: 900;
+  margin: 8px 0;
+}
+
+.image-overlay p {
+  margin: 0;
+  max-width: 500px;
+}
+
+.image-overlay i {
+  font-size: 40px;
+}
+
+/* =========================================
+   SMALL FEATURE CARDS
+========================================= */
+
+.small-gallery-card {
+  height: 280px;
+  position: relative;
+  overflow: hidden;
+}
+
+.small-gallery-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: 0.6s;
+}
+
+.small-gallery-card:hover img {
+  transform: scale(1.08);
+}
+
+.small-card-overlay {
+  position: absolute;
+  inset: 0;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+
+  padding: 25px;
+
+  color: white;
+
+  background: linear-gradient(transparent 30%, rgba(0, 0, 0, 0.8));
+}
+
+.small-card-overlay h4 {
+  font-size: 26px;
+  font-weight: 900;
+  margin: 7px 0 0;
+}
+
+/* =========================================
+   BLUE SECTION
+========================================= */
+
+.blue-section {
+  background: var(--chelsea-blue);
+  padding: 90px 0;
+  color: white;
+}
+
+.white-heading span {
+  color: #9ed7ff;
+}
+
+.white-heading h2 {
+  color: white;
+}
+
+.white-heading p {
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.view-all {
+  color: white;
+  text-decoration: none;
+  font-weight: 800;
+}
+
+.view-all:hover {
+  color: white;
+}
+
+/* =========================================
+   PROFESSIONAL CARDS
+========================================= */
+
+.professional-card {
+  background: white;
+  color: var(--text);
+  height: 100%;
+}
+
+.professional-image {
+  height: 300px;
+  position: relative;
+  overflow: hidden;
+}
+
+.professional-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: 0.5s;
+}
+
+.professional-card:hover img {
+  transform: scale(1.06);
+}
+
+.number {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+
+  background: var(--chelsea-blue);
+  color: white;
+
+  width: 45px;
+  height: 45px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-weight: 900;
+}
+
+.professional-content {
+  padding: 25px;
+}
+
+.professional-content span {
+  color: var(--chelsea-blue);
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: 2px;
+}
+
+.professional-content h3 {
+  font-size: 24px;
+  font-weight: 900;
+  margin: 8px 0;
+}
+
+.professional-content p {
+  color: var(--gray);
+  margin: 0;
+}
+
+/* =========================================
+   TRAINING GRID
+========================================= */
+
+.training-grid {
+  display: grid;
+
+  grid-template-columns: 2fr 1fr;
+
+  grid-template-rows: 280px 280px;
+
+  gap: 15px;
+}
+
+.training-main {
+  grid-row: span 2;
+  position: relative;
+  overflow: hidden;
+}
+
+.training-small {
+  position: relative;
+  overflow: hidden;
+}
+
+.training-grid img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: 0.6s;
+}
+
+.training-grid div:hover img {
+  transform: scale(1.06);
+}
+
+.training-caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+
+  padding: 25px;
+
+  color: white;
+
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.85));
+}
+
+.training-caption span {
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: 2px;
+}
+
+.training-caption h3 {
+  font-size: 24px;
+  font-weight: 900;
+  margin: 5px 0 0;
+}
+
+/* =========================================
+   STADIUM
+========================================= */
+
+.stadium-section {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  min-height: 600px;
+}
+
+.stadium-image {
+  overflow: hidden;
+}
+
+.stadium-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.stadium-content {
+  background: var(--dark);
+  color: white;
+
+  padding: 80px;
+
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.stadium-content span,
+.history-text span {
+  color: #73c8ff;
+  font-weight: 900;
+  letter-spacing: 3px;
+  font-size: 12px;
+}
+
+.stadium-content h2 {
+  font-size: 65px;
+  font-weight: 900;
+  line-height: 0.95;
+  margin: 15px 0 30px;
+}
+
+.stadium-content p {
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.8;
+  max-width: 500px;
+}
+
+/* =========================================
+   BUTTON
+========================================= */
+
+.blue-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 15px;
+
+  background: var(--chelsea-blue);
+  color: white;
+
+  padding: 15px 22px;
+
+  text-decoration: none;
+  font-weight: 800;
+
+  width: fit-content;
+
+  margin-top: 20px;
+
+  transition: 0.3s;
+}
+
+.blue-button:hover {
+  background: white;
+  color: var(--chelsea-blue);
+}
+
+/* =========================================
+   FANS
+========================================= */
+
+.fan-image {
+  height: 420px;
+  position: relative;
+  overflow: hidden;
+}
+
+.fan-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: 0.6s;
+}
+
+.fan-image:hover img {
+  transform: scale(1.07);
+}
+
+.fan-overlay {
+  position: absolute;
+  inset: 0;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+
+  padding: 35px;
+
+  color: white;
+
+  background: linear-gradient(transparent 35%, rgba(0, 0, 0, 0.85));
+}
+
+.fan-overlay h3 {
+  font-size: 35px;
+  font-weight: 900;
+  margin: 0;
+}
+
+.fan-overlay span {
+  letter-spacing: 2px;
+  font-weight: 700;
+}
+
+/* =========================================
+   HISTORY
+========================================= */
+
+.history-gallery {
+  background: var(--light);
+  padding: 100px 0;
+}
+
+.history-image {
+  overflow: hidden;
+}
+
+.history-image img {
+  width: 100%;
+  height: 500px;
+  object-fit: cover;
+  transition: 0.5s;
+}
+
+.history-image:hover img {
+  transform: scale(1.04);
+}
+
+.history-text {
+  padding: 50px;
+}
+
+.history-text h2 {
+  font-size: 55px;
+  font-weight: 900;
+  line-height: 0.95;
+  margin: 15px 0 30px;
+}
+
+.history-text p {
+  color: var(--gray);
+  line-height: 1.8;
+}
+
+/* =========================================
+   MODAL
+========================================= */
+
+.gallery-modal {
+  background: #000;
+  border: none;
+  border-radius: 0;
+  overflow: hidden;
+  position: relative;
+}
+
+.gallery-modal img {
+  width: 100%;
+  max-height: 80vh;
+  object-fit: contain;
+}
+
+.modal-close {
+  position: absolute;
+
+  right: 20px;
+  top: 20px;
+
+  z-index: 10;
+
+  border: none;
+
+  width: 45px;
+  height: 45px;
+
+  background: rgba(0, 0, 0, 0.7);
+
+  color: white;
+
+  border-radius: 50%;
+
+  font-size: 18px;
+}
+
+.modal-caption {
+  padding: 20px 25px;
+  color: white;
+}
+
+.modal-caption h3 {
+  margin: 0;
+  font-weight: 800;
+}
+
+/* =========================================
+   FOOTER
+========================================= */
+
+.chelsea-footer {
+  background: #001489;
+  color: white;
+  padding: 70px 0 20px;
+}
+
+.footer-logo {
+  width: 65px;
+  margin-bottom: 20px;
+}
+
+.chelsea-footer p {
+  color: rgba(255, 255, 255, 0.75);
+  line-height: 1.7;
+}
+
+.chelsea-footer h5 {
+  font-weight: 900;
+  margin-bottom: 20px;
+}
+
+.chelsea-footer a {
+  display: block;
+  color: rgba(255, 255, 255, 0.75);
+  text-decoration: none;
+  margin-bottom: 12px;
+}
+
+.chelsea-footer a:hover {
+  color: white;
+}
+
+.social-icons {
+  display: flex;
+  gap: 12px;
+}
+
+.social-icons a {
+  width: 45px;
+  height: 45px;
+
+  background: rgba(255, 255, 255, 0.12);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  color: white;
+}
+
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 20px;
+}
+
+.footer-bottom p {
+  font-size: 13px;
+}
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media (max-width: 991px) {
+  .gallery-hero {
+    height: 430px;
+  }
+
+  .featured-image {
+    height: 450px;
+  }
+
+  .stadium-section {
+    grid-template-columns: 1fr;
+  }
+
+  .stadium-image {
+    height: 450px;
+  }
+
+  .stadium-content {
+    padding: 60px 30px;
+  }
+
+  .training-grid {
+    grid-template-columns: 1fr;
+    grid-template-rows: 400px 250px 250px;
+  }
+
+  .training-main {
+    grid-row: auto;
+  }
+}
+
+@media (max-width: 767px) {
+  .section-padding {
+    padding: 60px 0;
+  }
+
+  .section-heading {
+    display: block;
+  }
+
+  .section-heading h2 {
+    font-size: 34px;
+  }
+
+  .gallery-hero h1 {
+    font-size: 60px;
+  }
+
+  .featured-image {
+    height: 400px;
+  }
+
+  .image-overlay h3 {
+    font-size: 25px;
+  }
+
+  .small-gallery-card {
+    height: 240px;
+  }
+
+  .stadium-content h2 {
+    font-size: 50px;
+  }
+
+  .fan-image {
+    height: 300px;
+  }
+
+  .history-text {
+    padding: 30px 0;
+  }
+
+  .history-text h2 {
+    font-size: 42px;
+  }
+
+  .footer-bottom {
+    display: block;
+  }
+}
+
+/* Page layout and gallery cards */
+.chelsea-navbar .navbar-toggler {
+  border-color: rgba(255, 255, 255, 0.55);
+}
+
+.chelsea-navbar .navbar-toggler-icon {
+  filter: brightness(0) invert(1);
+}
+
+.club-mark {
+  width: 46px;
+  height: 46px;
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.75);
+  border-radius: 50%;
+  color: white;
+  font-family: "Barlow Condensed", sans-serif;
+  font-weight: 900;
+}
+
+.brand-name {
+  color: white;
+  font-family: "Barlow Condensed", sans-serif;
+  font-size: 20px;
+  font-weight: 900;
+}
+
+.brand-name span {
+  color: #a9d8ff;
+  display: block;
+  font-family: "DM Sans", Arial, sans-serif;
+  font-size: 10px;
+  font-weight: 500;
+}
+
+.gallery-hero {
+  min-height: 610px;
+  height: min(78vh, 760px);
+  background-position: center 55%;
+}
+
+.gallery-hero-overlay {
+  padding-bottom: clamp(55px, 9vw, 110px);
+}
+
+.gallery-hero h1,
+.section-heading h2,
+.club-note h2 {
+  font-family: "Barlow Condensed", Impact, sans-serif;
+}
+
+.gallery-hero h1 {
+  font-size: clamp(74px, 11vw, 150px);
+}
+
+.hero-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 18px;
+  padding-bottom: 7px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.7);
+  color: white;
+  font-size: 14px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.hero-link:hover {
+  color: #a9d8ff;
+  border-color: #a9d8ff;
+}
+
+.highlights-section {
+  padding: 70px 0 86px;
+  background: #f4f6f8;
+}
+
+.section-kicker {
+  margin-bottom: 22px;
+  color: #525e6c;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+
+.section-kicker span {
+  margin-right: 11px;
+  color: #034694;
+}
+
+.carousel-inner {
+  background: #07111f;
+}
+
+.carousel-item img {
+  height: clamp(300px, 49vw, 590px);
+  object-fit: cover;
+  opacity: 0.8;
+}
+
+.carousel-caption {
+  right: auto;
+  bottom: 12%;
+  left: 8%;
+  max-width: 620px;
+  text-align: left;
+}
+
+.carousel-caption span,
+.card-caption small {
+  color: #b7ddff;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+
+.carousel-caption h2 {
+  margin-top: 8px;
+  font-family: "Barlow Condensed", Impact, sans-serif;
+  font-size: clamp(34px, 6vw, 68px);
+  font-weight: 800;
+}
+
+.carousel-caption p {
+  max-width: 520px;
+  margin: 10px 0 0;
+  line-height: 1.6;
+}
+
+.carousel-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 14px;
+  color: #fff;
+  font-size: 13px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.carousel-link:hover {
+  color: #b7ddff;
+}
+
+.gallery-section {
+  padding: 88px 0 92px;
+}
+
+.section-heading {
+  align-items: end;
+  margin-bottom: 30px;
+}
+
+.section-heading .section-kicker {
+  margin-bottom: 7px;
+}
+
+.section-heading h2 {
+  margin: 0;
+  color: #101c2b;
+  font-size: clamp(48px, 7vw, 76px);
+  line-height: 0.95;
+}
+
+.blue-period {
+  color: #034694;
+}
+
+.section-heading > p {
+  max-width: 370px;
+  padding-bottom: 4px;
+  color: #697386;
+  line-height: 1.7;
+}
+
+.gallery-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  margin: 32px 0 14px;
+}
+
+.photo-count {
+  margin: 0;
+  color: #697386;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.gallery-search {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: min(100%, 310px);
+  padding: 10px 13px;
+  border: 1px solid #dce1e7;
+  background: #fff;
+  color: #697386;
+}
+
+.gallery-search:focus-within {
+  border-color: #034694;
+  box-shadow: 0 0 0 3px rgba(3, 70, 148, 0.12);
+}
+
+.gallery-search input {
+  width: 100%;
+  border: 0;
+  outline: 0;
+  color: #172033;
+  font: inherit;
+}
+
+.gallery-search input::placeholder {
+  color: #697386;
+}
+
+.gallery-navigation {
+  position: relative;
+  top: auto;
+  z-index: 1;
+  margin-bottom: 26px;
+  border-bottom: 1px solid #dce1e7;
+}
+
+.gallery-filters {
+  gap: 4px;
+  padding: 10px 0;
+  scroll-snap-type: x proximity;
+}
+
+.filter-btn {
+  flex: 0 0 auto;
+  border: 2px solid #034694;
+  border-radius: 0;
+  background: #fff;
+  color: #034694;
+  font-family: "Barlow Condensed", Impact, sans-serif;
+  font-size: 18px;
+  scroll-snap-align: start;
+}
+
+.filter-btn:hover,
+.filter-btn.active {
+  background: #034694;
+  color: white;
+}
+
+.filter-btn:focus-visible {
+  outline: 3px solid #68b7ff;
+  outline-offset: 2px;
+}
+
+.gallery-card {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 350px;
+  padding: 0;
+  overflow: hidden;
+  border: 0;
+  background: #101c2b;
+  color: white;
+  text-align: left;
+}
+
+.gallery-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition:
+    transform 450ms ease,
+    opacity 450ms ease;
+}
+
+.gallery-card::after {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 38%, rgba(3, 12, 24, 0.88));
+  content: "";
+}
+
+.gallery-card:hover img,
+.gallery-card:focus-visible img {
+  transform: scale(1.07);
+  opacity: 0.88;
+}
+
+.gallery-card:focus-visible {
+  outline: 3px solid #68b7ff;
+  outline-offset: 3px;
+}
+
+.card-number,
+.card-caption {
+  position: absolute;
+  z-index: 1;
+}
+
+.card-number {
+  top: 17px;
+  left: 18px;
+  color: white;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.card-caption {
+  right: 20px;
+  bottom: 20px;
+  left: 20px;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: end;
+  gap: 4px 12px;
+}
+
+.card-caption small {
+  grid-column: 1 / -1;
+}
+
+.card-caption strong {
+  font-family: "Barlow Condensed", Impact, sans-serif;
+  font-size: 30px;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.card-caption i {
+  font-size: 21px;
+  transition: transform 250ms ease;
+}
+
+.gallery-card:hover .card-caption i {
+  transform: translate(3px, -3px);
+}
+
+.gallery-meta {
+  padding: 14px 2px 4px;
+}
+
+.gallery-meta h3 {
+  margin: 0 0 5px;
+  color: #101c2b;
+  font-family: "Barlow Condensed", Impact, sans-serif;
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.gallery-meta p {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  margin: 0;
+  color: #697386;
+  font-size: 12px;
+}
+
+.gallery-meta i {
+  color: #034694;
+}
+
+.no-results {
+  padding: 35px 0;
+  color: #697386;
+  text-align: center;
+}
+
+.image-credit {
+  margin: 24px 0 0;
+  color: #697386;
+  font-size: 12px;
+}
+
+.image-credit a {
+  color: #034694;
+}
+
+.club-note {
+  padding: 70px 0;
+  background: #034694;
+  color: white;
+}
+
+.club-note-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr minmax(260px, 0.9fr);
+  align-items: center;
+  gap: 36px;
+}
+
+.club-note .section-kicker,
+.club-note .section-kicker span {
+  color: #b7ddff;
+}
+
+.club-note h2 {
+  margin: 0;
+  font-size: clamp(48px, 8vw, 82px);
+  font-weight: 800;
+  line-height: 0.9;
+}
+
+.club-note p {
+  max-width: 440px;
+  margin: 0;
+  color: rgba(255, 255, 255, 0.82);
+  line-height: 1.8;
+}
+
+.club-photo {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  object-position: center;
+  border: 3px solid rgba(255, 255, 255, 0.85);
+}
+
+.chelsea-footer {
+  padding: 22px 0;
+  background: #07111f;
+  color: white;
+  font-size: 12px;
+}
+
+.chelsea-footer .container > span:last-child {
+  color: #aeb8c4;
+}
+
+.chelsea-footer a {
+  color: #b7ddff;
+  text-decoration: none;
+}
+
+.gallery-modal {
+  background: #07111f;
+}
+
+@media (max-width: 767px) {
+  .gallery-hero {
+    min-height: 520px;
+    height: 72vh;
+  }
+
+  .gallery-hero h1 {
+    font-size: 78px;
+  }
+
+  .highlights-section,
+  .gallery-section {
+    padding: 58px 0;
+  }
+
+  .carousel-item img {
+    height: 390px;
+  }
+
+  .carousel-caption {
+    bottom: 12%;
+    left: 12%;
+  }
+
+  .carousel-caption p {
+    font-size: 13px;
+  }
+
+  .gallery-card {
+    height: 300px;
+  }
+
+  .club-note {
+    padding: 55px 0;
+  }
+
+  .club-note-layout {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .club-note p {
+    margin: 0;
+  }
+
+  .club-photo {
+    height: auto;
+    max-height: 280px;
+    object-fit: contain;
+  }
+
+  .gallery-toolbar {
+    align-items: stretch;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .gallery-search {
+    width: 100%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+
