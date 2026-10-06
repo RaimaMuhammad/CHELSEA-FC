@@ -3339,7 +3339,6 @@ input.invalid, select.invalid { border-color: var(--error); }
 
 
 
-
 /* =========================================
    CHELSEA ABOUT PAGE
    CLEAN BLUE COLOUR SCHEME
@@ -3445,14 +3444,14 @@ input.invalid, select.invalid { border-color: var(--error); }
 
 
 /* =========================================
-   GENERAL SECTION HEADING
+   ABOUT PAGE SECTION HEADING
 ========================================= */
 
-.section-heading {
+.about-section-heading {
     margin-bottom: 3rem;
 }
 
-.section-heading h2 {
+.about-section-heading h2 {
     color: var(--chelsea-blue);
     font-size: clamp(2rem, 4vw, 3.5rem);
     line-height: 1.1;
@@ -3478,12 +3477,12 @@ input.invalid, select.invalid { border-color: var(--error); }
     color: var(--white);
 }
 
-.about-introduction .section-heading {
+.about-introduction .about-section-heading {
     text-align: center;
     margin: 0 auto 2rem;
 }
 
-.about-introduction .section-heading h2 {
+.about-introduction .about-section-heading h2 {
     color: var(--white);
     font-size: 2.3rem;
     margin: 0;
@@ -3604,12 +3603,12 @@ input.invalid, select.invalid { border-color: var(--error); }
     background: var(--light-bg);
 }
 
-.history-section .section-heading {
+.history-section .about-section-heading {
     text-align: center;
     margin: 0 auto 2.5rem;
 }
 
-.history-section .section-heading h2 {
+.history-section .about-section-heading h2 {
     display: inline-block;
 
     color: var(--white);
@@ -3628,7 +3627,7 @@ input.invalid, select.invalid { border-color: var(--error); }
         box-shadow 0.3s ease;
 }
 
-.history-section .section-heading h2:hover {
+.history-section .about-section-heading h2:hover {
     transform: translateY(-5px);
 
     background: var(--chelsea-light-blue);
@@ -3776,12 +3775,12 @@ input.invalid, select.invalid { border-color: var(--error); }
     background: var(--white);
 }
 
-.history-years .section-heading {
+.history-years .about-section-heading {
     text-align: center;
     margin: 0 auto 2.5rem;
 }
 
-.history-years .section-heading h2 {
+.history-years .about-section-heading h2 {
     display: inline-block;
 
     color: var(--white);
@@ -3801,7 +3800,7 @@ input.invalid, select.invalid { border-color: var(--error); }
         box-shadow 0.3s ease;
 }
 
-.history-years .section-heading h2:hover {
+.history-years .about-section-heading h2:hover {
     transform: translateY(-5px);
 
     background: var(--chelsea-light-blue);
@@ -4209,13 +4208,13 @@ input.invalid, select.invalid { border-color: var(--error); }
    VIDEO HEADING
 ========================================= */
 
-.video-section .section-heading {
+.video-section .about-section-heading {
     text-align: center;
 
     margin-bottom: 3.5rem;
 }
 
-.video-section .section-heading h2 {
+.video-section .about-section-heading h2 {
     margin: 0;
 
     color: var(--chelsea-blue);
@@ -4234,7 +4233,7 @@ input.invalid, select.invalid { border-color: var(--error); }
         transform 0.3s ease;
 }
 
-.video-section .section-heading h2:hover {
+.video-section .about-section-heading h2:hover {
     color: var(--chelsea-light-blue);
     transform: translateY(-3px);
 }
@@ -4418,7 +4417,7 @@ input.invalid, select.invalid { border-color: var(--error); }
     overflow: hidden;
 }
 
-.honours-section .section-heading {
+.honours-section .about-section-heading {
     max-width: 850px;
 
     margin: 0 auto 4rem;
@@ -4426,7 +4425,7 @@ input.invalid, select.invalid { border-color: var(--error); }
     text-align: center;
 }
 
-.honours-section .section-heading h2 {
+.honours-section .about-section-heading h2 {
     color: var(--chelsea-blue);
 
     font-size: 3rem;
@@ -4439,7 +4438,7 @@ input.invalid, select.invalid { border-color: var(--error); }
         transform 0.3s ease;
 }
 
-.honours-section .section-heading h2:hover {
+.honours-section .about-section-heading h2:hover {
     color: var(--chelsea-light-blue);
 
     transform: translateY(-5px);
@@ -4626,7 +4625,7 @@ input.invalid, select.invalid { border-color: var(--error); }
     background: var(--white);
 }
 
-.mission-section .section-heading {
+.mission-section .about-section-heading {
     width: 100%;
 
     text-align: center;
@@ -4634,7 +4633,7 @@ input.invalid, select.invalid { border-color: var(--error); }
     margin-bottom: 2rem;
 }
 
-.mission-section .section-heading h2 {
+.mission-section .about-section-heading h2 {
     color: var(--chelsea-blue);
 
     font-size: 2.5rem;
@@ -4651,7 +4650,7 @@ input.invalid, select.invalid { border-color: var(--error); }
         transform 0.3s ease;
 }
 
-.mission-section .section-heading h2:hover {
+.mission-section .about-section-heading h2:hover {
     color: var(--chelsea-light-blue);
 
     transform: translateY(-4px);
@@ -4919,7 +4918,7 @@ input.invalid, select.invalid { border-color: var(--error); }
         padding: 2.5rem 5%;
     }
 
-    .about-introduction .section-heading h2 {
+    .about-introduction .about-section-heading h2 {
         font-size: 1.8rem;
     }
 
@@ -4956,7 +4955,7 @@ input.invalid, select.invalid { border-color: var(--error); }
         padding: 2.5rem 5%;
     }
 
-    .history-section .section-heading h2 {
+    .history-section .about-section-heading h2 {
         font-size: 1.8rem;
 
         padding: 0.6rem 1.2rem;
@@ -4991,7 +4990,7 @@ input.invalid, select.invalid { border-color: var(--error); }
         padding: 4rem 5%;
     }
 
-    .history-years .section-heading h2 {
+    .history-years .about-section-heading h2 {
         font-size: 1.7rem;
 
         padding: 0.6rem 1.2rem;
@@ -5076,7 +5075,7 @@ input.invalid, select.invalid { border-color: var(--error); }
         padding: 4rem 5%;
     }
 
-    .video-section .section-heading h2 {
+    .video-section .about-section-heading h2 {
         font-size: 2rem;
     }
 
@@ -5091,7 +5090,7 @@ input.invalid, select.invalid { border-color: var(--error); }
         padding: 4rem 5%;
     }
 
-    .honours-section .section-heading h2 {
+    .honours-section .about-section-heading h2 {
         font-size: 2.2rem;
     }
 
@@ -5120,7 +5119,7 @@ input.invalid, select.invalid { border-color: var(--error); }
         padding: 4rem 5%;
     }
 
-    .mission-section .section-heading h2 {
+    .mission-section .about-section-heading h2 {
         font-size: 2rem;
     }
 
@@ -5167,7 +5166,7 @@ input.invalid, select.invalid { border-color: var(--error); }
         font-size: 1.4rem;
     }
 
-    .section-heading h2 {
+    .about-section-heading h2 {
         font-size: 1.9rem;
     }
 
@@ -5188,167 +5187,6 @@ input.invalid, select.invalid { border-color: var(--error); }
         padding: 2rem 1.5rem;
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
