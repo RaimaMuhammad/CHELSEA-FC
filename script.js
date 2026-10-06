@@ -1,254 +1,583 @@
-"use strict";
-
-
 /* =========================================================
-   LOGIN FORM
+   CHELSEA FC LOGIN & REGISTRATION SYSTEM
 ========================================================= */
 
 document.addEventListener("DOMContentLoaded", function () {
 
-    const loginForm =
-        document.getElementById("loginForm");
+    /* =====================================================
+       GET LOGIN / REGISTER ELEMENTS
+    ===================================================== */
 
-    if (loginForm) {
+    const loginForm = document.getElementById("loginForm");
+    const registerForm = document.getElementById("registerForm");
 
-        loginForm.addEventListener("submit", function (event) {
+    const showRegister = document.getElementById("showRegister");
+    const showLogin = document.getElementById("showLogin");
 
-            event.preventDefault();
+    const loginEmail = document.getElementById("loginEmail");
+    const loginPassword = document.getElementById("loginPassword");
 
-            const email =
-                document.getElementById("email");
+    const regName = document.getElementById("regName");
+    const regEmail = document.getElementById("regEmail");
+    const regPhone = document.getElementById("regPhone");
+    const regDob = document.getElementById("regDob");
+    const regCountry = document.getElementById("regCountry");
+    const regPassword = document.getElementById("regPassword");
+    const regConfirm = document.getElementById("regConfirm");
 
-            const password =
-                document.getElementById("password");
+    const banner = document.getElementById("banner");
 
-            const loginMessage =
-                document.getElementById("loginMessage");
+    const welcomeView = document.getElementById("welcomeView");
+    const welcomeTitle = document.getElementById("welcomeTitle");
+    const welcomeText = document.getElementById("welcomeText");
 
-            if (!email || !password || !loginMessage) {
-                return;
-            }
+    const signOutBtn = document.getElementById("signOutBtn");
+    const welcomeSignOut = document.getElementById("welcomeSignOut");
 
-            const emailValue =
-                email.value.trim();
-
-            const passwordValue =
-                password.value.trim();
-
-
-            /* =========================
-               BASIC VALIDATION
-            ========================= */
-
-            if (emailValue === "" || passwordValue === "") {
-
-                loginMessage.textContent =
-                    "Please enter your email and password.";
-
-                loginMessage.className =
-                    "login-message error";
-
-                return;
-            }
+    const resetBtn = document.getElementById("resetBtn");
 
 
-            /* =========================
-               SIMPLE LOGIN CHECK
-            ========================= */
+    /* =====================================================
+       IF THIS IS NOT THE LOGIN PAGE, STOP
+    ===================================================== */
 
-            sessionStorage.setItem(
-                "loggedIn",
-                "true"
+    if (!loginForm || !registerForm) {
+        return;
+    }
+
+
+    /* =====================================================
+       COUNTRY LIST
+    ===================================================== */
+
+    const countries = [
+        "Uganda",
+        "Kenya",
+        "Tanzania",
+        "Rwanda",
+        "South Sudan",
+        "Nigeria",
+        "Ghana",
+        "South Africa",
+        "United Kingdom",
+        "United States",
+        "Canada",
+        "Australia",
+        "Other"
+    ];
+
+
+    countries.forEach(function (country) {
+
+        const option = document.createElement("option");
+
+        option.value = country;
+        option.textContent = country;
+
+        regCountry.appendChild(option);
+
+    });
+
+
+    /* =====================================================
+       SHOW REGISTER FORM
+    ===================================================== */
+
+    showRegister.addEventListener("click", function (event) {
+
+        event.preventDefault();
+
+        loginForm.hidden = true;
+
+        registerForm.hidden = false;
+
+        banner.hidden = true;
+
+    });
+
+
+    /* =====================================================
+       SHOW LOGIN FORM
+    ===================================================== */
+
+    showLogin.addEventListener("click", function (event) {
+
+        event.preventDefault();
+
+        registerForm.hidden = true;
+
+        loginForm.hidden = false;
+
+        banner.hidden = true;
+
+    });
+
+
+    /* =====================================================
+       REGISTER USER
+    ===================================================== */
+
+    registerForm.addEventListener("submit", function (event) {
+
+        event.preventDefault();
+
+
+        /* GET VALUES */
+
+        const name = regName.value.trim();
+
+        const email = regEmail.value.trim().toLowerCase();
+
+        const phone = regPhone.value.trim();
+
+        const dob = regDob.value;
+
+        const country = regCountry.value;
+
+        const password = regPassword.value;
+
+        const confirmPassword = regConfirm.value;
+
+
+        /* =================================================
+           VALIDATE NAME
+        ================================================= */
+
+        if (name === "") {
+
+            showMessage("Please enter your full name.", "error");
+
+            regName.focus();
+
+            return;
+
+        }
+
+
+        /* =================================================
+           VALIDATE EMAIL
+        ================================================= */
+
+        if (email === "") {
+
+            showMessage("Please enter your email address.", "error");
+
+            regEmail.focus();
+
+            return;
+
+        }
+
+
+        /* =================================================
+           VALIDATE PHONE
+        ================================================= */
+
+        if (phone === "") {
+
+            showMessage("Please enter your phone number.", "error");
+
+            regPhone.focus();
+
+            return;
+
+        }
+
+
+        /* =================================================
+           VALIDATE DATE OF BIRTH
+        ================================================= */
+
+        if (dob === "") {
+
+            showMessage("Please enter your date of birth.", "error");
+
+            regDob.focus();
+
+            return;
+
+        }
+
+
+        /* =================================================
+           VALIDATE COUNTRY
+        ================================================= */
+
+        if (country === "") {
+
+            showMessage("Please select your country.", "error");
+
+            regCountry.focus();
+
+            return;
+
+        }
+
+
+        /* =================================================
+           VALIDATE PASSWORD
+        ================================================= */
+
+        if (password.length < 6) {
+
+            showMessage(
+                "Password must contain at least 6 characters.",
+                "error"
             );
 
-            sessionStorage.setItem(
-                "userName",
-                emailValue
+            regPassword.focus();
+
+            return;
+
+        }
+
+
+        /* =================================================
+           CHECK PASSWORDS
+        ================================================= */
+
+        if (password !== confirmPassword) {
+
+            showMessage(
+                "Passwords do not match.",
+                "error"
             );
 
+            regConfirm.focus();
 
-            loginMessage.textContent =
-                "Login successful. Redirecting...";
+            return;
 
-            loginMessage.className =
-                "login-message success";
+        }
 
 
-            setTimeout(function () {
+        /* =================================================
+           GET EXISTING USERS
+        ================================================= */
 
-                window.location.href =
-                    "index.html";
+        let users = JSON.parse(
+            localStorage.getItem("chelseaUsers")
+        ) || [];
 
-            }, 700);
+
+        /* =================================================
+           CHECK EXISTING EMAIL
+        ================================================= */
+
+        const existingUser = users.find(function (user) {
+
+            return user.email === email;
+
+        });
+
+
+        if (existingUser) {
+
+            showMessage(
+                "This email is already registered. Please login.",
+                "error"
+            );
+
+            return;
+
+        }
+
+
+        /* =================================================
+           CREATE USER
+        ================================================= */
+
+        const newUser = {
+
+            name: name,
+
+            email: email,
+
+            phone: phone,
+
+            dob: dob,
+
+            country: country,
+
+            password: password
+
+        };
+
+
+        /* =================================================
+           SAVE USER
+        ================================================= */
+
+        users.push(newUser);
+
+        localStorage.setItem(
+            "chelseaUsers",
+            JSON.stringify(users)
+        );
+
+
+        /* =================================================
+           SUCCESS MESSAGE
+        ================================================= */
+
+        showMessage(
+            "Registration successful! You can now login.",
+            "success"
+        );
+
+
+        /* =================================================
+           CLEAR FORM
+        ================================================= */
+
+        registerForm.reset();
+
+
+        /* =================================================
+           SWITCH TO LOGIN
+        ================================================= */
+
+        setTimeout(function () {
+
+            registerForm.hidden = true;
+
+            loginForm.hidden = false;
+
+            banner.hidden = true;
+
+        }, 1500);
+
+    });
+
+
+    /* =====================================================
+       LOGIN USER
+    ===================================================== */
+
+    loginForm.addEventListener("submit", function (event) {
+
+        event.preventDefault();
+
+
+        const email =
+            loginEmail.value.trim().toLowerCase();
+
+        const password =
+            loginPassword.value;
+
+
+        /* =================================================
+           GET USERS
+        ================================================= */
+
+        const users = JSON.parse(
+            localStorage.getItem("chelseaUsers")
+        ) || [];
+
+
+        /* =================================================
+           FIND USER
+        ================================================= */
+
+        const user = users.find(function (user) {
+
+            return (
+                user.email === email &&
+                user.password === password
+            );
+
+        });
+
+
+        /* =================================================
+           USER NOT FOUND
+        ================================================= */
+
+        if (!user) {
+
+            showMessage(
+                "Incorrect email or password.",
+                "error"
+            );
+
+            return;
+
+        }
+
+
+        /* =================================================
+           SAVE LOGIN
+        ================================================= */
+
+        localStorage.setItem(
+            "chelseaLoggedIn",
+            "true"
+        );
+
+        localStorage.setItem(
+            "chelseaCurrentUser",
+            JSON.stringify(user)
+        );
+
+
+        /* =================================================
+           SHOW WELCOME
+        ================================================= */
+
+        loginForm.hidden = true;
+
+        registerForm.hidden = true;
+
+        welcomeView.hidden = false;
+
+        signOutBtn.hidden = false;
+
+        welcomeTitle.textContent =
+            "Welcome, " + user.name + "!";
+
+        welcomeText.textContent =
+            "You are successfully signed in as " +
+            user.email + ".";
+
+    });
+
+
+    /* =====================================================
+       SIGN OUT
+    ===================================================== */
+
+    function signOut() {
+
+        localStorage.removeItem("chelseaLoggedIn");
+
+        localStorage.removeItem("chelseaCurrentUser");
+
+        welcomeView.hidden = true;
+
+        signOutBtn.hidden = true;
+
+        loginForm.hidden = false;
+
+        registerForm.hidden = true;
+
+        loginForm.reset();
+
+        showMessage(
+            "You have been signed out.",
+            "success"
+        );
+
+    }
+
+
+    if (signOutBtn) {
+
+        signOutBtn.addEventListener(
+            "click",
+            signOut
+        );
+
+    }
+
+
+    if (welcomeSignOut) {
+
+        welcomeSignOut.addEventListener(
+            "click",
+            signOut
+        );
+
+    }
+
+
+    /* =====================================================
+       RESET FORM
+    ===================================================== */
+
+    if (resetBtn) {
+
+        resetBtn.addEventListener("click", function () {
+
+            loginForm.reset();
+
+            registerForm.reset();
+
+            banner.hidden = true;
 
         });
 
     }
 
-});
 
+    /* =====================================================
+       MESSAGE FUNCTION
+    ===================================================== */
 
-/* =========================================================
-   NAVIGATION AUTHENTICATION
-   SHOW LOGIN / LOGOUT
-========================================================= */
+    function showMessage(message, type) {
 
-document.addEventListener("DOMContentLoaded", function () {
+        banner.textContent = message;
 
-    const navAuthContainer =
-        document.getElementById("navAuthContainer");
+        banner.hidden = false;
 
-    if (!navAuthContainer) {
-        return;
-    }
+        if (type === "error") {
 
+            banner.style.color = "#b00020";
 
-    const loggedIn =
-        sessionStorage.getItem("loggedIn");
+        } else {
 
-    const userName =
-        sessionStorage.getItem("userName");
-
-
-    if (loggedIn === "true") {
-
-        navAuthContainer.innerHTML = `
-            <button
-                type="button"
-                id="logoutBtn"
-                class="logout-btn">
-                Logout
-            </button>
-        `;
-
-
-        const logoutBtn =
-            document.getElementById("logoutBtn");
-
-
-        if (logoutBtn) {
-
-            logoutBtn.addEventListener(
-                "click",
-                function () {
-
-                    sessionStorage.removeItem(
-                        "loggedIn"
-                    );
-
-                    sessionStorage.removeItem(
-                        "userName"
-                    );
-
-                    sessionStorage.removeItem(
-                        "welcomeMessage"
-                    );
-
-                    window.location.href =
-                        "login.html";
-
-                }
-            );
+            banner.style.color = "#008000";
 
         }
 
     }
 
+
+    /* =====================================================
+       CHECK IF USER IS ALREADY LOGGED IN
+    ===================================================== */
+
+    const loggedIn =
+        localStorage.getItem("chelseaLoggedIn");
+
+    const currentUser =
+        JSON.parse(
+            localStorage.getItem("chelseaCurrentUser")
+        );
+
+
+    if (loggedIn === "true" && currentUser) {
+
+        loginForm.hidden = true;
+
+        registerForm.hidden = true;
+
+        welcomeView.hidden = false;
+
+        signOutBtn.hidden = false;
+
+        welcomeTitle.textContent =
+            "Welcome back, " + currentUser.name + "!";
+
+        welcomeText.textContent =
+            "You are already signed in as " +
+            currentUser.email + ".";
+
+    }
+
 });
 
 
-/* =========================================================
-   HOME PAGE AUTHENTICATION
-   ONLY RUNS ON index.html
-========================================================= */
-
-const currentPage =
-    window.location.pathname
-        .split("/")
-        .pop();
 
 
-if (
-    currentPage === "" ||
-    currentPage === "index.html"
-) {
-
-    const loggedIn =
-        sessionStorage.getItem("loggedIn");
 
 
-    /*
-       ONLY THE HOME PAGE REQUIRES LOGIN.
-       ABOUT, TEAM, MARKET AND GALLERY
-       WILL NOT BE REDIRECTED.
-    */
-
-    if (loggedIn !== "true") {
-
-        window.location.href =
-            "login.html";
-
-    }
 
 
-    /* =========================
-       WELCOME MESSAGE
-    ========================= */
-
-    const userName =
-        sessionStorage.getItem("userName");
 
 
-    const welcomeMessage =
-        document.getElementById("welcomeMessage");
 
 
-    if (
-        welcomeMessage &&
-        userName
-    ) {
-
-        welcomeMessage.textContent =
-            `Welcome back, ${userName}!`;
-
-    }
 
 
-    /* =========================
-       LOGOUT
-    ========================= */
-
-    const logoutBtn =
-        document.getElementById("logoutBtn");
-
-
-    if (logoutBtn) {
-
-        logoutBtn.addEventListener(
-            "click",
-            function () {
-
-                sessionStorage.removeItem(
-                    "loggedIn"
-                );
-
-                sessionStorage.removeItem(
-                    "userName"
-                );
-
-                sessionStorage.removeItem(
-                    "welcomeMessage"
-                );
-
-                window.location.href =
-                    "login.html";
-
-            }
-        );
-
-    }
-
-}
 
 
 /* =========================================================
