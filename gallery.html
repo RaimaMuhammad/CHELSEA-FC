@@ -1,0 +1,572 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Chelsea FC | Gallery</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800;900&family=DM+Sans:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="gallery.css" />
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg chelsea-navbar" aria-label="Main navigation">
+      <div class="container">
+        <a class="navbar-brand d-flex align-items-center gap-2" href="#home"
+          ><img src="2.jpg.jpg" alt="Chelsea FC Logo" class="navbar-logo" /><span class="brand-name">CHELSEA <span>Through the blue lens</span></span></a
+        >
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#mainNavigation"
+          aria-controls="mainNavigation"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="mainNavigation">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="#gallery">Gallery</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <main>
+      <header class="gallery-hero" id="home">
+        <div class="container gallery-hero-overlay">
+          <p class="gallery-small-title">THE CHELSEA COLLECTION</p>
+          <h1>LIFE IN<br />BLUE.</h1>
+          <p>The players. The passion. The unforgettable moments.<br />Chelsea, through the lens.</p>
+          <a class="hero-link" href="#gallery"
+            >Explore the gallery <i class="bi bi-arrow-down-right" aria-hidden="true"></i
+          ></a>
+        </div>
+      </header>
+
+      <section class="highlights-section" id="highlights" aria-label="Chelsea highlights">
+        <div class="container">
+          <div class="section-kicker"><span>01</span> THE MOMENTS THAT STAY</div>
+          <!-- Bootstrap carousel: arrows and indicators move between the slides. -->
+          <div id="chelseaCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="5000">
+            <div class="carousel-indicators">
+              <button
+                type="button"
+                data-bs-target="#chelseaCarousel"
+                data-bs-slide-to="0"
+                class="active"
+                aria-current="true"
+                aria-label="Slide 1"
+              ></button
+              ><button
+                type="button"
+                data-bs-target="#chelseaCarousel"
+                data-bs-slide-to="1"
+                aria-label="Slide 2"
+              ></button
+              ><button
+                type="button"
+                data-bs-target="#chelseaCarousel"
+                data-bs-slide-to="2"
+                aria-label="Slide 3"
+              ></button>
+            </div>
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <img
+                  src="r.jpg.jpg?auto=format&amp;fit=crop&amp;w=1800&amp;q=85"
+                  class="d-block w-100"
+                  alt="Football ground in London"
+                />
+                <div class="carousel-caption">
+                  <span>FEATURED COLLECTION · LONDON IS BLUE</span>
+                  <h2>Our home. Our history.</h2>
+                  <p>More than a stadium. The place where blue dreams become unforgettable memories.</p>
+                  <a class="carousel-link" href="#gallery"
+                    >Explore collection <i class="bi bi-arrow-up-right" aria-hidden="true"></i
+                  ></a>
+                </div>
+              </div>
+              <div class="carousel-item">
+                <img
+                  src="y.jpg.jpg?auto=format&amp;fit=crop&amp;w=1800&amp;q=85"
+                  class="d-block w-100"
+                  alt="Footballers competing for the ball"
+                />
+                <div class="carousel-caption">
+                  <span>THE PLAYERS</span>
+                  <h2>The faces behind the blue.</h2>
+                  <p>Meet the people who turn hard work into unforgettable moments.</p>
+                  <a class="carousel-link" href="#gallery"
+                    >Explore collection <i class="bi bi-arrow-up-right" aria-hidden="true"></i
+                  ></a>
+                </div>
+              </div>
+              <div class="carousel-item">
+                <img
+                  src="h.jpg.jpg?auto=format&amp;fit=crop&amp;w=1800&amp;q=85"
+                  class="d-block w-100"
+                  alt="Football supporters cheering"
+                />
+                <div class="carousel-caption">
+                  <span>THE SUPPORTERS</span>
+                  <h2>Blue is the colour. Always.</h2>
+                  <p>One club, one community, wherever you call home.</p>
+                  <a class="carousel-link" href="#gallery"
+                    >Explore collection <i class="bi bi-arrow-up-right" aria-hidden="true"></i
+                  ></a>
+                </div>
+              </div>
+            </div>
+            <button
+              class="carousel-control-prev"
+              type="button"
+              data-bs-target="#chelseaCarousel"
+              data-bs-slide="prev"
+              aria-label="Previous slide"
+            >
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span></button
+            ><button
+              class="carousel-control-next"
+              type="button"
+              data-bs-target="#chelseaCarousel"
+              data-bs-slide="next"
+              aria-label="Next slide"
+            >
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <section class="gallery-section" id="gallery">
+        <div class="container">
+          <div class="section-heading">
+            <div>
+              <div class="section-kicker"><span>02</span> A CLUB, IN PICTURES</div>
+              <h2>The Gallery<span class="blue-period">.</span></h2>
+            </div>
+            <p>Players, supporters, silverware and Stamford Bridge: explore the moments that make Chelsea.</p>
+          </div>
+          <div class="gallery-toolbar">
+            <p class="photo-count" id="photoCount" aria-live="polite">16 photos</p>
+            <label class="gallery-search"
+              ><i class="bi bi-search" aria-hidden="true"></i><span class="visually-hidden">Search photos</span
+              ><input id="photoSearch" type="search" placeholder="Search photos..." autocomplete="off"
+            /></label>
+          </div>
+          <!-- data-filter values below match each image card's data-category. -->
+          <div class="gallery-navigation" aria-label="Filter gallery by category">
+            <div class="gallery-filters" role="group" aria-label="Gallery categories">
+              <button class="filter-btn active" type="button" data-filter="all" aria-pressed="true">All photos</button
+              ><button class="filter-btn" type="button" data-filter="players" aria-pressed="false">
+                Chelsea Players</button
+              ><button class="filter-btn" type="button" data-filter="match-day" aria-pressed="false">Match Day</button
+              ><button class="filter-btn" type="button" data-filter="training" aria-pressed="false">Training</button
+              ><button class="filter-btn" type="button" data-filter="stadium" aria-pressed="false">
+                Stamford Bridge</button
+              ><button class="filter-btn" type="button" data-filter="fans" aria-pressed="false">Chelsea Fans</button
+              ><button class="filter-btn" type="button" data-filter="trophies" aria-pressed="false">Trophies</button
+              ><button class="filter-btn" type="button" data-filter="celebrations" aria-pressed="false">
+                Celebrations
+              </button>
+            </div>
+          </div>
+          <!-- Bootstrap row and columns keep the photo cards responsive. -->
+          <div class="row g-4 gallery-grid">
+            <div class="col-12 col-sm-6 col-lg-4 gallery-item" data-category="players">
+              <button
+                class="gallery-card gallery-open"
+                type="button"
+                data-image="s.jpg.jpg?auto=format&amp;fit=crop&amp;w=1600&amp;q=85"
+                data-title="Chelsea Players"
+                aria-label="View Chelsea Players photo"
+              >
+                <img
+                  src="s.jpg.jpg?auto=format&amp;fit=crop&amp;w=900&amp;q=80"
+                  alt="Football players contesting the ball"
+                  loading="lazy"
+                /><span class="card-number">01</span
+                ><span class="card-caption"
+                  ><small>THE SQUAD</small><strong>Chelsea Players</strong
+                  ><i class="bi bi-arrow-up-right" aria-hidden="true"></i
+                ></span>
+              </button>
+            </div>
+            <div class="col-12 col-sm-6 col-lg-4 gallery-item" data-category="match-day">
+              <button
+                class="gallery-card gallery-open"
+                type="button"
+                data-image="d.jpg.jpg?auto=format&amp;fit=crop&amp;w=1600&amp;q=85"
+                data-title="Match Day"
+                aria-label="View Match Day photo"
+              >
+                <img
+                  src="d.jpg.jpg?auto=format&amp;fit=crop&amp;w=900&amp;q=80"
+                  alt="Football stadium lit for a match"
+                  loading="lazy"
+                /><span class="card-number">02</span
+                ><span class="card-caption"
+                  ><small>UNDER THE LIGHTS</small><strong>Match Day</strong
+                  ><i class="bi bi-arrow-up-right" aria-hidden="true"></i
+                ></span>
+              </button>
+            </div>
+            <div class="col-12 col-sm-6 col-lg-4 gallery-item" data-category="training">
+              <button
+                class="gallery-card gallery-open"
+                type="button"
+                data-image="qq.jpg.jpg?auto=format&amp;fit=crop&amp;w=1600&amp;q=85"
+                data-title="Putting in the work at Cobham"
+                aria-label="View Putting in the work at Cobham photo"
+              >
+                <img
+                  src="qq.jpg.jpg?auto=format&amp;fit=crop&amp;w=900&amp;q=80"
+                  alt="Football pitch ready for a training session"
+                  loading="lazy"
+                />
+                <span class="card-number">03</span
+                ><span class="card-caption"
+                  ><small>TRAINING</small><strong>Putting in the work at Cobham</strong
+                  ><i class="bi bi-arrow-up-right" aria-hidden="true"></i
+                ></span>
+              </button>
+              <div class="gallery-meta">
+                <h3>Putting in the work at Cobham</h3>
+                <p><i class="bi bi-geo-alt" aria-hidden="true"></i> Cobham Training Centre</p>
+              </div>
+            </div>
+            <div class="col-12 col-sm-6 col-lg-4 gallery-item" data-category="stadium">
+              <button
+                class="gallery-card gallery-open"
+                type="button"
+                data-image="ff.jpg.jpg?auto=format&amp;fit=crop&amp;w=1600&amp;q=85"
+                data-title="Stamford Bridge"
+                aria-label="View Stamford Bridge photo"
+              >
+                <img
+                  src="ff.jpg.jpg?auto=format&amp;fit=crop&amp;w=900&amp;q=80"
+                  alt="View across a football ground"
+                  loading="lazy"
+                /><span class="card-number">04</span
+                ><span class="card-caption"
+                  ><small>OUR HOME</small><strong>Stamford Bridge</strong
+                  ><i class="bi bi-arrow-up-right" aria-hidden="true"></i
+                ></span>
+              </button>
+            </div>
+            <div class="col-12 col-sm-6 col-lg-4 gallery-item" data-category="fans">
+              <button
+                class="gallery-card gallery-open"
+                type="button"
+                data-image="b.jpg.jpg?auto=format&amp;fit=crop&amp;w=1600&amp;q=85"
+                data-title="Chelsea Fans"
+                aria-label="View Chelsea Fans photo"
+              >
+                <img
+                  src="b.jpg.jpg?auto=format&amp;fit=crop&amp;w=900&amp;q=80"
+                  alt="Supporters cheering in the stands"
+                  loading="lazy"
+                /><span class="card-number">05</span
+                ><span class="card-caption"
+                  ><small>PRIDE OF LONDON</small><strong>Chelsea Fans</strong
+                  ><i class="bi bi-arrow-up-right" aria-hidden="true"></i
+                ></span>
+              </button>
+            </div>
+            <div class="col-12 col-sm-6 col-lg-4 gallery-item" data-category="trophies">
+              <button
+                class="gallery-card gallery-open"
+                type="button"
+                data-image="n.jpg.jpg?auto=format&amp;fit=crop&amp;w=1600&amp;q=85"
+                data-title="Trophies"
+                aria-label="View Trophies photo"
+              >
+                <img
+                  src="n.jpg.jpg?auto=format&amp;fit=crop&amp;w=900&amp;q=80"
+                  alt="Football on a pitch"
+                  loading="lazy"
+                /><span class="card-number">06</span
+                ><span class="card-caption"
+                  ><small>BUILT TO WIN</small><strong>Trophies</strong
+                  ><i class="bi bi-arrow-up-right" aria-hidden="true"></i
+                ></span>
+              </button>
+            </div>
+            <div class="col-12 col-sm-6 col-lg-4 gallery-item" data-category="celebrations">
+              <button
+                class="gallery-card gallery-open"
+                type="button"
+                data-image="a.jpg.jpg?auto=format&amp;fit=crop&amp;w=1600&amp;q=85"
+                data-title="Celebrations"
+                aria-label="View Celebrations photo"
+              >
+                <img
+                  src="a.jpg.jpg?auto=format&amp;fit=crop&amp;w=900&amp;q=80"
+                  alt="Footballers sharing a moment on the pitch"
+                  loading="lazy"
+                /><span class="card-number">07</span
+                ><span class="card-caption"
+                  ><small>THE JOY OF IT</small><strong>Celebrations</strong
+                  ><i class="bi bi-arrow-up-right" aria-hidden="true"></i
+                ></span>
+              </button>
+            </div>
+            <div class="col-12 col-sm-6 col-lg-4 gallery-item" data-category="match-day">
+              <button
+                class="gallery-card gallery-open"
+                type="button"
+                data-image="https://images.unsplash.com/photo-1522778119026-d647f0596c20?auto=format&amp;fit=crop&amp;w=1600&amp;q=85"
+                data-title="Match Day — Under the lights"
+                aria-label="View another Match Day photo"
+              >
+                <img
+                  src="https://images.unsplash.com/photo-1522778119026-d647f0596c20?auto=format&amp;fit=crop&amp;w=900&amp;q=80"
+                  alt="Stadium lights over the pitch"
+                  loading="lazy"
+                /><span class="card-number">08</span
+                ><span class="card-caption"
+                  ><small>90 MINUTES</small><strong>Under the lights</strong
+                  ><i class="bi bi-arrow-up-right" aria-hidden="true"></i
+                ></span>
+              </button>
+            </div>
+            <div class="col-12 col-sm-6 col-lg-4 gallery-item" data-category="fans">
+              <button
+                class="gallery-card gallery-open"
+                type="button"
+                data-image="x.jpg.jpg?auto=format&amp;fit=crop&amp;w=1600&amp;q=85"
+                data-title="Chelsea Fans — Together"
+                aria-label="View another Chelsea Fans photo"
+              >
+                <img
+                  src="x.jpg.jpg?auto=format&amp;fit=crop&amp;w=900&amp;q=80"
+                  alt="Supporters watching a football match"
+                  loading="lazy"
+                /><span class="card-number">09</span
+                ><span class="card-caption"
+                  ><small>ALWAYS THERE</small><strong>Together</strong
+                  ><i class="bi bi-arrow-up-right" aria-hidden="true"></i
+                ></span>
+              </button>
+            </div>
+          </div>
+          <!-- More photo stories from the Lovable preview complete the 16-photo collection. -->
+          <div class="row g-4 gallery-grid additional-photos">
+            <div class="col-12 col-sm-6 col-lg-4 gallery-item" data-category="training">
+              <button
+                class="gallery-card gallery-open"
+                type="button"
+                data-image="x.jpg.jpg?auto=format&amp;fit=crop&amp;w=1600&amp;q=85"
+                data-title="Every session. Every ambition."
+                aria-label="View Every session. Every ambition photo"
+              >
+                <img
+                  src="o.jpg.jpg?auto=format&amp;fit=crop&amp;w=900&amp;q=80"
+                  alt="Football pitch ready for practice"
+                  loading="lazy"
+                /><span class="card-number">10</span
+                ><span class="card-caption"
+                  ><small>TRAINING</small><strong>Every session. Every ambition.</strong
+                  ><i class="bi bi-arrow-up-right" aria-hidden="true"></i
+                ></span>
+              </button>
+              <div class="gallery-meta">
+                <h3>Every session. Every ambition.</h3>
+                <p><i class="bi bi-geo-alt" aria-hidden="true"></i> Chelsea training</p>
+              </div>
+            </div>
+            <div class="col-12 col-sm-6 col-lg-4 gallery-item" data-category="trophies">
+              <button
+                class="gallery-card gallery-open"
+                type="button"
+                data-image="ss.jpg.jpg?auto=format&amp;fit=crop&amp;w=1600&amp;q=85"
+                data-title="Champions of the world"
+                aria-label="View Champions of the world photo"
+              >
+                <img
+                  src="ss.jpg.jpg?auto=format&amp;fit=crop&amp;w=900&amp;q=80"
+                  alt="Football on the pitch"
+                  loading="lazy"
+                /><span class="card-number">11</span
+                ><span class="card-caption"
+                  ><small>TROPHIES</small><strong>Champions of the world</strong
+                  ><i class="bi bi-arrow-up-right" aria-hidden="true"></i
+                ></span>
+              </button>
+              <div class="gallery-meta">
+                <h3>Champions of the world</h3>
+                <p><i class="bi bi-trophy" aria-hidden="true"></i> FIFA Club World Cup trophy</p>
+              </div>
+            </div>
+            <div class="col-12 col-sm-6 col-lg-4 gallery-item" data-category="stadium">
+              <button
+                class="gallery-card gallery-open"
+                type="button"
+                data-image="9.jpg.jpg?auto=format&amp;fit=crop&amp;w=1600&amp;q=85"
+                data-title="Through the tunnel, into history"
+                aria-label="View Through the tunnel, into history photo"
+              >
+                <img
+                  src="9.jpg.jpg?auto=format&amp;fit=crop&amp;w=900&amp;q=80"
+                  alt="Football stadium entrance"
+                  loading="lazy"
+                /><span class="card-number">12</span
+                ><span class="card-caption"
+                  ><small>STAMFORD BRIDGE</small><strong>Through the tunnel, into history</strong
+                  ><i class="bi bi-arrow-up-right" aria-hidden="true"></i
+                ></span>
+              </button>
+              <div class="gallery-meta">
+                <h3>Through the tunnel, into history</h3>
+                <p><i class="bi bi-geo-alt" aria-hidden="true"></i> Stamford Bridge, London</p>
+              </div>
+            </div>
+            <div class="col-12 col-sm-6 col-lg-4 gallery-item" data-category="celebrations">
+              <button
+                class="gallery-card gallery-open"
+                type="button"
+                data-image="c.jpg.jpg?auto=format&amp;fit=crop&amp;w=1600&amp;q=85"
+                data-title="One club. Unforgettable memories."
+                aria-label="View One club. Unforgettable memories photo"
+              >
+                <img
+                  src="c.jpg.jpg?auto=format&amp;fit=crop&amp;w=900&amp;q=80"
+                  alt="Football team celebrating together"
+                  loading="lazy"
+                /><span class="card-number">13</span
+                ><span class="card-caption"
+                  ><small>CELEBRATIONS</small><strong>One club. Unforgettable memories.</strong
+                  ><i class="bi bi-arrow-up-right" aria-hidden="true"></i
+                ></span>
+              </button>
+              <div class="gallery-meta">
+                <h3>One club. Unforgettable memories.</h3>
+                <p><i class="bi bi-geo-alt" aria-hidden="true"></i> Together in Glory · Stamford Bridge</p>
+              </div>
+            </div>
+            <div class="col-12 col-sm-6 col-lg-4 gallery-item" data-category="players">
+              <button
+                class="gallery-card gallery-open"
+                type="button"
+                data-image="zz.jpg.jpg?auto=format&amp;fit=crop&amp;w=1600&amp;q=85"
+                data-title="Leading the way"
+                aria-label="View Leading the way photo"
+              >
+                <img
+                  src="zz.jpg.jpg?auto=format&amp;fit=crop&amp;w=900&amp;q=80"
+                  alt="Footballers leading an attack"
+                  loading="lazy"
+                /><span class="card-number">14</span
+                ><span class="card-caption"
+                  ><small>CHELSEA PLAYERS</small><strong>Leading the way</strong
+                  ><i class="bi bi-arrow-up-right" aria-hidden="true"></i
+                ></span>
+              </button>
+              <div class="gallery-meta">
+                <h3>Leading the way</h3>
+                <p><i class="bi bi-geo-alt" aria-hidden="true"></i> Together in Glory · Stamford Bridge</p>
+              </div>
+            </div>
+            <div class="col-12 col-sm-6 col-lg-4 gallery-item" data-category="fans">
+              <button
+                class="gallery-card gallery-open"
+                type="button"
+                data-image="1.jpg.jpg?auto=format&amp;fit=crop&amp;w=1600&amp;q=85"
+                data-title="Memories from the stands"
+                aria-label="View Memories from the stands photo"
+              >
+                <img
+                  src="1.jpg.jpg?auto=format&amp;fit=crop&amp;w=900&amp;q=80"
+                  alt="Supporters cheering together"
+                  loading="lazy"
+                /><span class="card-number">15</span
+                ><span class="card-caption"
+                  ><small>CHELSEA FANS</small><strong>Memories from the stands</strong
+                  ><i class="bi bi-arrow-up-right" aria-hidden="true"></i
+                ></span>
+              </button>
+              <div class="gallery-meta">
+                <h3>Memories from the stands</h3>
+                <p><i class="bi bi-geo-alt" aria-hidden="true"></i> Stamford Bridge, London</p>
+              </div>
+            </div>
+            <div class="col-12 col-sm-6 col-lg-4 gallery-item" data-category="trophies">
+              <button
+                class="gallery-card gallery-open"
+                type="button"
+                data-image="3.jpg.jpg?auto=format&amp;fit=crop&amp;w=1600&amp;q=85"
+                data-title="The pride of London"
+                aria-label="View The pride of London photo"
+              >
+                <img
+                  src="3.jpg.jpg?auto=format&amp;fit=crop&amp;w=900&amp;q=80"
+                  alt="Football pitch representing Chelsea's trophy history"
+                  loading="lazy"
+                /><span class="card-number">16</span
+                ><span class="card-caption"
+                  ><small>TROPHIES</small><strong>The pride of London</strong
+                  ><i class="bi bi-arrow-up-right" aria-hidden="true"></i
+                ></span>
+              </button>
+              <div class="gallery-meta">
+                <h3>The pride of London</h3>
+                <p><i class="bi bi-trophy" aria-hidden="true"></i> Chelsea trophy collection</p>
+              </div>
+            </div>
+          </div>
+          <p class="no-results" id="noResults" hidden>No photos match your search. Try another word or category.</p>
+          <p class="image-credit">
+            Independent fan gallery, not affiliated with Chelsea FC. Sample imagery via
+          </p>
+        </div>
+      </section>
+
+      <section class="club-note" id="club">
+        <div class="container club-note-layout">
+          <div>
+            <div class="section-kicker"><span>03</span> ONCE A BLUE</div>
+            <h2>Our club.<br />Our home.</h2>
+          </div>
+          <p>
+            From Stamford Bridge to supporters around the world, Chelsea is more than a match. It is a community in
+            blue.
+          </p>
+          <img
+            class="club-photo"
+            src="mm.jpg.jpg"
+            alt="Chelsea players, crest, and Pride of London collage"
+          />
+        </div>
+      </section>
+    </main>
+    <footer class="chelsea-footer">
+      <div class="container d-flex flex-column flex-sm-row justify-content-between gap-2">
+        <span>CHELSEA GALLERY · MADE OF BLUE</span><span>Fan-made visual gallery for an educational assignment.</span>
+      </div>
+    </footer>
+
+    <!-- Bootstrap modal displays the selected photo at a larger size. -->
+    <div class="modal fade" id="imageModal" tabindex="-1" aria-labelledby="modalTitle" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered modal-xl">
+        <div class="modal-content gallery-modal">
+          <button type="button" class="modal-close" data-bs-dismiss="modal" aria-label="Close image">
+            <i class="bi bi-x-lg" aria-hidden="true"></i></button
+          ><img id="modalImage" src="" alt="" />
+          <div class="modal-caption"><h3 id="modalTitle"></h3></div>
+        </div>
+      </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="gallery.js"></script>
+  </body>
+</html>

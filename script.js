@@ -779,488 +779,93 @@ if (
   GALLERY PAGE
 ========================================================= */            
 
+"use strict";
 
-/* =========================================================
-   CHELSEA FC WEBSITE — GALLERY JAVASCRIPT
-========================================================= */
+/* =========================================
+   GALLERY FILTER
+========================================= */
 
+const filterButtons = document.querySelectorAll(".filter-btn");
+const galleryItems = document.querySelectorAll(".gallery-item");
+const searchInput = document.querySelector("#photoSearch");
+const photoCount = document.querySelector("#photoCount");
+const noResults = document.querySelector("#noResults");
+let activeCategory = "all";
 
-/* =========================================================
-   MAIN GALLERY SLIDER
-   Images 2–11
-========================================================= */
+// Show a photo when it matches both the selected category and search text.
+function updateGallery() {
+  const searchText = searchInput ? searchInput.value.toLowerCase().trim() : "";
+  let visiblePhotos = 0;
 
-const gallerySlider = document.querySelector(".gallery-slider");
+  galleryItems.forEach((item) => {
+    const category = item.dataset.category;
+    const matchesCategory = activeCategory === "all" || category === activeCategory;
+    const matchesSearch = item.textContent.toLowerCase().includes(searchText);
+    const shouldShow = matchesCategory && matchesSearch;
 
-if (gallerySlider) {
+    item.hidden = !shouldShow;
+    if (shouldShow) visiblePhotos += 1;
+  });
 
-    const track = gallerySlider.querySelector(".gallery-slider-track");
-    const slides = gallerySlider.querySelectorAll(".gallery-slide");
+  if (photoCount) {
+    photoCount.textContent = `${visiblePhotos} ${visiblePhotos === 1 ? "photo" : "photos"}`;
+  }
 
-    const previousButton = gallerySlider.querySelector(".gallery-prev");
-    const nextButton = gallerySlider.querySelector(".gallery-next");
-
-    const counter = gallerySlider.querySelector(".gallery-counter");
-    const progress = gallerySlider.querySelector(".gallery-progress span");
-
-    let currentSlide = 0;
-
-    function updateGallerySlider() {
-
-        track.style.transform =
-            `translateX(-${currentSlide * 100}%)`;
-
-        if (counter) {
-            counter.textContent =
-                `${String(currentSlide + 1).padStart(2, "0")} / ${String(slides.length).padStart(2, "0")}`;
-        }
-
-        if (progress) {
-            const percentage =
-                ((currentSlide + 1) / slides.length) * 100;
-
-            progress.style.width = `${percentage}%`;
-        }
-    }
-
-
-    if (nextButton) {
-
-        nextButton.addEventListener("click", function () {
-
-            currentSlide++;
-
-            if (currentSlide >= slides.length) {
-                currentSlide = 0;
-            }
-
-            updateGallerySlider();
-
-        });
-
-    }
-
-
-    if (previousButton) {
-
-        previousButton.addEventListener("click", function () {
-
-            currentSlide--;
-
-            if (currentSlide < 0) {
-                currentSlide = slides.length - 1;
-            }
-
-            updateGallerySlider();
-
-        });
-
-    }
-
-
-    updateGallerySlider();
+  if (noResults) {
+    noResults.hidden = visiblePhotos > 0;
+  }
 }
 
-
-/* =========================================================
-   STAMFORD BRIDGE SLIDER
-   Images 41–45
-========================================================= */
-
-const bridgeSlider = document.querySelector(".bridge-slider");
-
-if (bridgeSlider) {
-
-    const bridgeTrack = bridgeSlider.querySelector(".bridge-track");
-    const bridgeSlides = bridgeSlider.querySelectorAll(".bridge-slide");
-
-    const previousButton = bridgeSlider.querySelector(".bridge-prev");
-    const nextButton = bridgeSlider.querySelector(".bridge-next");
-
-    const counter = document.querySelector(".bridge-counter");
-
-    let currentBridgeSlide = 0;
-
-
-    function updateBridgeSlider() {
-
-        bridgeTrack.style.transform =
-            `translateX(-${currentBridgeSlide * 100}%)`;
-
-        if (counter) {
-
-            counter.textContent =
-                `${String(currentBridgeSlide + 1).padStart(2, "0")} / ${String(bridgeSlides.length).padStart(2, "0")}`;
-
-        }
-
-    }
-
-
-    if (nextButton) {
-
-        nextButton.addEventListener("click", function () {
-
-            currentBridgeSlide++;
-
-            if (currentBridgeSlide >= bridgeSlides.length) {
-                currentBridgeSlide = 0;
-            }
-
-            updateBridgeSlider();
-
-        });
-
-    }
-
-
-    if (previousButton) {
-
-        previousButton.addEventListener("click", function () {
-
-            currentBridgeSlide--;
-
-            if (currentBridgeSlide < 0) {
-                currentBridgeSlide = bridgeSlides.length - 1;
-            }
-
-            updateBridgeSlider();
-
-        });
-
-    }
-
-
-    updateBridgeSlider();
-}
-
-
-/* =========================================================
-   FANS CAROUSEL
-   Images 56–63
-========================================================= */
-
-const fansCarousel = document.querySelector(".fans-carousel");
-
-if (fansCarousel) {
-
-    const fansTrack = fansCarousel.querySelector(".fans-track");
-    const fansCards = fansCarousel.querySelectorAll(".fans-card");
-
-    const fansSection = document.querySelector(".fans-section");
-
-    const previousButton =
-        fansSection.querySelector(".fans-prev");
-
-    const nextButton =
-        fansSection.querySelector(".fans-next");
-
-
-    let currentFansSlide = 0;
-
-
-    function getFansVisibleCards() {
-
-        if (window.innerWidth <= 550) {
-            return 1;
-        }
-
-        if (window.innerWidth <= 800) {
-            return 2;
-        }
-
-        if (window.innerWidth <= 1100) {
-            return 3;
-        }
-
-        return 4;
-    }
-
-
-    function updateFansCarousel() {
-
-        const visibleCards = getFansVisibleCards();
-
-        const maximumSlide =
-            Math.max(0, fansCards.length - visibleCards);
-
-        if (currentFansSlide > maximumSlide) {
-            currentFansSlide = maximumSlide;
-        }
-
-        const cardWidth =
-            100 / visibleCards;
-
-        const gap =
-            1.2;
-
-        const movement =
-            currentFansSlide * (cardWidth + gap / 4);
-
-        fansTrack.style.transform =
-            `translateX(-${movement}%)`;
-
-    }
-
-
-    if (nextButton) {
-
-        nextButton.addEventListener("click", function () {
-
-            const visibleCards = getFansVisibleCards();
-
-            const maximumSlide =
-                Math.max(0, fansCards.length - visibleCards);
-
-            currentFansSlide++;
-
-            if (currentFansSlide > maximumSlide) {
-                currentFansSlide = 0;
-            }
-
-            updateFansCarousel();
-
-        });
-
-    }
-
-
-    if (previousButton) {
-
-        previousButton.addEventListener("click", function () {
-
-            const visibleCards = getFansVisibleCards();
-
-            const maximumSlide =
-                Math.max(0, fansCards.length - visibleCards);
-
-            currentFansSlide--;
-
-            if (currentFansSlide < 0) {
-                currentFansSlide = maximumSlide;
-            }
-
-            updateFansCarousel();
-
-        });
-
-    }
-
-
-    window.addEventListener("resize", function () {
-
-        updateFansCarousel();
-
+filterButtons.forEach((button) => {
+  button.addEventListener("click", () => {
+    activeCategory = button.dataset.filter;
+
+    filterButtons.forEach((filterButton) => {
+      const isActive = filterButton === button;
+      filterButton.classList.toggle("active", isActive);
+      filterButton.setAttribute("aria-pressed", String(isActive));
     });
 
-
-    updateFansCarousel();
-}
-
-
-/* =========================================================
-   PLAYER GALLERY
-   Images 21–26
-========================================================= */
-
-const playerGallery =
-    document.querySelector(".players-gallery-slider");
-
-if (playerGallery) {
-
-    const mainImage =
-        playerGallery.querySelector(".player-gallery-main img");
-
-    const thumbnails =
-        playerGallery.querySelectorAll(".player-thumb");
-
-    const playerNumber =
-        playerGallery.querySelector("#featuredPlayerNumber");
-
-    const playerTitle =
-        playerGallery.querySelector("#featuredPlayerTitle");
-
-
-    thumbnails.forEach(function (thumbnail) {
-
-        thumbnail.addEventListener("click", function () {
-
-            const image =
-                thumbnail.dataset.image;
-
-            const number =
-                thumbnail.dataset.number;
-
-            const title =
-                thumbnail.dataset.title;
-
-
-            if (mainImage) {
-
-                mainImage.style.opacity = "0";
-
-
-                setTimeout(function () {
-
-                    mainImage.src = image;
-
-                    mainImage.style.opacity = "1";
-
-                }, 200);
-
-            }
-
-
-            if (playerNumber) {
-                playerNumber.textContent = number;
-            }
-
-
-            if (playerTitle) {
-                playerTitle.textContent = title;
-            }
-
-
-            thumbnails.forEach(function (item) {
-
-                item.classList.remove("active");
-
-            });
-
-
-            thumbnail.classList.add("active");
-
-        });
-
-    });
-
-}
-
-
-/* =========================================================
-   TRAINING MINI SLIDER
-   Images 72–75
-========================================================= */
-
-const trainingSlider =
-    document.querySelector(".training-mini-slider");
-
-if (trainingSlider) {
-
-    const trainingTrack =
-        trainingSlider.querySelector(".training-mini-track");
-
-    const trainingImages =
-        trainingSlider.querySelectorAll(".training-mini-track img");
-
-    let trainingPosition = 0;
-
-
-    function moveTrainingSlider() {
-
-        trainingPosition++;
-
-        if (trainingPosition >= trainingImages.length) {
-            trainingPosition = 0;
-        }
-
-        const imageWidth =
-            trainingImages[0].offsetWidth + 11;
-
-        trainingTrack.style.transform =
-            `translateX(-${trainingPosition * imageWidth}px)`;
-
-    }
-
-
-    setInterval(moveTrainingSlider, 3500);
-
-}
-
-
-/* =========================================================
-   TIMELINE HOVER / ACTIVE STATE
-========================================================= */
-
-const timelineItems =
-    document.querySelectorAll(".timeline-item");
-
-timelineItems.forEach(function (item) {
-
-    item.addEventListener("mouseenter", function () {
-
-        timelineItems.forEach(function (timelineItem) {
-
-            timelineItem.classList.remove("active");
-
-        });
-
-        item.classList.add("active");
-
-    });
-
+    updateGallery();
+  });
 });
 
+if (searchInput) {
+  searchInput.addEventListener("input", updateGallery);
+}
 
-/* =========================================================
-   GALLERY MOSAIC IMAGE INTERACTION
-========================================================= */
+updateGallery();
 
-const mosaicItems =
-    document.querySelectorAll(".mosaic-item");
+/* =========================================
+   IMAGE MODAL
+========================================= */
 
-mosaicItems.forEach(function (item) {
+const galleryImages = document.querySelectorAll(".gallery-open");
 
-    item.addEventListener("click", function () {
+const modalImage = document.getElementById("modalImage");
+const modalTitle = document.getElementById("modalTitle");
 
-        mosaicItems.forEach(function (mosaicItem) {
+const imageModalElement = document.getElementById("imageModal");
 
-            mosaicItem.classList.remove("selected");
+let imageModal;
 
-        });
+if (imageModalElement) {
+  imageModal = new bootstrap.Modal(imageModalElement);
+}
 
-        item.classList.add("selected");
+galleryImages.forEach((image) => {
+  image.addEventListener("click", () => {
+    const imageSource = image.getAttribute("data-image");
 
-    });
+    const title = image.getAttribute("data-title");
 
+    modalImage.src = imageSource;
+    modalImage.alt = title;
+
+    modalTitle.textContent = title;
+
+    imageModal.show();
+  });
 });
 
-
-/* =========================================================
-   SMOOTH SCROLL FOR GALLERY BUTTONS
-========================================================= */
-
-const galleryLinks =
-    document.querySelectorAll('.gallery-page a[href^="#"]');
-
-galleryLinks.forEach(function (link) {
-
-    link.addEventListener("click", function (event) {
-
-        const targetId =
-            link.getAttribute("href");
-
-        const target =
-            document.querySelector(targetId);
-
-        if (target) {
-
-            event.preventDefault();
-
-            target.scrollIntoView({
-                behavior: "smooth",
-                block: "start"
-            });
-
-        }
-
-    });
-
-});
-
-
-/* =========================================================
-   GALLERY PAGE LOADED
-========================================================= */
-
-console.log("Chelsea Gallery JavaScript loaded successfully.");
+"}"
