@@ -1,3 +1,304 @@
+
+
+
+/* =========================================================
+  ABOUT PAGE 
+========================================================= */
+
+
+/* =========================================================
+   MOMENTS IN TIME SLIDER
+========================================================= */
+
+const momentCards =
+    document.querySelectorAll(
+        ".moment-card"
+    );
+
+
+const previousMoment =
+    document.getElementById(
+        "previousMoment"
+    );
+
+
+const nextMoment =
+    document.getElementById(
+        "nextMoment"
+    );
+
+
+const momentCounter =
+    document.getElementById(
+        "momentCounter"
+    );
+
+
+if (
+    momentCards.length > 0 &&
+    previousMoment &&
+    nextMoment &&
+    momentCounter
+) {
+
+    let currentMoment = 0;
+
+
+    /* =========================
+       SHOW MOMENT
+    ========================= */
+
+    function showMoment(index) {
+
+        momentCards.forEach(
+            function (card) {
+
+                card.classList.remove(
+                    "active-moment"
+                );
+
+            }
+        );
+
+
+        momentCards[index].classList.add(
+            "active-moment"
+        );
+
+
+        momentCounter.textContent =
+            `${index + 1} / ${momentCards.length}`;
+
+    }
+
+
+    /* =========================
+       NEXT MOMENT
+    ========================= */
+
+    nextMoment.addEventListener(
+        "click",
+        function () {
+
+            currentMoment++;
+
+
+            if (
+                currentMoment >=
+                momentCards.length
+            ) {
+
+                currentMoment = 0;
+
+            }
+
+
+            showMoment(currentMoment);
+
+        }
+    );
+
+
+    /* =========================
+       PREVIOUS MOMENT
+    ========================= */
+
+    previousMoment.addEventListener(
+        "click",
+        function () {
+
+            currentMoment--;
+
+
+            if (currentMoment < 0) {
+
+                currentMoment =
+                    momentCards.length - 1;
+
+            }
+
+
+            showMoment(currentMoment);
+
+        }
+    );
+
+
+    /* =========================
+       INITIAL MOMENT
+    ========================= */
+
+    showMoment(currentMoment);
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /* =========================================================
    CHELSEA FC LOGIN & REGISTRATION SYSTEM
 ========================================================= */
@@ -1175,358 +1476,6 @@ updateCart();
     });
 
 })();
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* =========================================================
-  ABOUT PAGE 
-========================================================= */
-
-
-/* =========================================================
-   MOMENTS IN TIME SLIDER
-========================================================= */
-
-const momentCards =
-    document.querySelectorAll(
-        ".moment-card"
-    );
-
-
-const previousMoment =
-    document.getElementById(
-        "previousMoment"
-    );
-
-
-const nextMoment =
-    document.getElementById(
-        "nextMoment"
-    );
-
-
-const momentCounter =
-    document.getElementById(
-        "momentCounter"
-    );
-
-
-if (
-    momentCards.length > 0 &&
-    previousMoment &&
-    nextMoment &&
-    momentCounter
-) {
-
-    let currentMoment = 0;
-
-
-    /* =========================
-       SHOW MOMENT
-    ========================= */
-
-    function showMoment(index) {
-
-        momentCards.forEach(
-            function (card) {
-
-                card.classList.remove(
-                    "active-moment"
-                );
-
-            }
-        );
-
-
-        momentCards[index].classList.add(
-            "active-moment"
-        );
-
-
-        momentCounter.textContent =
-            `${index + 1} / ${momentCards.length}`;
-
-    }
-
-
-    /* =========================
-       NEXT MOMENT
-    ========================= */
-
-    nextMoment.addEventListener(
-        "click",
-        function () {
-
-            currentMoment++;
-
-
-            if (
-                currentMoment >=
-                momentCards.length
-            ) {
-
-                currentMoment = 0;
-
-            }
-
-
-            showMoment(currentMoment);
-
-        }
-    );
-
-
-    /* =========================
-       PREVIOUS MOMENT
-    ========================= */
-
-    previousMoment.addEventListener(
-        "click",
-        function () {
-
-            currentMoment--;
-
-
-            if (currentMoment < 0) {
-
-                currentMoment =
-                    momentCards.length - 1;
-
-            }
-
-
-            showMoment(currentMoment);
-
-        }
-    );
-
-
-    /* =========================
-       INITIAL MOMENT
-    ========================= */
-
-    showMoment(currentMoment);
-
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
